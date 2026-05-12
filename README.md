@@ -1,2 +1,2 @@
-# rabinovich_wedding
-Wedding of David and Isabella
+# jones-wedding
+Wedding of Krista and Noah
