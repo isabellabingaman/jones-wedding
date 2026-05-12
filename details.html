@@ -19,19 +19,28 @@
     /* ── Reset & Tokens ────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --cream:   #faf8f4;
-      --white:   #ffffff;
-      --navy:    #000000;
-      --blue:    #000000;
-      --blue-lt: #000000;
-      --lilac:   #c9a8d4;
-      --blush:   #e8b4c0;
-      --sage:    #9db89b;
-      --yellow:  #e8d48a;
-      --gold:    #000000;
 
-      --font-script: 'Pinyon Script', cursive;
+    @font-face {
+      font-family: 'Abrama Serif';
+      src: url('assets/fonts/AbramaSerif-Regular.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    } 
+
+    :root {
+      --cream:   #fdf9f5;
+      --white:   #ffffff;
+      --navy:    #3b1f2b;
+      --blue:    #7a3b3b;
+      --blue-lt: #a05c4a;
+      --lilac:   #8b3a52;
+      --blush:   #c47a5a;
+      --sage:    #6b7c41;
+      --yellow:  #d4845a;
+      --gold:    #b85c38;
+      --black:   #000000;
+
+      --font-script: 'Abrama Serif', serif;
       --font-serif:  'Cormorant Upright', serif;
       --font-sans:   'Jost', sans-serif;
 
@@ -53,7 +62,7 @@
       content: '';
       position: fixed;
       inset: 0;
-      background-image: url('assets/images/chinoiserie.jpg');
+      background-image: url('assets/images/BGDesign1.jpg');
       background-repeat: repeat;
       background-size: 400px;
       opacity: 0.075;
@@ -266,6 +275,7 @@
     <a href="index.html">Home</a>
     <!--<a href="our-story.html">Our Story</a>-->
     <a href="details.html">Details</a>
+    <a href="gallery.html">Gallery</a>
     <!--<a href="travel.html">Travel</a> --> 
     <a href="https://www.crateandbarrel.com/gift-registry/krista-wysolmierski-and-noah-jones/r7508619" target="_blank" rel="noopener noreferrer">Registry</a>
     <a href="https://noahandkristajones.minted.us/rsvp" target="_blank" rel="noopener noreferrer">RSVP</a>
