@@ -8,30 +8,39 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Isabella & David — September 5, 2026</title>
+  <title>Krista & Noah — January 16, 2027</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:ital,wght@0,300;0,400;1,300;1,400&family=Pinyon+Script&family=Petit+Formal+Script&family=Jost:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:ital,wght@0,300;0,400;1,300;1,400&family=Pinyon+Script&family=Petit+Formal+Script&family=Jost:wght@300;400&family=Cormorant+SC:wght@300;400&display=swap" rel="stylesheet" />
 
   <style>
     /* ── Reset & Tokens ────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --cream:   #faf8f4;
-      --white:   #ffffff;
-      --navy:    #000000;
-      --blue:    #000000;
-      --blue-lt: #000000;
-      --lilac:   #c9a8d4;
-      --blush:   #e8b4c0;
-      --sage:    #9db89b;
-      --yellow:  #e8d48a;
-      --gold:    #000000;
 
-      --font-script: 'Pinyon Script', cursive;
+    @font-face {
+      font-family: 'Abrama Serif';
+      src: url('assets/fonts/AbramaSerif-Regular.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    :root {
+      --cream:   #fdf9f5;
+      --white:   #ffffff;
+      --navy:    #3b1f2b;
+      --blue:    #7a3b3b;
+      --blue-lt: #a05c4a;
+      --lilac:   #8b3a52;
+      --blush:   #c47a5a;
+      --sage:    #6b7c41;
+      --yellow:  #d4845a;
+      --gold:    #b85c38;
+      --black:   #000000;
+
+      --font-script: 'Abrama Serif', serif;
       --font-serif:  'Cormorant Upright', serif;
       --font-sans:   'Jost', sans-serif;
     }
@@ -123,7 +132,7 @@
 
     .names {
       font-family: var(--font-script);
-      font-size: clamp(4.5rem, 12vw, 9rem);
+      font-size: clamp(3rem, 8vw, 6rem);
       line-height: 1.05;
       color: var(--navy);
       opacity: 0;
@@ -146,21 +155,46 @@
     }
 
     .date-line {
-      font-family: 'Petit Formal Script', cursive;
-      font-size: clamp(0.95rem, 2.2vw, 1.25rem);
+      font-family: 'Cormorant Upright', serif;
+      font-size: clamp(1rem, 2.7vw, 1.75rem);
       letter-spacing: 0.12em;
       color: var(--navy);
-      font-style: normal;
+      font-style: bold;
       opacity: 0;
+      margin-top: 0.8rem;
       animation: fadeUp 0.8s 0.9s forwards;
     }
 
     .venue-line {
-      font-family: 'Petit Formal Script', cursive;
-      font-size: 0.72rem;
+      font-family: 'Cormorant Upright', serif;
+      font-size: 0.9rem;
       letter-spacing: 0.22em;
       color: var(--blue);
-      margin-top: 0.5rem;
+      margin-top: 0.8rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 1.05s forwards;
+      font-style: italic;
+    }
+
+    .story-line {
+      font-family: 'Cormorant Upright', serif;
+      font-size: clamp(1rem, 2.7vw, 1.75rem);
+      letter-spacing: 0.12em;
+      color: var(--navy);
+      font-style: bold;
+      opacity: 0;
+      margin-top: 2.5rem;
+      animation: fadeUp 0.8s 0.9s forwards;
+    }
+
+    .story-body {
+      font-family: 'Cormorant Upright', serif;
+      font-size: 1rem;
+      letter-spacing: 0.22em;
+      color: var(--black);
+      margin-top: 1.5rem;
+      margin-left: 11rem;
+      margin-right: 11rem;
       opacity: 0;
       animation: fadeUp 0.8s 1.05s forwards;
     }
@@ -311,26 +345,26 @@
 
   <!-- Nav -->
   <nav>
-    <a href="our-story.html">Our Story</a>
+    <!--<a href="our-story.html">Our Story</a>-->
     <a href="details.html">Details</a>
-    <a href="travel.html">Travel</a>
-    <a href="https://www.zola.com/wedding/isabellaanddavidseptember6/registry" target="_blank" rel="noopener noreferrer">Registry</a>
-    <a href="https://www.zola.com/wedding/isabellaanddavidseptember6/rsvp" target="_blank" rel="noopener noreferrer">RSVP</a>
+    <!--<a href="travel.html">Travel</a>-->
+    <a href="https://www.crateandbarrel.com/gift-registry/krista-wysolmierski-and-noah-jones/r7508619" target="_blank" rel="noopener noreferrer">Registry</a>
+    <a href="https://noahandkristajones.minted.us/rsvp" target="_blank" rel="noopener noreferrer">RSVP</a>
   </nav>
 
   <!-- Hero -->
   <section class="hero page">
 
-    <p class="eyebrow">Your attendance is requested at the wedding of</p>
+    <!--<p class="eyebrow">Your attendance is requested at the wedding of</p>-->
 
     <h1 class="names">
-      Isabella
+      Krista
       <span class="ampersand">&</span>
-      David
+      Noah
     </h1>
 
-    <p class="date-line">Saturday, the Fifth of September, Two Thousand Twenty-Six</p>
-    <p class="venue-line">Terravita Country Club · Scottsdale, Arizona</p>
+    <p class="venue-line">please join us to celebrate our wedding on</p>
+    <p class="date-line">JANUARY 16, 2027</p>
 
     <!-- Countdown -->
     <div class="countdown-wrap">
@@ -348,10 +382,16 @@
 
     <!-- RSVP CTA -->
     <div class="rsvp-wrap">
-      <a href="https://www.zola.com/wedding/isabellaanddavidseptember6/rsvp" target="_blank" rel="noopener noreferrer" class="btn-rsvp">RSVP</a>
+      <a href="https://noahandkristajones.minted.us/rsvp" target="_blank" rel="noopener noreferrer" class="btn-rsvp">RSVP</a>
     </div>
 
-  </section>
+    <p class="story-line">OUR STORY</p>
+    <p class="story-body">Our journey began sophomore year of college at ASU, when we were introduced by mutual friends. We stayed friends for a while, and then began dating junior year of college (and the rest is history!)</p>
+    <p class="story-body">Noah got down on one knee on the beach on July 5, 2027 in Coronado, California. Needless to say, it was an easy YES!</p>
+    <p class="story-body">Afterwards, we headed to dinner at Hotel Del Coronado, and spent the night celebrating with some of our favorite people.</p>
+    <p class="story-body">We are SO excited to celebrate our marriage with you all!</p>
+
+  <!--</section>
 
   <section class="details-strip" id="details">
     <div class="details-item">
@@ -366,15 +406,15 @@
       <h3>Reception</h3>
       <p>7:30 pm · Country Club</p>
     </div>
-  </section>
+  </section>-->
 
   <footer>
-    Isabella Bingaman & David Rabinovich · September 5, 2026 · Scottsdale, Arizona
+    Krista Wysolmierski & Noah Jones · January 16, 2027 · Temecula, California
   </footer>
 
   <script>
     // ── Countdown ──────────────────────────────────────────────────────
-    const wedding = new Date('2026-09-05T17:00:00-07:00'); // 5pm MST
+    const wedding = new Date('2027-01-16T17:00:00-07:00'); // 5pm MST
 
     function updateCountdown() {
       const now  = new Date();
