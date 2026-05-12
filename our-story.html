@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  if (!sessionStorage.getItem('wedding_auth')) {
+    window.location.replace('password.html');
+  }
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Story — Isabella & David</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:ital,wght@0,300;0,400;1,300;1,400&family=Pinyon+Script&family=Petit+Formal+Script&family=Jost:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Tokens ────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:   #faf8f4;
+      --white:   #ffffff;
+      --navy:    #000000;
+      --blue:    #000000;
+      --blue-lt: #000000;
+      --lilac:   #c9a8d4;
+      --blush:   #e8b4c0;
+      --sage:    #9db89b;
+      --yellow:  #e8d48a;
+      --gold:    #000000;
+
+      --font-script: 'Pinyon Script', cursive;
+      --font-serif:  'Cormorant Upright', serif;
+      --font-sans:   'Jost', sans-serif;
+
+      --content-width: 780px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--navy);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── Background pattern ─────────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url('assets/images/chinoiserie.jpg');
+      background-repeat: repeat;
+      background-size: 400px;
+      opacity: 0.10;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ── Nav ─────────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      padding: 1.4rem 2rem;
+      background: linear-gradient(to bottom, rgba(250,248,244,0.92) 60%, transparent);
+      letter-spacing: 0.18em;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--navy);
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--blue); }
+
+    /* ── Page wrapper ────────────────────────────────────────────────── */
+    .page {
+      position: relative;
+      z-index: 1;
+      padding-top: 7rem;
+      padding-bottom: 6rem;
+    }
+
+    /* ── Page header ─────────────────────────────────────────────────── */
+    .page-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding: 0 2rem;
+      position: relative;
+    }
+
+    /* Decorative top border — matches hero::before on index.html */
+    .page-header::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(90deg,
+        var(--lilac), var(--blue), var(--blush), var(--yellow), var(--blue-lt), var(--sage), var(--lilac));
+      z-index: 101;
+    }
+
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+    .page-header h1 {
+      font-family: var(--font-script);
+      font-size: clamp(3.5rem, 9vw, 6.5rem);
+      line-height: 1.1;
+      color: var(--navy);
+      opacity: 0;
+      animation: fadeUp 0.9s 0.4s forwards;
+    }
+
+    /* ── Story content area ──────────────────────────────────────────── */
+    .story {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 4.5rem;
+    }
+
+    /* ── Story block ─────────────────────────────────────────────────── */
+    .story-block {
+      margin-bottom: 3.5rem;
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeUp 0.8s forwards;
+    }
+
+    .story-block:nth-child(1) { animation-delay: 0.5s; }
+    .story-block:nth-child(2) { animation-delay: 0.65s; }
+    .story-block:nth-child(3) { animation-delay: 0.8s; }
+    .story-block:nth-child(4) { animation-delay: 0.95s; }
+    .story-block:nth-child(5) { animation-delay: 1.1s; }
+    .story-block:nth-child(6) { animation-delay: 1.25s; }
+    .story-block:nth-child(7) { animation-delay: 1.4s; }
+
+    /* ── Floated scrapbook photos ────────────────────────────────────── */
+    .story-photo {
+      width: 220px;
+      margin-bottom: 0.4rem;
+    }
+
+    .story-photo.left {
+      float: left;
+      margin-right: 1.8rem;
+      margin-bottom: 0.5rem;
+      transform: rotate(-2deg);
+    }
+
+    .story-photo.right {
+      float: right;
+      margin-left: 1.8rem;
+      margin-bottom: 0.5rem;
+      transform: rotate(1.5deg);
+    }
+
+    .story-photo img {
+      width: 100%;
+      display: block;
+      -webkit-mask-image: radial-gradient(ellipse 82% 82% at 50% 50%, black 40%, transparent 100%);
+      mask-image: radial-gradient(ellipse 82% 82% at 50% 50%, black 40%, transparent 100%);
+      border-radius: 12px;
+    }
+
+    .story-photo .caption {
+      text-align: center;
+      font-family: 'Petit Formal Script', cursive;
+      font-size: 0.78rem;
+      color: var(--navy);
+      opacity: 0.5;
+      margin-top: 0.5rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Paragraph text ──────────────────────────────────────────────── */
+    .story-block p {
+      font-family: 'Petit Formal Script', cursive;
+      font-size: clamp(0.85rem, 1.8vw, 1rem);
+      line-height: 2;
+      color: var(--navy);
+      font-weight: 400;
+    }
+
+    /* ── Closing flourish ────────────────────────────────────────────── */
+    .closing {
+      text-align: center;
+      margin-top: 4rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 1.6s forwards;
+    }
+
+    .closing .script-line {
+      font-family: var(--font-script);
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--navy);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .closing .date-note {
+      font-family: 'Petit Formal Script', cursive;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      opacity: 0.5;
+    }
+
+    /* ── Footer ──────────────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue-lt);
+      border-top: 1px solid rgba(43,74,111,0.08);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Animations ──────────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Responsive ──────────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      nav { gap: 1.5rem; font-size: 0.62rem; }
+
+      .story-photo.left,
+      .story-photo.right {
+        float: none;
+        margin: 0 auto 1.5rem;
+        width: 80%;
+        transform: rotate(0deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="our-story.html">Our Story</a>
+    <a href="details.html">Details</a>
+    <a href="travel.html">Travel</a>
+    <a href="https://www.zola.com/wedding/isabellaanddavidseptember6/registry" target="_blank" rel="noopener noreferrer">Registry</a>
+    <a href="https://www.zola.com/wedding/isabellaanddavidseptember6/rsvp" target="_blank" rel="noopener noreferrer">RSVP</a>
+  </nav>
+
+  <div class="page">
+
+    <!-- Page header -->
+    <header class="page-header">
+      <p class="eyebrow">Isabella & David</p>
+      <h1>Our Story</h1>
+    </header>
+
+    <!-- Story -->
+    <main class="story">
+
+      <!-- Block 1: Florence photo LEFT -->
+      <div class="story-block">
+        <div class="story-photo left">
+          <img src="assets/images/firstphoto.JPG" alt="Isabella and David in Florence" />
+          <p class="caption">Florence, Italy — 2018</p>
+        </div>
+        <p>Isabella and David's story began in the fall of 2018, when the two found themselves among a group of students embarking on a semester abroad in Madrid, Spain. What started as a friendship forged over new cities, unfamiliar menus, and the particular magic of being far from home quickly became something more. Together, they wandered through the streets of Madrid, Italy, and Greece, and discovered that the best part of any adventure was simply being in it together. Florence, as it happens, was where they took their very first photo — a small and unassuming moment that neither of them could have known would become the beginning of everything.</p>
+      </div>
+
+      <!-- Block 2: DC photo RIGHT -->
+      <div class="story-block">
+        <div class="story-photo right">
+          <img src="assets/images/dc.jpg" alt="Isabella and David in Washington DC" />
+          <p class="caption">Washington, D.C.</p>
+        </div>
+        <p>When the semester ended, so did any notion of going their separate ways. As luck — or perhaps fate — would have it, both Isabella and David were on the same flight back to the US, and they returned home to the same city, the same friend group, and, before long, the same house on Arizona Avenue. Their college years were spent building a life side by side: sharing meals, celebrating milestones, and growing up together in a city that very much felt like their own.</p>
+      </div>
+
+      <!-- Block 3: Graduation photo LEFT -->
+      <div class="story-block">
+        <div class="story-photo left">
+          <img src="assets/images/grad.jpg" alt="Isabella and David graduating" />
+          <p class="caption">Graduation Day, Washington, D.C.</p>
+        </div>
+        <p>They graduated college together in Washington, D.C., in the spring of 2020 — a year that brought its own particular set of challenges as the world quietly closed itself off. Rather than retreat, they leaned in. Isabella and David moved into their first apartment together in Van Ness, D.C., and made a home out of what could have been a very uncertain time. For four years, that apartment held birthday dinners and lazy Sunday mornings, quiet evenings and big celebrations - the full, beautiful, ordinary texture of a life being built together.</p>
+      </div>
+
+      <!-- Block 4: Road trip photo RIGHT -->
+      <div class="story-block">
+        <div class="story-photo right">
+          <img src="assets/images/roadtrip.JPG" alt="Isabella and David at White Sands National Park" />
+          <p class="caption">White Sands National Park</p>
+        </div>
+        <p>As the world reopened, so did their sense of adventure. The two have since traveled widely and joyfully — to places all around Mexico, Jamaica, Costa Rica, and from coast to coast across the United States. Among all of their travels, their cross-country road trip remains one of their most cherished shared memories, and they can't wait for a lifetime of continuing to explore the world together.</p>
+      </div>
+
+      <!-- Block 5: DC 2 photo LEFT -->
+      <div class="story-block">
+        <div class="story-photo left">
+          <img src="assets/images/dc_2.jpg" alt="Isabella and David in Washington DC" />
+          <p class="caption">Washington, D.C.</p>
+        </div>
+        <p>Back in D.C., life continued to evolve. New jobs, new chapters, and eventually a new neighborhood — the two recently made the move to Mount Vernon Triangle, where they have happily settled into their new apartment and fully intend to stay for quite some time. Through every transition, they have remained each other's steadiest source of support, laughter, and home.</p>
+      </div>
+
+      <!-- Block 6: Engagement photo RIGHT -->
+      <div class="story-block">
+        <div class="story-photo right">
+          <img src="assets/images/engagement.JPG" alt="Isabella and David engaged" />
+          <p class="caption">Engaged — February 2025</p>
+        </div>
+        <p>In February 2025, David whisked Isabella away for Valentine's Day to a cozy cabin tucked in the mountains along the Pennsylvania-Maryland border. After an evening of grilled steaks, exchanged gifts, and a glass or two of wine by the fire, David got down on one knee and asked Isabella to marry him. She said yes. The next morning, snow fell softly around the cabin, and the two found themselves in their own private snow globe — quiet, joyful, and entirely theirs. It was, by every measure, perfect.</p>
+      </div>
+
+      <!-- Block 7: Engagement party photo centered -->
+      <div class="story-block" style="text-align:center;">
+        <div class="story-photo" style="width:320px;margin:0 auto 1.5rem;">
+          <img src="assets/images/engagementparty.JPG" alt="Isabella and David with their families at the engagement party" />
+          <p class="caption">Engagement Party, Spring 2025</p>
+        </div>
+        <p>That spring, Isabella and David were overjoyed to celebrate their engagement surrounded by the friends and family who have loved and cheered them on from the very beginning. Now, with a wedding on the horizon, they are more excited than ever for what comes next — and so glad to be sharing it with all of you.</p>
+      </div>
+
+      <!-- Closing -->
+      <div class="closing">
+        <span class="script-line">Isabella & David</span>
+        <p class="date-note">September 5, 2026 · Scottsdale, Arizona</p>
+      </div>
+
+    </main>
+  </div>
+
+  <footer>
+    Isabella Bingaman & David Rabinovich · September 5, 2026 · Scottsdale, Arizona
+  </footer>
+
+</body>
+</html>

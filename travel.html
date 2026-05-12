@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  if (!sessionStorage.getItem('wedding_auth')) {
+    window.location.replace('password.html');
+  }
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel — Isabella & David</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:ital,wght@0,300;0,400;1,300;1,400&family=Pinyon+Script&family=Petit+Formal+Script&family=Jost:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Tokens ────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:   #faf8f4;
+      --white:   #ffffff;
+      --navy:    #000000;
+      --blue:    #000000;
+      --blue-lt: #000000;
+      --lilac:   #c9a8d4;
+      --blush:   #e8b4c0;
+      --sage:    #9db89b;
+      --yellow:  #e8d48a;
+      --gold:    #000000;
+
+      --font-script: 'Pinyon Script', cursive;
+      --font-serif:  'Cormorant Upright', serif;
+      --font-sans:   'Jost', sans-serif;
+
+      --content-width: 860px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--navy);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── Background pattern ─────────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url('assets/images/chinoiserie.jpg');
+      background-repeat: repeat;
+      background-size: 400px;
+      opacity: 0.05;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ── Nav ─────────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      padding: 1.4rem 2rem;
+      background: linear-gradient(to bottom, rgba(250,248,244,0.92) 60%, transparent);
+      letter-spacing: 0.18em;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--navy);
+      transition: color 0.2s;
+    }
+    nav a:hover { opacity: 0.5; }
+
+
+    /* ── Page wrapper ────────────────────────────────────────────────── */
+    .page {
+      position: relative;
+      z-index: 1;
+      padding-top: 7rem;
+      padding-bottom: 6rem;
+    }
+
+    /* ── Page header ─────────────────────────────────────────────────── */
+    .page-header {
+      text-align: center;
+      margin-bottom: 4.5rem;
+      padding: 0 2rem;
+    }
+
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+    .page-header h1 {
+      font-family: var(--font-script);
+      font-size: clamp(3.5rem, 9vw, 6.5rem);
+      line-height: 1.1;
+      color: var(--navy);
+      opacity: 0;
+      animation: fadeUp 0.9s 0.4s forwards;
+    }
+
+    /* ── Content area ────────────────────────────────────────────────── */
+    .travel-content {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 3.5rem;
+    }
+
+    /* ── Section ─────────────────────────────────────────────────────── */
+    .travel-section {
+      margin-bottom: 4rem;
+      opacity: 0;
+      animation: fadeUp 0.8s forwards;
+    }
+
+    .travel-section:nth-child(1) { animation-delay: 0.4s; }
+    .travel-section:nth-child(2) { animation-delay: 0.55s; }
+    .travel-section:nth-child(3) { animation-delay: 0.7s; }
+    .travel-section:nth-child(4) { animation-delay: 0.85s; }
+
+    .travel-section + .travel-section {
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding-top: 3.5rem;
+    }
+
+    /* ── Section title ───────────────────────────────────────────────── */
+    .section-title {
+      font-family: var(--font-script);
+      font-size: clamp(2.2rem, 5vw, 3rem);
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 1.8rem;
+    }
+
+    /* ── Detail label ────────────────────────────────────────────────── */
+    .detail-label {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--navy);
+      opacity: 0.65;
+      margin-bottom: 0.5rem;
+      margin-top: 1.6rem;
+    }
+
+    .detail-label:first-child {
+      margin-top: 0;
+    }
+
+    /* ── Body text ───────────────────────────────────────────────────── */
+    .detail-text {
+      font-family: 'Petit Formal Script', cursive;
+      font-size: clamp(0.88rem, 1.8vw, 1rem);
+      line-height: 1.9;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── Recommendation grid ─────────────────────────────────────────── */
+    .rec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 3rem;
+      margin-top: 0.3rem;
+    }
+
+    .rec-item {
+      border-left: 1px solid rgba(0,0,0,0.1);
+      padding-left: 1rem;
+    }
+
+    .rec-name {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+
+    .rec-desc {
+      font-family: 'Petit Formal Script', cursive;
+      font-size: clamp(0.8rem, 1.6vw, 0.9rem);
+      line-height: 1.7;
+      color: var(--navy);
+      opacity: 0.75;
+    }
+
+    /* ── Hotel cards ─────────────────────────────────────────────────── */
+    .hotel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .hotel-card {
+      border: 1px solid rgba(0,0,0,0.1);
+      padding: 1.4rem 1.2rem;
+      text-align: center;
+    }
+
+    .hotel-name {
+      font-family: var(--font-sans);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .hotel-desc {
+      font-family: 'Petit Formal Script', cursive;
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: var(--navy);
+      opacity: 0.7;
+    }
+
+    /* ── Footer ──────────────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--navy);
+      opacity: 0.35;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Animations ──────────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Responsive ──────────────────────────────────────────────────── */
+    @media (max-width: 700px) {
+      nav { gap: 1.5rem; font-size: 0.62rem; }
+      .travel-content { padding: 0 1.5rem; }
+      .hotel-grid { grid-template-columns: 1fr; }
+      .rec-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-border"></div>
+
+  <!-- Nav -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="our-story.html">Our Story</a>
+    <a href="details.html">Details</a>
+    <a href="travel.html">Travel</a>
+    <a href="https://www.zola.com/wedding/isabellaanddavidseptember6/registry" target="_blank" rel="noopener noreferrer">Registry</a>
+    <a href="https://www.zola.com/wedding/isabellaanddavidseptember6/rsvp" target="_blank" rel="noopener noreferrer">RSVP</a>
+  </nav>
+
+  <div class="page">
+
+    <header class="page-header">
+      <p class="eyebrow">Scottsdale, Arizona · September 2026</p>
+      <h1>Travel</h1>
+    </header>
+
+    <div class="travel-content">
+
+      <!-- ── Getting Here ──────────────────────────────────────────────── -->
+      <div class="travel-section">
+        <h2 class="section-title">Getting Here</h2>
+
+        <p class="detail-label">Flying In</p>
+        <p class="detail-text">The closest airport is Phoenix Sky Harbor International Airport (PHX), located approximately 40 minutes from the wedding venue and surrounding accommodations. As the ceremony does not begin until 6:00 pm on Saturday, guests are welcome to fly in the morning of — though we'd love for you to make a long weekend of it if you can.</p>
+
+        <p class="detail-label">Getting Around</p>
+        <p class="detail-text">Uber, Lyft, Waymo, and taxi services are all readily available throughout the Phoenix and Scottsdale area, making it easy to get to and from the venue. That said, North Scottsdale and the surrounding areas of Carefree and Cave Creek are spread out — guests who plan to explore the area at their leisure will find a rental car makes the trip considerably more enjoyable.</p>
+      </div>
+
+      <!-- ── Where to Stay ─────────────────────────────────────────────── -->
+      <div class="travel-section">
+        <h2 class="section-title">Where to Stay</h2>
+
+        <p class="detail-text">Rather than booking a room block, we've chosen to leave accommodations open so guests can find whatever suits them best — whether that's a resort stay, a shared rental, or something in between. Below are our top recommendations.</p>
+
+        <p class="detail-label">Nearby Hotels & Resorts</p>
+        <p class="detail-text">The following properties are all located within a few minutes of Terravita Country Club and offer a wonderful home base for the weekend.</p>
+
+        <div class="hotel-grid">
+          <div class="hotel-card">
+            <p class="hotel-name">The Boulders Resort</p>
+            <p class="hotel-desc">A stunning desert retreat set among ancient boulder formations. World-class spa, golf, and dining — one of the most iconic properties in the Southwest.</p>
+          </div>
+          <div class="hotel-card">
+            <p class="hotel-name">Civana Resort</p>
+            <p class="hotel-desc">A wellness-forward resort with exceptional spa services, beautiful grounds, and a genuinely relaxing atmosphere. Perfect for guests looking to unwind over the weekend.</p>
+          </div>
+          <div class="hotel-card">
+            <p class="hotel-name">Hilton Vacation Club at Rancho Manana</p>
+            <p class="hotel-desc">A comfortable and well-situated property just minutes from the venue, offering spacious rooms and easy access to the surrounding area.</p>
+          </div>
+        </div>
+
+        <p class="detail-label">Vacation Rentals</p>
+        <p class="detail-text">For larger groups or families, Airbnb and VRBO rentals in the North Scottsdale, Carefree, and Cave Creek areas offer beautiful homes at reasonable prices and are a wonderful option for those traveling together. Searching these neighborhoods will surface a wide range of options across different sizes and budgets.</p>
+      </div>
+
+      <!-- ── Things to Do ──────────────────────────────────────────────── -->
+      <div class="travel-section">
+        <h2 class="section-title">Things to Do</h2>
+
+        <p class="detail-text">North Scottsdale, Carefree, and Cave Creek are full of wonderful things to eat, drink, explore, and enjoy. Below are some of our personal favorites — places we love and are happy to recommend to anyone making a full trip of it.</p>
+
+        <p class="detail-label">Food & Drink — Local Favorites</p>
+        <div class="rec-grid">
+          <div class="rec-item">
+            <p class="rec-name">El Encanto</p>
+            <p class="rec-desc">Beloved local Mexican restaurant with a beautiful patio and reliably delicious food. A true neighborhood staple.</p>
+          </div>
+          <div class="rec-item">
+            <p class="rec-name">The Grotto</p>
+            <p class="rec-desc">A casual, charming spot for breakfast and coffee with a great patio and occasional live music. A wonderful way to start a morning.</p>
+          </div>
+          <div class="rec-item">
+            <p class="rec-name">Tonto Bar & Grill</p>
+            <p class="rec-desc">A lovely option for a nicer dinner, with a beautiful desert setting and a menu that doesn't disappoint.</p>
+          </div>
+          <div class="rec-item">
+            <p class="rec-name">The Buffalo Chip</p>
+            <p class="rec-desc">A genuine Western bar with real bull riding and plenty of character. A few other bars in Downtown Cave Creek round out the experience nicely.</p>
+          </div>
+        </div>
+
+        <p class="detail-label">Easy Street, Carefree</p>
+        <p class="detail-text">The walkable stretch around Easy Street in downtown Carefree is one of our favorite spots in the area — charming shops, great people-watching, and the English Rose Tea Room, which is exactly as delightful as it sounds.</p>
+
+        <p class="detail-label">Food & Drink — Scottsdale</p>
+        <p class="detail-text">Scottsdale Quarter and Kierland Commons are both excellent for dining and shopping. Among our favorites there: The Mission for upscale Mexican, True Food Kitchen for something fresh and wholesome, and Postino for wine and charcuterie boards. Scottsdale Fashion Square, located further south, is known for its extensive shopping options. Out of town shoppers must find time to visit a My Sisters Closet location.</p>
+
+        <p class="detail-label">Spas</p>
+        <p class="detail-text">Both The Boulders and Civana — mentioned above in accommodations — are home to truly exceptional spas that are open to non-hotel guests as well. If a spa day is on the agenda, we'd recommend booking treatments in advance to secure your preferred time.</p>
+
+        <p class="detail-label">Golf</p>
+        <p class="detail-text">North Scottsdale is home to some of the finest golf courses in the country, many of which offer half and full day rounds to visitors. It is, as they say, the perfect backdrop.</p>
+
+        <p class="detail-label">Hiking & Outdoors</p>
+        <p class="detail-text">The area is surrounded by beautiful trails and open desert — some of our favorites nearby include The Boulders Trail, Black Mountain, Spur Cross Ranch Conservation Area, and Pinnacle Peak Park. Each offers a distinct experience and is worth exploring. If you'd like any guidance on parking, trailhead access, or what to expect, feel free to reach out and we're happy to help.</p>
+
+        <p class="detail-label">More Nature</p>
+        <p class="detail-text">For those with more time to explore, Arizona has no shortage of nature destinations worth the drive. Camelback Mountain offers a more challenging hike closer to central Phoenix. Further north, Sedona, Flagstaff, and the Grand Canyon are each extraordinary in their own right. We have a deep well of travel recommendations across the state — don't hesitate to ask.</p>
+
+        <p class="detail-label">Arts & Culture</p>
+        <p class="detail-text">Downtown Phoenix is home to a number of institutions we love, including the Phoenix Art Museum, the Heard Museum — one of the finest museums in the country dedicated to Native American art and culture — and the Desert Botanical Garden, which is particularly spectacular in the cooler evening hours.</p>
+      </div>
+
+      <!-- ── Weather ───────────────────────────────────────────────────── -->
+      <div class="travel-section">
+        <h2 class="section-title">A Note on the Weather</h2>
+        <p class="detail-text">September in Scottsdale is warm — expect temperatures in the low-to-mid 90s°F during the day, cooling to the mid-70s by evening. For guests traveling from cooler climates, it's worth packing accordingly: light, breathable fabrics are your friend, and staying well-hydrated throughout the day is always a good idea. The ceremony and cocktail hour are outdoors, though shade and fans will be provided. By the time the reception begins, the desert evening will have taken over — and it truly is beautiful.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    Isabella Bingaman & David Rabinovich · September 5, 2026 · Scottsdale, Arizona
+  </footer>
+
+</body>
+</html>

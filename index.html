@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  if (!sessionStorage.getItem('wedding_auth')) {
+    window.location.replace('password.html');
+  }
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Isabella & David — September 5, 2026</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:ital,wght@0,300;0,400;1,300;1,400&family=Pinyon+Script&family=Petit+Formal+Script&family=Jost:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Tokens ────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:   #faf8f4;
+      --white:   #ffffff;
+      --navy:    #000000;
+      --blue:    #000000;
+      --blue-lt: #000000;
+      --lilac:   #c9a8d4;
+      --blush:   #e8b4c0;
+      --sage:    #9db89b;
+      --yellow:  #e8d48a;
+      --gold:    #000000;
+
+      --font-script: 'Pinyon Script', cursive;
+      --font-serif:  'Cormorant Upright', serif;
+      --font-sans:   'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--navy);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+    /* ── Background pattern ─────────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url('assets/images/chinoiserie.jpg');
+      background-repeat: repeat;
+      background-size: 400px;
+      opacity: 0.10;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ── Page Layout ────────────────────────────────────────────────── */
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+    }
+
+    /* ── Nav ─────────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      padding: 1.4rem 2rem;
+      background: linear-gradient(to bottom, rgba(250,248,244,0.92) 60%, transparent);
+      letter-spacing: 0.18em;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--navy);
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--blue); }
+
+    /* ── Hero ────────────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+    }
+
+    /* Decorative top border */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(90deg,
+        var(--lilac), var(--blue), var(--blush), var(--yellow), var(--blue-lt), var(--sage), var(--lilac));
+    }
+
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+    .names {
+      font-family: var(--font-script);
+      font-size: clamp(4.5rem, 12vw, 9rem);
+      line-height: 1.05;
+      color: var(--navy);
+      opacity: 0;
+      animation: fadeUp 1s 0.4s forwards;
+    }
+
+    .names .ampersand {
+      display: block;
+      font-size: 0.55em;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    .divider-flourish {
+      margin: 1.8rem auto;
+      width: 220px;
+      height: 20px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.7s forwards;
+    }
+
+    .date-line {
+      font-family: 'Petit Formal Script', cursive;
+      font-size: clamp(0.95rem, 2.2vw, 1.25rem);
+      letter-spacing: 0.12em;
+      color: var(--navy);
+      font-style: normal;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.9s forwards;
+    }
+
+    .venue-line {
+      font-family: 'Petit Formal Script', cursive;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      color: var(--blue);
+      margin-top: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 1.05s forwards;
+    }
+
+    /* ── Countdown ───────────────────────────────────────────────────── */
+    .countdown-wrap {
+      margin-top: 3.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 1.2s forwards;
+    }
+
+    .countdown-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .countdown {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .cd-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cd-num {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1;
+      min-width: 2.2ch;
+      text-align: center;
+    }
+
+    .cd-lbl {
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-top: 0.4rem;
+    }
+
+    .cd-sep {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      color: var(--blue-lt);
+      align-self: flex-start;
+      margin-top: 0.1rem;
+      line-height: 1;
+    }
+
+    /* ── RSVP Button ─────────────────────────────────────────────────── */
+    .rsvp-wrap {
+      margin-top: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 1.4s forwards;
+    }
+
+    .btn-rsvp {
+      display: inline-block;
+      text-decoration: none;
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--navy);
+      padding: 0.9rem 2.8rem;
+      border: 1px solid var(--navy);
+      transition: background 0.25s, color 0.25s;
+      cursor: pointer;
+    }
+
+    .btn-rsvp:hover {
+      background: transparent;
+      color: var(--navy);
+    }
+
+    /* ── Section: Details teaser ─────────────────────────────────────── */
+    .details-strip {
+      border-top: 1px solid rgba(43,74,111,0.12);
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .details-item {
+      padding: 2.4rem 3.5rem;
+      text-align: center;
+      border-right: 1px solid rgba(43,74,111,0.1);
+      flex: 1;
+      min-width: 160px;
+    }
+    .details-item:last-child { border-right: none; }
+
+    .details-item h3 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+
+    .details-item p {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: var(--blue);
+      text-transform: uppercase;
+    }
+
+    /* ── Footer ──────────────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue-lt);
+      border-top: 1px solid rgba(43,74,111,0.08);
+    }
+
+    /* ── Animations ──────────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Responsive ──────────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      nav { gap: 1.5rem; font-size: 0.62rem; }
+      .countdown { gap: 1rem; }
+      .details-item { padding: 1.8rem 1.5rem; }
+      .corner { width: 50px; height: 50px; }
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- Nav -->
+  <nav>
+    <a href="our-story.html">Our Story</a>
+    <a href="details.html">Details</a>
+    <a href="travel.html">Travel</a>
+    <a href="https://www.zola.com/wedding/isabellaanddavidseptember6/registry" target="_blank" rel="noopener noreferrer">Registry</a>
+    <a href="https://www.zola.com/wedding/isabellaanddavidseptember6/rsvp" target="_blank" rel="noopener noreferrer">RSVP</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero page">
+
+    <p class="eyebrow">Your attendance is requested at the wedding of</p>
+
+    <h1 class="names">
+      Isabella
+      <span class="ampersand">&</span>
+      David
+    </h1>
+
+    <p class="date-line">Saturday, the Fifth of September, Two Thousand Twenty-Six</p>
+    <p class="venue-line">Terravita Country Club · Scottsdale, Arizona</p>
+
+    <!-- Countdown -->
+    <div class="countdown-wrap">
+      <p class="countdown-label">Days until forever</p>
+      <div class="countdown" id="countdown">
+        <div class="cd-unit"><span class="cd-num" id="cd-days">—</span><span class="cd-lbl">Days</span></div>
+        <span class="cd-sep">·</span>
+        <div class="cd-unit"><span class="cd-num" id="cd-hours">—</span><span class="cd-lbl">Hours</span></div>
+        <span class="cd-sep">·</span>
+        <div class="cd-unit"><span class="cd-num" id="cd-mins">—</span><span class="cd-lbl">Minutes</span></div>
+        <span class="cd-sep">·</span>
+        <div class="cd-unit"><span class="cd-num" id="cd-secs">—</span><span class="cd-lbl">Seconds</span></div>
+      </div>
+    </div>
+
+    <!-- RSVP CTA -->
+    <div class="rsvp-wrap">
+      <a href="https://www.zola.com/wedding/isabellaanddavidseptember6/rsvp" target="_blank" rel="noopener noreferrer" class="btn-rsvp">RSVP</a>
+    </div>
+
+  </section>
+
+  <section class="details-strip" id="details">
+    <div class="details-item">
+      <h3>Ceremony</h3>
+      <p>6:00 pm · The First Tee</p>
+    </div>
+    <div class="details-item">
+      <h3>Cocktail Hour</h3>
+      <p>6:30 pm · Terrace Patio</p>
+    </div>
+    <div class="details-item">
+      <h3>Reception</h3>
+      <p>7:30 pm · Country Club</p>
+    </div>
+  </section>
+
+  <footer>
+    Isabella Bingaman & David Rabinovich · September 5, 2026 · Scottsdale, Arizona
+  </footer>
+
+  <script>
+    // ── Countdown ──────────────────────────────────────────────────────
+    const wedding = new Date('2026-09-05T17:00:00-07:00'); // 5pm MST
+
+    function updateCountdown() {
+      const now  = new Date();
+      const diff = wedding - now;
+      if (diff <= 0) {
+        document.getElementById('countdown').innerHTML =
+          '<span style="font-family:var(--font-serif);font-style:italic;font-size:1.4rem;color:var(--navy)">Today is the day! 🌸</span>';
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000)  / 60000);
+      const s = Math.floor((diff % 60000)    / 1000);
+      document.getElementById('cd-days').textContent  = String(d).padStart(3,'0');
+      document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+      document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
+      document.getElementById('cd-secs').textContent  = String(s).padStart(2,'0');
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+  </script>
+</body>
+</html>
