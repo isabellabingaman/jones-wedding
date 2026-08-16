@@ -36,7 +36,7 @@
       --black:   #000000;
 
       --font-script: 'Abrama Serif', serif;
-      --font-serif:  'Cormorant Upright', serif;
+      --font-serif:  'Abrama Serif', serif;
       --font-sans:   'Jost', sans-serif;
 
       --content-width: 860px;
@@ -123,16 +123,24 @@
       animation: fadeUp 0.9s 0.4s forwards;
     }
 
-    /* ── Content area ────────────────────────────────────────────────── */
+    /* ── Modern details layout ─────────────────────────────────────── */
     .details-content {
-      max-width: var(--content-width);
+      max-width: 980px;
       margin: 0 auto;
-      padding: 0 3.5rem;
+      padding: 0 2rem;
+      display: grid;
+      gap: 1.5rem;
     }
 
-    /* ── Section ─────────────────────────────────────────────────────── */
     .detail-section {
-      margin-bottom: 4rem;
+      position: relative;
+      padding: 2.4rem 2.5rem;
+      background: rgba(253, 249, 245, 0.78);
+      border: 1px solid rgba(59, 31, 43, 0.10);
+      border-radius: 22px;
+      box-shadow: 0 18px 45px rgba(59, 31, 43, 0.07);
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
       opacity: 0;
       animation: fadeUp 0.8s forwards;
     }
@@ -141,123 +149,165 @@
     .detail-section:nth-child(2) { animation-delay: 0.6s; }
     .detail-section:nth-child(3) { animation-delay: 0.8s; }
 
-    .detail-section + .detail-section {
-      border-top: 1px solid rgba(0,0,0,0.08);
-      padding-top: 3.5rem;
-    }
-
-    /* ── Section header ──────────────────────────────────────────────── */
     .section-header {
       display: flex;
-      align-items: baseline;
-      gap: 1.5rem;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      padding-bottom: 1.5rem;
       margin-bottom: 1.8rem;
+      border-bottom: 1px solid rgba(59, 31, 43, 0.10);
     }
 
     .section-title {
       font-family: var(--font-script);
-      font-size: clamp(2.2rem, 5vw, 3rem);
+      font-size: clamp(2.3rem, 5vw, 3.25rem);
       color: var(--navy);
       line-height: 1;
+      font-weight: normal;
     }
 
     .section-time {
+      max-width: 360px;
+      padding: 0.62rem 0.85rem;
+      border: 1px solid rgba(59, 31, 43, 0.16);
+      border-radius: 999px;
       font-family: var(--font-sans);
-      font-size: 0.62rem;
-      letter-spacing: 0.22em;
+      font-size: 0.61rem;
+      line-height: 1.6;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
+      text-align: center;
       color: var(--navy);
-      opacity: 0.65;
+      background: rgba(255,255,255,0.42);
     }
 
-    /* ── Detail items ────────────────────────────────────────────────── */
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem 2rem;
+    }
+
     .detail-item {
-      margin-bottom: 1.6rem;
+      margin: 0;
     }
 
-    .detail-item:last-child {
-      margin-bottom: 0;
+    .detail-item.full {
+      grid-column: 1 / -1;
     }
 
     .detail-label {
       font-family: var(--font-sans);
-      font-size: 0.6rem;
-      letter-spacing: 0.22em;
+      font-size: 0.58rem;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--navy);
-      opacity: 0.65;
-      margin-bottom: 0.4rem;
+      opacity: 0.58;
+      margin-bottom: 0.55rem;
+      font-weight: 400;
     }
 
-    .detail-text {
-      font-family: 'Cormorant Upright', serif;
-      font-size: clamp(0.88rem, 1.8vw, 1rem);
-      line-height: 1.9;
+    .detail-text,
+    .detail-text-ital {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 1.8vw, 1.12rem);
+      line-height: 1.7;
       color: var(--navy);
-      font-style: bold;
     }
 
     .detail-text-ital {
-      font-family: 'Cormorant Upright', serif;
-      font-size: clamp(0.88rem, 1.8vw, 1rem);
-      line-height: 1.9;
-      color: var(--navy);
-      font-style: italic;
+      font-style: normal;
+      font-size: clamp(1.08rem, 2vw, 1.2rem);
     }
 
-    /* ── Attire links ────────────────────────────────────────────────── */
+    .event-note {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.48rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(143,31,45,0.07);
+      font-family: var(--font-sans);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+
     .attire-links {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
-      margin-top: 0.8rem;
+      margin-top: 1rem;
     }
 
     .attire-link {
       display: inline-block;
       font-family: var(--font-sans);
-      font-size: 0.62rem;
+      font-size: 0.58rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--white);
-      background: var(--navy);
-      padding: 0.6rem 1.6rem;
+      color: var(--navy);
+      background: transparent;
+      padding: 0.65rem 1rem;
       text-decoration: none;
-      border: 1px solid var(--navy);
-      transition: background 0.2s, color 0.2s;
+      border: 1px solid rgba(59,31,43,0.28);
+      border-radius: 999px;
+      transition: all 0.2s ease;
+      margin-top: 0.9rem;
     }
 
     .attire-link:hover {
-      background: transparent;
-      color: var(--navy);
+      background: var(--navy);
+      color: var(--cream);
+      border-color: var(--navy);
     }
 
-    /* ── Footer ──────────────────────────────────────────────────────── */
+    .palette-wrap {
+      margin-top: 1.35rem;
+      padding-top: 1.15rem;
+      border-top: 1px solid rgba(59,31,43,0.08);
+    }
+
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      gap: 0.55rem;
+    }
+
+    .swatch {
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 1px rgba(59,31,43,0.05);
+    }
+
     footer {
       text-align: center;
-      padding: 2rem;
-      font-size: 0.6rem;
+      padding: 2.5rem 2rem;
+      font-size: 0.58rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--navy);
-      opacity: 0.35;
-      border-top: 1px solid rgba(0,0,0,0.08);
+      opacity: 0.4;
       position: relative;
       z-index: 1;
     }
 
-    /* ── Animations ──────────────────────────────────────────────────── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── Responsive ──────────────────────────────────────────────────── */
-    @media (max-width: 600px) {
-      nav { gap: 1.5rem; font-size: 0.62rem; }
-      .details-content { padding: 0 1.5rem; }
-      .section-header { flex-direction: column; gap: 0.4rem; }
-      .attire-links { flex-direction: column; }
+    @media (max-width: 720px) {
+      nav { gap: 1rem; padding-inline: 1rem; font-size: 0.58rem; }
+      .page { padding-top: 6.5rem; }
+      .page-header { margin-bottom: 3rem; }
+      .details-content { padding: 0 1rem; }
+      .detail-section { padding: 1.7rem 1.4rem; border-radius: 16px; }
+      .section-header { flex-direction: column; gap: 1rem; }
+      .section-time { text-align: left; max-width: 100%; }
+      .detail-grid { grid-template-columns: 1fr; }
+      .detail-item.full { grid-column: auto; }
+      .palette { grid-template-columns: repeat(5, 1fr); gap: 0.5rem; }
     }
   </style>
 </head>
@@ -285,69 +335,82 @@
 
     <div class="details-content">
 
-      <!-- ── Ceremony ─────────────────────────────────────────────────── -->
-      <div class="detail-section">
-        <div class="section-header">
-          <h2 class="section-title">Ceremony</h2>
-          <span class="section-time">Saturday, January 16 | 4:30 - 10:00PM</span>
-        </div>
-
-        <div class="detail-item">
-          <p class="detail-label">Location</p>
-          <p class="detail-text-ital">28701 Los Alamos Heights Road, Murrieta, California 92563</p>
-          <p class="detail-text">A shuttle service will pick up guests at the hotel (South Coast Winery Resort) at 4PM. The shuttle will also bring guests back to the hotel, or the after party if you choose to attend. If you choose to drive instead of taking the shuttle, there is ample free self-parking onsite at the venue.</p>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=28701%20Los%20Alamos%20Heights%20Road%2C%20Murrieta%2C%20California%2092563" class="attire-link" target="_blank" rel="noopener noreferrer">Get Directions</a>
-        </div>
-
-
-
-        <div class="detail-item">
-          <p class="detail-label">Attire</p>
-          <p class="detail-text">Formal/evening formal is encouraged. Rich jewel and deep floral tones will match the color palette of the evening, found below. Please keep in mind the wedding is outdoors, so you may want a sweater or jacket.</p>
-        <div class="attire-links">
- <!-- <a href="https://pin.it/14sVUkPJe" class="attire-link" target="_blank" rel="noopener noreferrer">Attire Inspiration</a> -->
-</div>
-<div style="margin-top: 1.5rem;">
-  <svg width="100%" viewBox="0 0 680 130" role="img" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <style>
-        .label-name { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; fill: #3a3530; }
-        .label-hex  { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 9px; letter-spacing: 0.06em; fill: #3a3530; opacity: 0.5; }
-      </style>
-    </defs>
-    <rect x="20"  y="10" width="90" height="70" fill="#C0392B"/>
-    <text x="20"  y="92"  class="label-name">Rio Red</text>
-    <text x="20"  y="104" class="label-hex">#C0392B</text>
-    <rect x="125" y="10" width="90" height="70" fill="#7D9A44"/>
-    <text x="125" y="92"  class="label-name">Tarragon</text>
-    <text x="125" y="104" class="label-hex">#7D9A44</text>
-    <rect x="230" y="10" width="90" height="70" fill="#C48A8A"/>
-    <text x="230" y="92"  class="label-name">Mauve</text>
-    <text x="230" y="104" class="label-hex">#C48A8A</text>
-    <rect x="335" y="10" width="90" height="70" fill="#A0294F"/>
-    <text x="335" y="92"  class="label-name">Raspberry</text>
-    <text x="335" y="104" class="label-hex">#A0294F</text>
-    <rect x="440" y="10" width="90" height="70" fill="#5C7A3A"/>
-    <text x="440" y="92"  class="label-name">Moss</text>
-    <text x="440" y="104" class="label-hex">#5C7A3A</text>
-    <rect x="545" y="10" width="90" height="70" fill="#D4845A"/>
-    <text x="545" y="92"  class="label-name">Apricot Orange</text>
-    <text x="545" y="104" class="label-hex">#D4845A</text>
-  </svg>
-</div>
-      </div>
-
-      <!-- ── Reception ─────────────────────────────────────────────────── -->
-      <div class="detail-section">
+      <!-- Welcome Party -->
+      <section class="detail-section">
         <div class="section-header">
           <h2 class="section-title">Welcome Party</h2>
-          <span class="section-time"> Friday, January 15 | 7-10PM </span>
+          <span class="section-time">Friday, January 15, 2027 · 7:00 PM – 10:00 PM</span>
         </div>
+        <div class="detail-grid">
+          <div class="detail-item">
+            <p class="detail-label">Location</p>
+            <p class="detail-text-ital">Wiens Cellars</p>
+          </div>
+          <div class="detail-item">
+            <p class="detail-label">Transportation</p>
+            <p class="detail-text">Wiens Cellars is approximately a 10-minute walk or a 2-minute drive from South Coast Winery Resort &amp; Spa. Feel free to walk, drive, or grab a rideshare—whatever is most convenient for you!</p>
+          </div>
+        </div>
+      </section>
 
-        <div class="detail-item">
-          <p class="detail-text">Please join us for a welcome party on Friday evening to kick off the weekend at Wiens Cellars!</p>
+      <!-- Wedding Day -->
+      <section class="detail-section">
+        <div class="section-header">
+          <h2 class="section-title">Wedding Day</h2>
+          <span class="section-time">Saturday, January 16, 2027 · Ceremony begins at 3:30 PM</span>
         </div>
-      </div>
+        <div class="detail-grid">
+          <div class="detail-item">
+            <p class="detail-label">Location</p>
+            <p class="detail-text-ital">Terra<br>28701 Los Alamos Heights Rd<br>Murrieta, CA 92563</p>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=28701%20Los%20Alamos%20Heights%20Road%2C%20Murrieta%2C%20California%2092563" class="attire-link" target="_blank" rel="noopener noreferrer">Get Directions</a>
+          </div>
+          <div class="detail-item">
+            <p class="detail-label">Transportation</p>
+            <p class="detail-text">Complimentary shuttles will be provided from South Coast Winery Resort &amp; Spa to Terra. Shuttles will depart the resort promptly at 2:30 PM.</p>
+            <p class="detail-text" style="margin-top: 0.65rem;">If you prefer to drive, complimentary parking is available at the venue.</p>
+          </div>
+          <div class="detail-item full">
+            <p class="detail-label">Attire</p>
+            <p class="detail-text">Formal/evening formal is encouraged. Rich jewel and deep floral tones will match the color palette of the evening, found below. Please keep in mind the wedding is outdoors, so you may want a sweater or jacket.</p>
+            <div class="palette-wrap" aria-label="Wedding color palette">
+              <div class="palette">
+                <span class="swatch" style="background:#C84B1A"></span>
+                <span class="swatch" style="background:#F47A0B"></span>
+                <span class="swatch" style="background:#E9A72E"></span>
+                <span class="swatch" style="background:#EFA3A2"></span>
+                <span class="swatch" style="background:#8F1F2D"></span>
+                <span class="swatch" style="background:#701735"></span>
+                <span class="swatch" style="background:#F1E8D8"></span>
+                <span class="swatch" style="background:#95A64E"></span>
+                <span class="swatch" style="background:#513825"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- After Party -->
+      <section class="detail-section">
+        <div class="section-header">
+          <h2 class="section-title">After Party</h2>
+          <span class="section-time">Saturday, January 16, 2027 · 10:30 PM – Midnight</span>
+        </div>
+        <div class="detail-grid">
+          <div class="detail-item full">
+            <span class="event-note">Not a Hosted Event</span>
+          </div>
+          <div class="detail-item">
+            <p class="detail-label">Location</p>
+            <p class="detail-text-ital">The Cellar<br>35001 Rancho California Rd<br>Temecula, CA 92591</p>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=35001%20Rancho%20California%20Rd%2C%20Temecula%2C%20CA%2092591" class="attire-link" target="_blank" rel="noopener noreferrer">Get Directions</a>
+          </div>
+          <div class="detail-item">
+            <p class="detail-label">Transportation</p>
+            <p class="detail-text">The Cellar is just a 4-minute walk from South Coast Winery Resort &amp; Spa. Join us for one last celebration before the weekend comes to an end!</p>
+          </div>
+        </div>
+      </section>
 
     </div>
   </div>
