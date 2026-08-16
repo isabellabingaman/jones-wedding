@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Wedding Party — Krista & Noah</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+
+    /* ─────────────────────────────────────────────
+       RESET
+    ───────────────────────────────────────────── */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       ABRAMA SERIF
+    ───────────────────────────────────────────── */
+
+    @font-face {
+      font-family: 'Abrama Serif';
+      src: url('assets/fonts/AbramaSerif-Regular.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       VARIABLES
+    ───────────────────────────────────────────── */
+
+    :root {
+      --cream: #fdf9f5;
+      --navy: #3b1f2b;
+
+      --font-display: 'Abrama Serif', serif;
+      --font-body: 'Jost', sans-serif;
+
+      --content-width: 1000px;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      background-color: var(--cream);
+      color: var(--navy);
+
+      font-family: var(--font-body);
+      font-weight: 300;
+
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       WINERY BACKGROUND
+    ───────────────────────────────────────────── */
+
+    body::before {
+      content: '';
+
+      position: fixed;
+      inset: 0;
+
+      background-image: url('assets/images/BGDesign7.jpg');
+      background-repeat: repeat;
+      background-size: 800px;
+
+      opacity: 0.42;
+
+      z-index: 0;
+      pointer-events: none;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       NAVIGATION
+    ───────────────────────────────────────────── */
+
+    nav {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+      right: 0;
+
+      z-index: 100;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+
+      gap: 2rem;
+
+      padding: 1.4rem 1.5rem;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(253, 249, 245, 0.94) 60%,
+          transparent
+        );
+
+      font-size: 0.68rem;
+      font-weight: 400;
+
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+
+    nav a {
+      color: var(--navy);
+      text-decoration: none;
+      white-space: nowrap;
+
+      transition: opacity 0.2s ease;
+    }
+
+
+    nav a:hover {
+      opacity: 0.5;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       PAGE
+    ───────────────────────────────────────────── */
+
+    .page {
+      position: relative;
+      z-index: 1;
+
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       HEADER
+    ───────────────────────────────────────────── */
+
+    .page-header {
+      text-align: center;
+
+      margin-bottom: 4.5rem;
+      padding: 0 2rem;
+    }
+
+
+    .eyebrow {
+      font-size: 0.65rem;
+      font-weight: 400;
+
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+
+      color: var(--navy);
+
+      margin-bottom: 2rem;
+
+      opacity: 0;
+
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+
+    .page-header h1 {
+      font-family: var(--font-display);
+
+      font-size: clamp(3.5rem, 9vw, 6.5rem);
+      font-weight: normal;
+
+      line-height: 1;
+
+      color: var(--navy);
+
+      opacity: 0;
+
+      animation: fadeUp 0.9s 0.4s forwards;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       PARTY LAYOUT
+    ───────────────────────────────────────────── */
+
+    .party-content {
+      max-width: var(--content-width);
+
+      margin: 0 auto;
+      padding: 0 2rem;
+
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      gap: 5rem;
+    }
+
+
+    .party-column {
+      opacity: 0;
+
+      animation: fadeUp 0.8s forwards;
+    }
+
+
+    .party-column:nth-child(1) {
+      animation-delay: 0.5s;
+    }
+
+
+    .party-column:nth-child(2) {
+      animation-delay: 0.7s;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       COLUMN HEADER
+    ───────────────────────────────────────────── */
+
+    .column-title {
+      font-family: var(--font-display);
+
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      font-weight: normal;
+
+      line-height: 1;
+
+      color: var(--navy);
+
+      margin-bottom: 1.8rem;
+    }
+
+
+    .column-rule {
+      width: 100%;
+      height: 1px;
+
+      background: rgba(59, 31, 43, 0.14);
+
+      margin-bottom: 0.4rem;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       PARTY MEMBERS
+    ───────────────────────────────────────────── */
+
+    .party-member {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+
+      gap: 1.5rem;
+
+      padding: 1rem 0;
+
+      border-bottom: 1px solid rgba(59, 31, 43, 0.08);
+    }
+
+
+    .member-name {
+      font-size: 0.98rem;
+      font-weight: 400;
+
+      line-height: 1.5;
+
+      color: var(--navy);
+    }
+
+
+    .member-role {
+      font-size: 0.64rem;
+      font-weight: 400;
+
+      line-height: 1.4;
+
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+
+      text-align: right;
+
+      color: var(--navy);
+
+      opacity: 0.58;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────── */
+
+    footer {
+      position: relative;
+      z-index: 1;
+
+      text-align: center;
+
+      padding: 2.5rem 2rem;
+
+      font-size: 0.58rem;
+      font-weight: 400;
+
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+
+      color: var(--navy);
+
+      opacity: 0.4;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       ANIMATION
+    ───────────────────────────────────────────── */
+
+    @keyframes fadeUp {
+
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+
+    /* ─────────────────────────────────────────────
+       MOBILE
+    ───────────────────────────────────────────── */
+
+    @media (max-width: 760px) {
+
+      nav {
+        gap: 0.65rem 1rem;
+
+        padding: 1rem 0.7rem;
+
+        font-size: 0.52rem;
+
+        letter-spacing: 0.10em;
+      }
+
+
+      .page {
+        padding-top: 8rem;
+      }
+
+
+      .page-header {
+        margin-bottom: 3.5rem;
+      }
+
+
+      .party-content {
+        grid-template-columns: 1fr;
+
+        gap: 4rem;
+
+        padding: 0 1.5rem;
+      }
+
+
+      .party-member {
+        gap: 1rem;
+      }
+
+
+      .member-name {
+        font-size: 0.94rem;
+      }
+
+
+      .member-role {
+        font-size: 0.58rem;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- NAVIGATION -->
+
+  <nav>
+
+    <a href="index.html">
+      Home
+    </a>
+
+    <a href="details.html">
+      Details
+    </a>
+
+    <a href="travel.html">
+      Travel
+    </a>
+
+    <a href="wedding-party.html">
+      Wedding Party
+    </a>
+
+    <a href="gallery.html">
+      Gallery
+    </a>
+
+    <a
+      href="https://www.crateandbarrel.com/gift-registry/krista-wysolmierski-and-noah-jones/r7508619"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Registry
+    </a>
+
+    <a
+      href="https://noahandkristajones.minted.us/rsvp"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      RSVP
+    </a>
+
+  </nav>
+
+
+  <!-- PAGE -->
+
+  <div class="page">
+
+
+    <!-- HEADER -->
+
+    <header class="page-header">
+
+      <p class="eyebrow">
+        January 16, 2027 · Temecula, California
+      </p>
+
+      <h1>
+        Wedding Party
+      </h1>
+
+    </header>
+
+
+    <!-- WEDDING PARTY -->
+
+    <main class="party-content">
+
+
+      <!-- BRIDAL PARTY -->
+
+      <section class="party-column">
+
+        <h2 class="column-title">
+          Bridal Party
+        </h2>
+
+        <div class="column-rule"></div>
+
+
+        <div class="party-member">
+          <span class="member-name">Dana Stephan</span>
+          <span class="member-role">Matron of Honor</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Emily Julsrud</span>
+          <span class="member-role">Maid of Honor</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Emily Millar</span>
+          <span class="member-role">Matron of Honor</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Hannah Jones</span>
+          <span class="member-role">Bridesmaid</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Maddie Dachs</span>
+          <span class="member-role">Bridesmaid</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Emma Smith</span>
+          <span class="member-role">Bridesmaid</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Presley Panagiotoglou</span>
+          <span class="member-role">Bridesmaid</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Sandi Brickhouse</span>
+          <span class="member-role">Bridesmaid</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Maddie Dingus</span>
+          <span class="member-role">Bridesmaid</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Isabella Rabinovich</span>
+          <span class="member-role">Bridesmaid</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Marietta Perkins</span>
+          <span class="member-role">Bridesmaid</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Lexi Jo Chang</span>
+          <span class="member-role">Bridesmaid</span>
+        </div>
+
+      </section>
+
+
+
+      <!-- GROOM'S PARTY -->
+
+      <section class="party-column">
+
+        <h2 class="column-title">
+          Groom's Party
+        </h2>
+
+        <div class="column-rule"></div>
+
+
+        <div class="party-member">
+          <span class="member-name">Richard Sears</span>
+          <span class="member-role">Best Man</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Harry Nesbitt</span>
+          <span class="member-role">Groomsman</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Caden Rico</span>
+          <span class="member-role">Groomsman</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Rob Stephan</span>
+          <span class="member-role">Groomsman &amp; Officiant</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Mitchell Anderson</span>
+          <span class="member-role">Groomsman</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Alex Jones</span>
+          <span class="member-role">Groomsman</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">David Jones</span>
+          <span class="member-role">Groomsman</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Hank Hibbeler</span>
+          <span class="member-role">Groomsman</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Ryan Green</span>
+          <span class="member-role">Groomsman</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Aaron Samples</span>
+          <span class="member-role">Groomsman</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Peyton Mueller</span>
+          <span class="member-role">Groomsman</span>
+        </div>
+
+
+        <div class="party-member">
+          <span class="member-name">Devlin Wagner</span>
+          <span class="member-role">Groomsman</span>
+        </div>
+
+      </section>
+
+
+    </main>
+
+  </div>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+    Krista Wysolmierski & Noah Jones · January 16, 2027 · Temecula, California
+  </footer>
+
+
+</body>
+
+</html>
