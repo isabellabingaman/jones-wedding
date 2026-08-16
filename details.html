@@ -18,10 +18,6 @@
 
   <style>
 
-    /* ─────────────────────────────────────────────
-       RESET
-    ───────────────────────────────────────────── */
-
     *,
     *::before,
     *::after {
@@ -31,10 +27,6 @@
     }
 
 
-    /* ─────────────────────────────────────────────
-       ABRAMA SERIF
-    ───────────────────────────────────────────── */
-
     @font-face {
       font-family: 'Abrama Serif';
       src: url('assets/fonts/AbramaSerif-Regular.woff2') format('woff2');
@@ -42,10 +34,6 @@
       font-style: normal;
     }
 
-
-    /* ─────────────────────────────────────────────
-       COLORS + FONTS
-    ───────────────────────────────────────────── */
 
     :root {
       --cream: #fdf9f5;
@@ -76,9 +64,7 @@
     }
 
 
-    /* ─────────────────────────────────────────────
-       WINERY BACKGROUND
-    ───────────────────────────────────────────── */
+    /* WINERY BACKGROUND */
 
     body::before {
       content: '';
@@ -97,9 +83,7 @@
     }
 
 
-    /* ─────────────────────────────────────────────
-       NAVIGATION
-    ───────────────────────────────────────────── */
+    /* NAVIGATION */
 
     nav {
       position: fixed;
@@ -113,10 +97,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-wrap: wrap;
 
-      gap: 3rem;
+      gap: 2rem;
 
-      padding: 1.4rem 2rem;
+      padding: 1.4rem 1.5rem;
 
       background:
         linear-gradient(
@@ -127,10 +112,10 @@
 
       font-family: var(--font-body);
 
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 400;
 
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
@@ -138,6 +123,7 @@
     nav a {
       color: var(--navy);
       text-decoration: none;
+      white-space: nowrap;
 
       transition: opacity 0.2s ease;
     }
@@ -148,22 +134,18 @@
     }
 
 
-    /* ─────────────────────────────────────────────
-       PAGE
-    ───────────────────────────────────────────── */
+    /* PAGE */
 
     .page {
       position: relative;
       z-index: 1;
 
-      padding-top: 7rem;
+      padding-top: 8rem;
       padding-bottom: 6rem;
     }
 
 
-    /* ─────────────────────────────────────────────
-       PAGE HEADER
-    ───────────────────────────────────────────── */
+    /* PAGE HEADER */
 
     .page-header {
       text-align: center;
@@ -208,9 +190,7 @@
     }
 
 
-    /* ─────────────────────────────────────────────
-       DETAILS CONTAINER
-    ───────────────────────────────────────────── */
+    /* DETAILS CONTAINER */
 
     .details-content {
       max-width: var(--content-width);
@@ -223,9 +203,7 @@
     }
 
 
-    /* ─────────────────────────────────────────────
-       EVENT CARDS
-    ───────────────────────────────────────────── */
+    /* EVENT CARDS */
 
     .detail-section {
       position: relative;
@@ -263,9 +241,7 @@
     }
 
 
-    /* ─────────────────────────────────────────────
-       EVENT HEADERS
-    ───────────────────────────────────────────── */
+    /* EVENT HEADERS */
 
     .section-header {
       display: flex;
@@ -318,9 +294,7 @@
     }
 
 
-    /* ─────────────────────────────────────────────
-       DETAIL GRID
-    ───────────────────────────────────────────── */
+    /* DETAIL GRID */
 
     .detail-grid {
       display: grid;
@@ -341,9 +315,7 @@
     }
 
 
-    /* ─────────────────────────────────────────────
-       LABELS
-    ───────────────────────────────────────────── */
+    /* LABELS */
 
     .detail-label {
       font-family: var(--font-body);
@@ -362,9 +334,7 @@
     }
 
 
-    /* ─────────────────────────────────────────────
-       BODY TEXT
-    ───────────────────────────────────────────── */
+    /* BODY TEXT */
 
     .detail-text,
     .detail-text-ital {
@@ -392,9 +362,7 @@
     }
 
 
-    /* ─────────────────────────────────────────────
-       AFTER PARTY NOTE
-    ───────────────────────────────────────────── */
+    /* AFTER PARTY NOTE */
 
     .event-note {
       display: inline-flex;
@@ -418,9 +386,7 @@
     }
 
 
-    /* ─────────────────────────────────────────────
-       MAP BUTTONS
-    ───────────────────────────────────────────── */
+    /* MAP BUTTONS */
 
     .map-links {
       display: flex;
@@ -467,9 +433,7 @@
     }
 
 
-    /* ─────────────────────────────────────────────
-       COLOR PALETTE
-    ───────────────────────────────────────────── */
+    /* COLOR PALETTE */
 
     .palette-wrap {
       margin-top: 1.5rem;
@@ -500,9 +464,7 @@
     }
 
 
-    /* ─────────────────────────────────────────────
-       FOOTER
-    ───────────────────────────────────────────── */
+    /* FOOTER */
 
     footer {
       position: relative;
@@ -526,9 +488,7 @@
     }
 
 
-    /* ─────────────────────────────────────────────
-       ANIMATION
-    ───────────────────────────────────────────── */
+    /* ANIMATION */
 
     @keyframes fadeUp {
 
@@ -545,23 +505,23 @@
     }
 
 
-    /* ─────────────────────────────────────────────
-       MOBILE
-    ───────────────────────────────────────────── */
+    /* MOBILE */
 
     @media (max-width: 720px) {
 
       nav {
-        gap: 1rem;
+        gap: 0.65rem 1rem;
 
-        padding: 1.2rem 0.8rem;
+        padding: 1rem 0.7rem;
 
-        font-size: 0.56rem;
+        font-size: 0.52rem;
+
+        letter-spacing: 0.10em;
       }
 
 
       .page {
-        padding-top: 6.5rem;
+        padding-top: 8rem;
       }
 
 
@@ -626,41 +586,33 @@
 
   <nav>
 
-   <!-- ─────────────────────────────────────────────
-     NAVIGATION
-───────────────────────────────────────────── -->
+    <a href="index.html">
+      Home
+    </a>
 
-<nav>
+    <a href="details.html">
+      Details
+    </a>
 
-  <a href="index.html">
-    Home
-  </a>
+    <a href="travel.html">
+      Travel
+    </a>
 
-  <a href="details.html">
-    Details
-  </a>
+    <a href="wedding-party.html">
+      Wedding Party
+    </a>
 
-  <a href="travel.html">
-    Travel
-  </a>
+    <a href="gallery.html">
+      Gallery
+    </a>
 
-  <a href="wedding-party.html">
-    Wedding Party
-  </a>
+    <a href="registry.html">
+      Registry
+    </a>
 
-  <a href="gallery.html">
-    Gallery
-  </a>
-
-  <a href="registry.html">
-    Registry
-  </a>
-
-  <a href="rsvp.html">
-    RSVP
-  </a>
-
-</nav>
+    <a href="rsvp.html">
+      RSVP
+    </a>
 
   </nav>
 
@@ -690,9 +642,7 @@
     <main class="details-content">
 
 
-      <!-- ═══════════════════════════════════════════
-           WELCOME PARTY
-      ═══════════════════════════════════════════ -->
+      <!-- WELCOME PARTY -->
 
       <section class="detail-section">
 
@@ -712,8 +662,6 @@
         <div class="detail-grid">
 
 
-          <!-- LOCATION -->
-
           <div class="detail-item">
 
             <p class="detail-label">
@@ -728,8 +676,6 @@
               Temecula, CA 92592
             </p>
 
-
-            <!-- MAP OPTIONS -->
 
             <div class="map-links">
 
@@ -757,8 +703,6 @@
           </div>
 
 
-          <!-- TRANSPORTATION -->
-
           <div class="detail-item">
 
             <p class="detail-label">
@@ -781,9 +725,7 @@
 
 
 
-      <!-- ═══════════════════════════════════════════
-           WEDDING DAY
-      ═══════════════════════════════════════════ -->
+      <!-- WEDDING DAY -->
 
       <section class="detail-section">
 
@@ -803,8 +745,6 @@
         <div class="detail-grid">
 
 
-          <!-- LOCATION -->
-
           <div class="detail-item">
 
             <p class="detail-label">
@@ -819,8 +759,6 @@
               Murrieta, CA 92563
             </p>
 
-
-            <!-- MAP OPTIONS -->
 
             <div class="map-links">
 
@@ -847,8 +785,6 @@
 
           </div>
 
-
-          <!-- TRANSPORTATION -->
 
           <div class="detail-item">
 
@@ -892,8 +828,6 @@
             </p>
 
 
-            <!-- COLOR PALETTE -->
-
             <div
               class="palette-wrap"
               aria-label="Wedding color palette"
@@ -901,55 +835,46 @@
 
               <div class="palette">
 
-                <!-- Burnt Orange -->
                 <span
                   class="swatch"
                   style="background:#C84B1A"
                 ></span>
 
-                <!-- Tangerine -->
                 <span
                   class="swatch"
                   style="background:#F47A0B"
                 ></span>
 
-                <!-- Golden Yellow -->
                 <span
                   class="swatch"
                   style="background:#E9A72E"
                 ></span>
 
-                <!-- Blush Pink -->
                 <span
                   class="swatch"
                   style="background:#EFA3A2"
                 ></span>
 
-                <!-- Merlot -->
                 <span
                   class="swatch"
                   style="background:#8F1F2D"
                 ></span>
 
-                <!-- Plum -->
                 <span
                   class="swatch"
                   style="background:#701735"
                 ></span>
 
-                <!-- Ivory -->
                 <span
                   class="swatch"
                   style="background:#F1E8D8"
                 ></span>
 
-                <!-- Hydrangea Green -->
                 <span
                   class="swatch"
                   style="background:#95A64E"
                 ></span>
 
-                <!-- Espresso Brown -->
                 <span
                   class="swatch"
                   style="background:#513825"
@@ -968,9 +893,7 @@
 
 
 
-      <!-- ═══════════════════════════════════════════
-           AFTER PARTY
-      ═══════════════════════════════════════════ -->
+      <!-- AFTER PARTY -->
 
       <section class="detail-section">
 
@@ -990,8 +913,6 @@
         <div class="detail-grid">
 
 
-          <!-- NOT HOSTED -->
-
           <div class="detail-item full">
 
             <span class="event-note">
@@ -1000,8 +921,6 @@
 
           </div>
 
-
-          <!-- LOCATION -->
 
           <div class="detail-item">
 
@@ -1017,8 +936,6 @@
               Temecula, CA 92591
             </p>
 
-
-            <!-- MAP OPTIONS -->
 
             <div class="map-links">
 
@@ -1045,8 +962,6 @@
 
           </div>
 
-
-          <!-- TRANSPORTATION -->
 
           <div class="detail-item">
 
