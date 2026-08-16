@@ -5,35 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Story — Krista & Noah</title>
 
-  <!-- Fonts -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:ital,wght@0,300;0,400;1,300;1,400&family=Pinyon+Script&family=Petit+Formal+Script&family=Jost:wght@300;400&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
-    /* ── Reset & Tokens ────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ─────────────────────────────────────────────
+       RESET
+    ───────────────────────────────────────────── */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       ABRAMA SERIF
+    ───────────────────────────────────────────── */
+
+    @font-face {
+      font-family: 'Abrama Serif';
+      src: url('assets/fonts/AbramaSerif-Regular.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       COLORS + FONTS
+    ───────────────────────────────────────────── */
 
     :root {
-      --cream:   #faf8f4;
-      --white:   #ffffff;
-      --navy:    #000000;
-      --blue:    #000000;
-      --blue-lt: #000000;
-      --lilac:   #c9a8d4;
-      --blush:   #e8b4c0;
-      --sage:    #9db89b;
-      --yellow:  #e8d48a;
-      --gold:    #000000;
+      --cream: #fdf9f5;
+      --navy: #3b1f2b;
 
-      --font-script: 'Pinyon Script', cursive;
-      --font-serif:  'Cormorant Upright', serif;
-      --font-sans:   'Jost', sans-serif;
+      --font-display: 'Abrama Serif', serif;
+      --font-serif: 'Cormorant Upright', serif;
+      --font-sans: 'Jost', sans-serif;
 
       --content-width: 780px;
     }
 
-    html { scroll-behavior: smooth; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
 
     body {
       background-color: var(--cream);
@@ -41,272 +67,481 @@
       font-family: var(--font-sans);
       font-weight: 300;
       overflow-x: hidden;
+      min-height: 100vh;
     }
 
-    /* ── Background pattern ─────────────────────────────────────────── */
+
+    /* ─────────────────────────────────────────────
+       WINERY BACKGROUND
+    ───────────────────────────────────────────── */
+
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background-image: url('assets/images/BGDesign1.jpg');
+
+      background-image: url('assets/images/BGDesign7.jpg');
       background-repeat: repeat;
-      background-size: 400px;
-      opacity: 0.10;
+      background-size: 800px;
+
+      opacity: 0.42;
+
       z-index: 0;
       pointer-events: none;
     }
 
-    /* ── Nav ─────────────────────────────────────────────────────────── */
+
+    /* ─────────────────────────────────────────────
+       NAVIGATION
+    ───────────────────────────────────────────── */
+
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+
       z-index: 100;
+
       display: flex;
       justify-content: center;
+      align-items: center;
+
       gap: 3rem;
+
       padding: 1.4rem 2rem;
-      background: linear-gradient(to bottom, rgba(250,248,244,0.92) 60%, transparent);
-      letter-spacing: 0.18em;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(253, 249, 245, 0.94) 60%,
+          transparent
+        );
+
+      font-family: var(--font-sans);
       font-size: 0.7rem;
-      text-transform: uppercase;
       font-weight: 400;
+
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
     }
+
 
     nav a {
-      text-decoration: none;
       color: var(--navy);
-      transition: color 0.2s;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
     }
-    nav a:hover { color: var(--blue); }
 
-    /* ── Page wrapper ────────────────────────────────────────────────── */
+
+    nav a:hover {
+      opacity: 0.5;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       PAGE
+    ───────────────────────────────────────────── */
+
     .page {
       position: relative;
       z-index: 1;
+
       padding-top: 7rem;
       padding-bottom: 6rem;
     }
 
-    /* ── Page header ─────────────────────────────────────────────────── */
+
+    /* ─────────────────────────────────────────────
+       PAGE HEADER
+    ───────────────────────────────────────────── */
+
     .page-header {
       text-align: center;
-      margin-bottom: 4rem;
+
       padding: 0 2rem;
-      position: relative;
+      margin-bottom: 4rem;
     }
 
-    /* Decorative top border — matches hero::before on index.html */
-    .page-header::before {
-      content: '';
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: 6px;
-      background: linear-gradient(90deg,
-        var(--lilac), var(--blue), var(--blush), var(--yellow), var(--blue-lt), var(--sage), var(--lilac));
-      z-index: 101;
-    }
 
     .eyebrow {
       font-family: var(--font-sans);
+
       font-size: 0.65rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 2.5rem;
+
+      color: var(--navy);
+
+      margin-bottom: 2rem;
+
       opacity: 0;
-      animation: fadeUp 0.8s 0.2s forwards;
+
+      animation:
+        fadeUp 0.8s 0.2s forwards;
     }
+
 
     .page-header h1 {
-      font-family: var(--font-script);
-      font-size: clamp(3.5rem, 9vw, 6.5rem);
-      line-height: 1.1;
+      font-family: var(--font-display);
+
+      font-size:
+        clamp(3.5rem, 9vw, 6.5rem);
+
+      font-weight: normal;
+
+      line-height: 1;
+
       color: var(--navy);
+
       opacity: 0;
-      animation: fadeUp 0.9s 0.4s forwards;
+
+      animation:
+        fadeUp 0.9s 0.4s forwards;
     }
 
-    /* ── Story content area ──────────────────────────────────────────── */
+
+    /* ─────────────────────────────────────────────
+       STORY
+    ───────────────────────────────────────────── */
+
     .story {
       max-width: var(--content-width);
+
       margin: 0 auto;
+
       padding: 0 4.5rem;
     }
 
-    /* ── Story block ─────────────────────────────────────────────────── */
+
     .story-block {
-      margin-bottom: 3.5rem;
-      overflow: hidden;
+      margin-bottom: 3rem;
+
       opacity: 0;
-      animation: fadeUp 0.8s forwards;
+
+      animation:
+        fadeUp 0.8s forwards;
     }
 
-    .story-block:nth-child(1) { animation-delay: 0.5s; }
-    .story-block:nth-child(2) { animation-delay: 0.65s; }
-    .story-block:nth-child(3) { animation-delay: 0.8s; }
-    .story-block:nth-child(4) { animation-delay: 0.95s; }
-    .story-block:nth-child(5) { animation-delay: 1.1s; }
-    .story-block:nth-child(6) { animation-delay: 1.25s; }
-    .story-block:nth-child(7) { animation-delay: 1.4s; }
 
-    /* ── Floated scrapbook photos ────────────────────────────────────── */
-    .story-photo {
-      width: 220px;
-      margin-bottom: 0.4rem;
+    .story-block:nth-child(1) {
+      animation-delay: 0.5s;
     }
 
-    .story-photo.left {
-      float: left;
-      margin-right: 1.8rem;
-      margin-bottom: 0.5rem;
-      transform: rotate(-2deg);
+
+    .story-block:nth-child(2) {
+      animation-delay: 0.7s;
     }
 
-    .story-photo.right {
-      float: right;
-      margin-left: 1.8rem;
-      margin-bottom: 0.5rem;
-      transform: rotate(1.5deg);
+
+    .story-block:nth-child(3) {
+      animation-delay: 0.9s;
     }
 
-    .story-photo img {
-      width: 100%;
-      display: block;
-      -webkit-mask-image: radial-gradient(ellipse 82% 82% at 50% 50%, black 40%, transparent 100%);
-      mask-image: radial-gradient(ellipse 82% 82% at 50% 50%, black 40%, transparent 100%);
-      border-radius: 12px;
-    }
 
-    .story-photo .caption {
-      text-align: center;
-      font-family: 'Petit Formal Script', cursive;
-      font-size: 0.78rem;
-      color: var(--navy);
-      opacity: 0.5;
-      margin-top: 0.5rem;
-      letter-spacing: 0.04em;
-    }
+    /* Story paragraph text */
 
-    /* ── Paragraph text ──────────────────────────────────────────────── */
     .story-block p {
-      font-family: 'Petit Formal Script', cursive;
-      font-size: clamp(0.85rem, 1.8vw, 1rem);
-      line-height: 2;
+      font-family: var(--font-serif);
+
+      font-size:
+        clamp(1.05rem, 2vw, 1.25rem);
+
+      line-height: 1.9;
+
       color: var(--navy);
+
+      font-weight: 300;
+    }
+
+
+    .story-block strong {
       font-weight: 400;
     }
 
-    /* ── Closing flourish ────────────────────────────────────────────── */
+
+    /* ─────────────────────────────────────────────
+       CLOSING
+    ───────────────────────────────────────────── */
+
     .closing {
       text-align: center;
-      margin-top: 4rem;
+
+      margin-top: 4.5rem;
+
       opacity: 0;
-      animation: fadeUp 0.8s 1.6s forwards;
+
+      animation:
+        fadeUp 0.8s 1.1s forwards;
     }
+
 
     .closing .script-line {
-      font-family: var(--font-script);
-      font-size: clamp(2rem, 5vw, 3rem);
-      color: var(--navy);
       display: block;
-      margin-bottom: 1rem;
+
+      font-family: var(--font-display);
+
+      font-size:
+        clamp(2.5rem, 6vw, 4rem);
+
+      font-weight: normal;
+
+      line-height: 1;
+
+      color: var(--navy);
+
+      margin-bottom: 1.2rem;
     }
+
 
     .closing .date-note {
-      font-family: 'Petit Formal Script', cursive;
-      font-size: 0.85rem;
-      letter-spacing: 0.06em;
-      opacity: 0.5;
+      font-family: var(--font-sans);
+
+      font-size: 0.65rem;
+
+      letter-spacing: 0.18em;
+
+      text-transform: uppercase;
+
+      color: var(--navy);
+
+      opacity: 0.55;
     }
 
-    /* ── Footer ──────────────────────────────────────────────────────── */
+
+    /* ─────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────── */
+
     footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.6rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--blue-lt);
-      border-top: 1px solid rgba(43,74,111,0.08);
       position: relative;
       z-index: 1;
+
+      text-align: center;
+
+      padding: 2rem;
+
+      border-top:
+        1px solid rgba(59, 31, 43, 0.08);
+
+      font-family: var(--font-sans);
+
+      font-size: 0.6rem;
+
+      letter-spacing: 0.18em;
+
+      text-transform: uppercase;
+
+      color: var(--navy);
+
+      opacity: 0.4;
     }
 
-    /* ── Animations ──────────────────────────────────────────────────── */
+
+    /* ─────────────────────────────────────────────
+       ANIMATION
+    ───────────────────────────────────────────── */
+
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
 
-    /* ── Responsive ──────────────────────────────────────────────────── */
-    @media (max-width: 600px) {
-      nav { gap: 1.5rem; font-size: 0.62rem; }
-
-      .story-photo.left,
-      .story-photo.right {
-        float: none;
-        margin: 0 auto 1.5rem;
-        width: 80%;
-        transform: rotate(0deg);
+      from {
+        opacity: 0;
+        transform: translateY(18px);
       }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
     }
+
+
+    /* ─────────────────────────────────────────────
+       MOBILE
+    ───────────────────────────────────────────── */
+
+    @media (max-width: 600px) {
+
+      nav {
+        gap: 1rem;
+
+        padding:
+          1.2rem 0.8rem;
+
+        font-size: 0.56rem;
+      }
+
+
+      .page {
+        padding-top: 6.5rem;
+      }
+
+
+      .page-header {
+        margin-bottom: 3rem;
+      }
+
+
+      .story {
+        padding: 0 1.75rem;
+      }
+
+
+      .story-block {
+        margin-bottom: 2.25rem;
+      }
+
+
+      .story-block p {
+        font-size: 1.05rem;
+
+        line-height: 1.8;
+      }
+
+
+      .closing {
+        margin-top: 3.5rem;
+      }
+
+    }
+
   </style>
+
 </head>
+
+
 <body>
 
-  <!-- Nav -->
+
+  <!-- ─────────────────────────────────────────────
+       NAVIGATION
+  ───────────────────────────────────────────── -->
+
   <nav>
-    <a href="index.html">Home</a>
-    <a href="our-story.html">Our Story</a>
-    <a href="details.html">Details</a>
-    <!--<a href="travel.html">Travel</a>-->
-    <a href="https://www.crateandbarrel.com/gift-registry/krista-wysolmierski-and-noah-jones/r7508619" target="_blank" rel="noopener noreferrer">Registry</a>
-    <a href="https://noahandkristajones.minted.us/rsvp" target="_blank" rel="noopener noreferrer">RSVP</a>
+
+    <a href="index.html">
+      Home
+    </a>
+
+    <a href="our-story.html">
+      Our Story
+    </a>
+
+    <a href="details.html">
+      Details
+    </a>
+
+    <a href="gallery.html">
+      Gallery
+    </a>
+
+    <a
+      href="https://www.crateandbarrel.com/gift-registry/krista-wysolmierski-and-noah-jones/r7508619"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Registry
+    </a>
+
+    <a
+      href="https://noahandkristajones.minted.us/rsvp"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      RSVP
+    </a>
+
   </nav>
+
+
+  <!-- ─────────────────────────────────────────────
+       PAGE
+  ───────────────────────────────────────────── -->
 
   <div class="page">
 
-    <!-- Page header -->
+
+    <!-- HEADER -->
+
     <header class="page-header">
-      <p class="eyebrow">Krista & Noah</p>
-      <h1>Our Story</h1>
+
+      <p class="eyebrow">
+        Krista & Noah
+      </p>
+
+      <h1>
+        Our Story
+      </h1>
+
     </header>
 
-    <!-- Story -->
-                                 <!-- Our Story -->
+
+    <!-- ─────────────────────────────────────────────
+         OUR STORY
+    ───────────────────────────────────────────── -->
+
+    <main class="story">
+
+
       <div class="story-block">
+
         <p>
           Our story began sophomore year at ASU, when mutual friends brought us together.
           We started as friends, began dating junior year, and the rest is history!
         </p>
+
       </div>
 
+
       <div class="story-block">
+
         <p>
           On July 5, 2027, Noah proposed on the beach in Coronado, California.
           After the easiest <strong>YES!</strong>, we celebrated over dinner at
           Hotel del Coronado with some of our favorite people.
         </p>
+
       </div>
 
+
       <div class="story-block">
+
         <p>
           Now, we can’t wait for the next chapter—and to celebrate with all of you!
         </p>
+
       </div>
 
-      <!-- Closing -->
+
+      <!-- CLOSING -->
+
       <div class="closing">
-        <span class="script-line">Krista & Noah</span>
-        <p class="date-note">January 16, 2027 · Temecula, California</p>
+
+        <span class="script-line">
+          Krista & Noah
+        </span>
+
+        <p class="date-note">
+          January 16, 2027 · Temecula, California
+        </p>
+
       </div>
+
 
     </main>
+
   </div>
+
+
+  <!-- ─────────────────────────────────────────────
+       FOOTER
+  ───────────────────────────────────────────── -->
 
   <footer>
     Krista Wysolmierski & Noah Jones · January 16, 2027 · Temecula, California
   </footer>
+
 
 </body>
 </html>
