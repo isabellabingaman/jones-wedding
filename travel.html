@@ -2,19 +2,35 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
   <title>Travel — Krista & Noah</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- GOOGLE FONTS -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
 
   <link
     href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap"
     rel="stylesheet"
   />
+
 
   <style>
 
@@ -44,7 +60,7 @@
 
 
     /* ─────────────────────────────────────────────
-       COLORS + FONTS
+       VARIABLES
     ───────────────────────────────────────────── */
 
     :root {
@@ -211,7 +227,7 @@
 
 
     /* ─────────────────────────────────────────────
-       TRAVEL CONTAINER
+       CONTENT
     ───────────────────────────────────────────── */
 
     .travel-content {
@@ -442,6 +458,8 @@
 
       padding: 2.5rem 2rem;
 
+      border-top: 1px solid rgba(59, 31, 43, 0.08);
+
       font-family: var(--font-body);
 
       font-size: 0.58rem;
@@ -476,10 +494,27 @@
 
 
     /* ─────────────────────────────────────────────
+       TABLET
+    ───────────────────────────────────────────── */
+
+    @media (max-width: 900px) {
+
+      nav {
+        gap: 0.8rem 1.4rem;
+
+        font-size: 0.6rem;
+
+        letter-spacing: 0.12em;
+      }
+
+    }
+
+
+    /* ─────────────────────────────────────────────
        MOBILE
     ───────────────────────────────────────────── */
 
-    @media (max-width: 720px) {
+    @media (max-width: 700px) {
 
       nav {
         gap: 0.65rem 1rem;
@@ -528,7 +563,9 @@
 <body>
 
 
-  <!-- NAVIGATION -->
+  <!-- ─────────────────────────────────────────────
+       NAVIGATION
+  ───────────────────────────────────────────── -->
 
   <nav>
 
@@ -552,26 +589,21 @@
       Gallery
     </a>
 
-    <a
-      href="https://www.crateandbarrel.com/gift-registry/krista-wysolmierski-and-noah-jones/r7508619"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href="registry.html">
       Registry
     </a>
 
-    <a
-      href="https://noahandkristajones.minted.us/rsvp"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href="rsvp.html">
       RSVP
     </a>
 
   </nav>
 
 
-  <!-- PAGE -->
+
+  <!-- ─────────────────────────────────────────────
+       PAGE
+  ───────────────────────────────────────────── -->
 
   <div class="page">
 
@@ -591,14 +623,15 @@
     </header>
 
 
+
     <!-- TRAVEL CONTENT -->
 
     <main class="travel-content">
 
 
-      <!-- ═══════════════════════════════════════════
+      <!-- ─────────────────────────────────────────
            GETTING THERE
-      ═══════════════════════════════════════════ -->
+      ────────────────────────────────────────── -->
 
       <section class="travel-section">
 
@@ -619,6 +652,7 @@
           of the city.
 
         </p>
+
 
 
         <div class="airport-list">
@@ -643,6 +677,7 @@
           </div>
 
 
+
           <!-- JOHN WAYNE -->
 
           <div class="airport">
@@ -660,6 +695,7 @@
             </p>
 
           </div>
+
 
 
           <!-- SAN DIEGO -->
@@ -685,6 +721,7 @@
         </div>
 
 
+
         <p class="travel-text">
 
           We recommend renting a car or using a rideshare service to
@@ -697,9 +734,9 @@
 
 
 
-      <!-- ═══════════════════════════════════════════
+      <!-- ─────────────────────────────────────────
            WHERE TO STAY
-      ═══════════════════════════════════════════ -->
+      ────────────────────────────────────────── -->
 
       <section class="travel-section">
 
@@ -713,9 +750,11 @@
         </div>
 
 
+
         <p class="hotel-name">
           South Coast Winery Resort &amp; Spa
         </p>
+
 
 
         <p class="travel-text">
@@ -728,11 +767,13 @@
         </p>
 
 
+
         <p class="travel-text">
 
           To reserve your room, please use the booking link below.
 
         </p>
+
 
 
         <div class="button-wrap">
@@ -747,6 +788,7 @@
           </a>
 
         </div>
+
 
 
         <p
@@ -766,13 +808,19 @@
 
     </main>
 
+
   </div>
 
 
-  <!-- FOOTER -->
+
+  <!-- ─────────────────────────────────────────────
+       FOOTER
+  ───────────────────────────────────────────── -->
 
   <footer>
+
     Krista Wysolmierski & Noah Jones · January 16, 2027 · Temecula, California
+
   </footer>
 
 
