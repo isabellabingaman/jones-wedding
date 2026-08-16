@@ -1,423 +1,1094 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Details — Krista & Noah</title>
 
-  <!-- Fonts -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:ital,wght@0,300;0,400;1,300;1,400&family=Pinyon+Script&family=Petit+Formal+Script&family=Jost:wght@300;400&display=swap" rel="stylesheet" />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
-    /* ── Reset & Tokens ────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* ─────────────────────────────────────────────
+       RESET
+    ───────────────────────────────────────────── */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       ABRAMA SERIF
+    ───────────────────────────────────────────── */
 
     @font-face {
       font-family: 'Abrama Serif';
       src: url('assets/fonts/AbramaSerif-Regular.woff2') format('woff2');
       font-weight: normal;
       font-style: normal;
-    } 
-
-    :root {
-      --cream:   #fdf9f5;
-      --white:   #ffffff;
-      --navy:    #3b1f2b;
-      --blue:    #7a3b3b;
-      --blue-lt: #a05c4a;
-      --lilac:   #8b3a52;
-      --blush:   #c47a5a;
-      --sage:    #6b7c41;
-      --yellow:  #d4845a;
-      --gold:    #b85c38;
-      --black:   #000000;
-
-      --font-script: 'Abrama Serif', serif;
-      --font-serif:  'Abrama Serif', serif;
-      --font-sans:   'Jost', sans-serif;
-
-      --content-width: 860px;
     }
 
-    html { scroll-behavior: smooth; }
+
+    /* ─────────────────────────────────────────────
+       COLORS + FONTS
+    ───────────────────────────────────────────── */
+
+    :root {
+      --cream: #fdf9f5;
+      --white: #ffffff;
+
+      --navy: #3b1f2b;
+
+      --font-display: 'Abrama Serif', serif;
+      --font-body: 'Jost', sans-serif;
+
+      --content-width: 980px;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
 
     body {
       background-color: var(--cream);
+
       color: var(--navy);
-      font-family: var(--font-sans);
+
+      font-family: var(--font-body);
       font-weight: 300;
+
       overflow-x: hidden;
+
+      min-height: 100vh;
     }
 
-    /* ── Background pattern ─────────────────────────────────────────── */
+
+    /* ─────────────────────────────────────────────
+       WINERY BACKGROUND
+    ───────────────────────────────────────────── */
+
     body::before {
       content: '';
+
       position: fixed;
+
       inset: 0;
-      background-image: url('assets/images/BGDesign7.jpg');
+
+      background-image:
+        url('assets/images/BGDesign7.jpg');
+
       background-repeat: repeat;
+
       background-size: 800px;
+
       opacity: 0.42;
+
       z-index: 0;
+
       pointer-events: none;
     }
 
-    /* ── Nav ─────────────────────────────────────────────────────────── */
+
+    /* ─────────────────────────────────────────────
+       NAVIGATION
+    ───────────────────────────────────────────── */
+
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+
+      top: 0;
+      left: 0;
+      right: 0;
+
       z-index: 100;
+
       display: flex;
+
       justify-content: center;
+
+      align-items: center;
+
       gap: 3rem;
+
       padding: 1.4rem 2rem;
-      background: linear-gradient(to bottom, rgba(250,248,244,0.92) 60%, transparent);
-      letter-spacing: 0.18em;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(253, 249, 245, 0.94) 60%,
+          transparent
+        );
+
+      font-family: var(--font-body);
+
       font-size: 0.7rem;
-      text-transform: uppercase;
+
       font-weight: 400;
+
+      letter-spacing: 0.18em;
+
+      text-transform: uppercase;
     }
+
 
     nav a {
-      text-decoration: none;
       color: var(--navy);
-      transition: color 0.2s;
-    }
-    nav a:hover { opacity: 0.5; }
 
-    /* ── Page wrapper ────────────────────────────────────────────────── */
+      text-decoration: none;
+
+      transition: opacity 0.2s ease;
+    }
+
+
+    nav a:hover {
+      opacity: 0.5;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       PAGE
+    ───────────────────────────────────────────── */
+
     .page {
       position: relative;
+
       z-index: 1;
+
       padding-top: 7rem;
+
       padding-bottom: 6rem;
     }
 
-    /* ── Page header ─────────────────────────────────────────────────── */
+
+    /* ─────────────────────────────────────────────
+       PAGE HEADER
+    ───────────────────────────────────────────── */
+
     .page-header {
       text-align: center;
-      margin-bottom: 4.5rem;
+
+      margin-bottom: 4rem;
+
       padding: 0 2rem;
     }
+
 
     .eyebrow {
-      font-family: var(--font-sans);
+      font-family: var(--font-body);
+
       font-size: 0.65rem;
+
+      font-weight: 400;
+
       letter-spacing: 0.3em;
+
       text-transform: uppercase;
+
       color: var(--navy);
-      margin-bottom: 2.5rem;
+
+      margin-bottom: 2rem;
+
       opacity: 0;
-      animation: fadeUp 0.8s 0.2s forwards;
+
+      animation:
+        fadeUp 0.8s 0.2s forwards;
     }
+
 
     .page-header h1 {
-      font-family: var(--font-script);
-      font-size: clamp(3.5rem, 9vw, 6.5rem);
-      line-height: 1.1;
+      font-family: var(--font-display);
+
+      font-size:
+        clamp(3.5rem, 9vw, 6.5rem);
+
+      font-weight: normal;
+
+      line-height: 1;
+
       color: var(--navy);
+
       opacity: 0;
-      animation: fadeUp 0.9s 0.4s forwards;
+
+      animation:
+        fadeUp 0.9s 0.4s forwards;
     }
 
-    /* ── Modern details layout ─────────────────────────────────────── */
+
+    /* ─────────────────────────────────────────────
+       DETAILS CONTAINER
+    ───────────────────────────────────────────── */
+
     .details-content {
-      max-width: 980px;
+      max-width: var(--content-width);
+
       margin: 0 auto;
+
       padding: 0 2rem;
+
       display: grid;
+
       gap: 1.5rem;
     }
 
+
+    /* ─────────────────────────────────────────────
+       EVENT CARDS
+    ───────────────────────────────────────────── */
+
     .detail-section {
       position: relative;
+
       padding: 2.4rem 2.5rem;
-      background: rgba(253, 249, 245, 0.78);
-      border: 1px solid rgba(59, 31, 43, 0.10);
+
+      background:
+        rgba(253, 249, 245, 0.82);
+
+      border:
+        1px solid rgba(59, 31, 43, 0.10);
+
       border-radius: 22px;
-      box-shadow: 0 18px 45px rgba(59, 31, 43, 0.07);
+
+      box-shadow:
+        0 18px 45px rgba(59, 31, 43, 0.07);
+
       backdrop-filter: blur(7px);
+
       -webkit-backdrop-filter: blur(7px);
+
       opacity: 0;
-      animation: fadeUp 0.8s forwards;
+
+      animation:
+        fadeUp 0.8s forwards;
     }
 
-    .detail-section:nth-child(1) { animation-delay: 0.4s; }
-    .detail-section:nth-child(2) { animation-delay: 0.6s; }
-    .detail-section:nth-child(3) { animation-delay: 0.8s; }
+
+    .detail-section:nth-child(1) {
+      animation-delay: 0.4s;
+    }
+
+
+    .detail-section:nth-child(2) {
+      animation-delay: 0.6s;
+    }
+
+
+    .detail-section:nth-child(3) {
+      animation-delay: 0.8s;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       EVENT HEADERS
+    ───────────────────────────────────────────── */
 
     .section-header {
       display: flex;
+
       justify-content: space-between;
+
       align-items: flex-start;
+
       gap: 2rem;
+
       padding-bottom: 1.5rem;
+
       margin-bottom: 1.8rem;
-      border-bottom: 1px solid rgba(59, 31, 43, 0.10);
+
+      border-bottom:
+        1px solid rgba(59, 31, 43, 0.10);
     }
+
 
     .section-title {
-      font-family: var(--font-script);
-      font-size: clamp(2.3rem, 5vw, 3.25rem);
-      color: var(--navy);
-      line-height: 1;
+      font-family: var(--font-display);
+
+      font-size:
+        clamp(2.3rem, 5vw, 3.25rem);
+
       font-weight: normal;
+
+      line-height: 1;
+
+      color: var(--navy);
     }
 
+
+    /* Date + Time */
+
     .section-time {
-      max-width: 360px;
-      padding: 0.62rem 0.85rem;
-      border: 1px solid rgba(59, 31, 43, 0.16);
+      max-width: 380px;
+
+      padding:
+        0.62rem 0.9rem;
+
+      border:
+        1px solid rgba(59, 31, 43, 0.16);
+
       border-radius: 999px;
-      font-family: var(--font-sans);
-      font-size: 0.61rem;
+
+      background:
+        rgba(255, 255, 255, 0.50);
+
+      font-family: var(--font-body);
+
+      font-size: 0.62rem;
+
+      font-weight: 400;
+
       line-height: 1.6;
-      letter-spacing: 0.16em;
+
+      letter-spacing: 0.13em;
+
       text-transform: uppercase;
+
       text-align: center;
+
       color: var(--navy);
-      background: rgba(255,255,255,0.42);
     }
+
+
+    /* ─────────────────────────────────────────────
+       DETAIL GRID
+    ───────────────────────────────────────────── */
 
     .detail-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.25rem 2rem;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap:
+        1.5rem 2.5rem;
     }
+
 
     .detail-item {
       margin: 0;
     }
 
+
     .detail-item.full {
       grid-column: 1 / -1;
     }
 
+
+    /* ─────────────────────────────────────────────
+       SMALL LABELS
+    ───────────────────────────────────────────── */
+
     .detail-label {
-      font-family: var(--font-sans);
-      font-size: 0.58rem;
-      letter-spacing: 0.24em;
+      font-family: var(--font-body);
+
+      font-size: 0.62rem;
+
+      font-weight: 500;
+
+      letter-spacing: 0.20em;
+
       text-transform: uppercase;
+
       color: var(--navy);
-      opacity: 0.58;
-      margin-bottom: 0.55rem;
-      font-weight: 400;
+
+      opacity: 0.60;
+
+      margin-bottom: 0.65rem;
     }
+
+
+    /* ─────────────────────────────────────────────
+       BODY TEXT
+       Easier-to-read Jost
+    ───────────────────────────────────────────── */
 
     .detail-text,
     .detail-text-ital {
-      font-family: var(--font-serif);
-      font-size: clamp(1rem, 1.8vw, 1.12rem);
-      line-height: 1.7;
+      font-family: var(--font-body);
+
+      font-size:
+        clamp(0.86rem, 1.4vw, 0.98rem);
+
+      line-height: 1.75;
+
+      letter-spacing: 0.01em;
+
       color: var(--navy);
+
+      font-weight: 300;
     }
+
+
+    /* Venue names + addresses */
 
     .detail-text-ital {
       font-style: normal;
-      font-size: clamp(1.08rem, 2vw, 1.2rem);
+
+      font-size:
+        clamp(0.9rem, 1.5vw, 1rem);
+
+      font-weight: 400;
+
+      line-height: 1.7;
     }
+
+
+    /* ─────────────────────────────────────────────
+       AFTER PARTY NOTE
+    ───────────────────────────────────────────── */
 
     .event-note {
       display: inline-flex;
+
       align-items: center;
-      padding: 0.48rem 0.75rem;
+
+      padding:
+        0.48rem 0.75rem;
+
       border-radius: 999px;
-      background: rgba(143,31,45,0.07);
-      font-family: var(--font-sans);
+
+      background:
+        rgba(143, 31, 45, 0.07);
+
+      font-family: var(--font-body);
+
       font-size: 0.58rem;
+
+      font-weight: 400;
+
       letter-spacing: 0.18em;
+
       text-transform: uppercase;
+
       color: var(--navy);
     }
 
-    .attire-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
+
+    /* ─────────────────────────────────────────────
+       DIRECTIONS BUTTON
+    ───────────────────────────────────────────── */
 
     .attire-link {
       display: inline-block;
-      font-family: var(--font-sans);
-      font-size: 0.58rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--navy);
-      background: transparent;
-      padding: 0.65rem 1rem;
-      text-decoration: none;
-      border: 1px solid rgba(59,31,43,0.28);
+
+      margin-top: 1rem;
+
+      padding:
+        0.65rem 1rem;
+
+      border:
+        1px solid rgba(59, 31, 43, 0.28);
+
       border-radius: 999px;
-      transition: all 0.2s ease;
-      margin-top: 0.9rem;
+
+      background: transparent;
+
+      font-family: var(--font-body);
+
+      font-size: 0.58rem;
+
+      font-weight: 400;
+
+      letter-spacing: 0.18em;
+
+      text-transform: uppercase;
+
+      text-decoration: none;
+
+      color: var(--navy);
+
+      transition:
+        all 0.2s ease;
     }
+
 
     .attire-link:hover {
       background: var(--navy);
+
       color: var(--cream);
+
       border-color: var(--navy);
     }
 
+
+    /* ─────────────────────────────────────────────
+       COLOR PALETTE
+    ───────────────────────────────────────────── */
+
     .palette-wrap {
-      margin-top: 1.35rem;
-      padding-top: 1.15rem;
-      border-top: 1px solid rgba(59,31,43,0.08);
+      margin-top: 1.5rem;
+
+      padding-top: 1.3rem;
+
+      border-top:
+        1px solid rgba(59, 31, 43, 0.08);
     }
+
 
     .palette {
       display: grid;
-      grid-template-columns: repeat(9, 1fr);
-      gap: 0.55rem;
+
+      grid-template-columns:
+        repeat(9, 1fr);
+
+      gap: 0.65rem;
     }
+
 
     .swatch {
+      width: 100%;
+
       aspect-ratio: 1 / 1;
+
       border-radius: 50%;
-      box-shadow: inset 0 0 0 1px rgba(59,31,43,0.05);
+
+      box-shadow:
+        inset 0 0 0 1px
+        rgba(59, 31, 43, 0.05);
     }
+
+
+    /* ─────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────── */
 
     footer {
-      text-align: center;
-      padding: 2.5rem 2rem;
-      font-size: 0.58rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--navy);
-      opacity: 0.4;
       position: relative;
+
       z-index: 1;
+
+      text-align: center;
+
+      padding:
+        2.5rem 2rem;
+
+      font-family: var(--font-body);
+
+      font-size: 0.58rem;
+
+      font-weight: 400;
+
+      letter-spacing: 0.18em;
+
+      text-transform: uppercase;
+
+      color: var(--navy);
+
+      opacity: 0.4;
     }
+
+
+    /* ─────────────────────────────────────────────
+       ANIMATION
+    ───────────────────────────────────────────── */
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
+
+      from {
+        opacity: 0;
+
+        transform:
+          translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          translateY(0);
+      }
+
     }
+
+
+    /* ─────────────────────────────────────────────
+       MOBILE
+    ───────────────────────────────────────────── */
 
     @media (max-width: 720px) {
-      nav { gap: 1rem; padding-inline: 1rem; font-size: 0.58rem; }
-      .page { padding-top: 6.5rem; }
-      .page-header { margin-bottom: 3rem; }
-      .details-content { padding: 0 1rem; }
-      .detail-section { padding: 1.7rem 1.4rem; border-radius: 16px; }
-      .section-header { flex-direction: column; gap: 1rem; }
-      .section-time { text-align: left; max-width: 100%; }
-      .detail-grid { grid-template-columns: 1fr; }
-      .detail-item.full { grid-column: auto; }
-      .palette { grid-template-columns: repeat(5, 1fr); gap: 0.5rem; }
+
+      nav {
+        gap: 1rem;
+
+        padding:
+          1.2rem 0.8rem;
+
+        font-size: 0.56rem;
+      }
+
+
+      .page {
+        padding-top: 6.5rem;
+      }
+
+
+      .page-header {
+        margin-bottom: 3rem;
+      }
+
+
+      .details-content {
+        padding:
+          0 1rem;
+      }
+
+
+      .detail-section {
+        padding:
+          1.7rem 1.4rem;
+
+        border-radius: 16px;
+      }
+
+
+      .section-header {
+        flex-direction: column;
+
+        gap: 1rem;
+      }
+
+
+      .section-time {
+        text-align: left;
+
+        max-width: 100%;
+      }
+
+
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .detail-item.full {
+        grid-column: auto;
+      }
+
+
+      .palette {
+        grid-template-columns:
+          repeat(5, 1fr);
+
+        gap: 0.5rem;
+      }
+
     }
+
   </style>
+
 </head>
+
+
 <body>
 
-  <div class="top-border"></div>
 
-  <!-- Nav -->
+  <!-- ─────────────────────────────────────────────
+       NAVIGATION
+  ───────────────────────────────────────────── -->
+
   <nav>
-    <a href="index.html">Home</a>
-    <!--<a href="our-story.html">Our Story</a>-->
-    <a href="details.html">Details</a>
-    <a href="gallery.html">Gallery</a>
-    <!--<a href="travel.html">Travel</a> --> 
-    <a href="https://www.crateandbarrel.com/gift-registry/krista-wysolmierski-and-noah-jones/r7508619" target="_blank" rel="noopener noreferrer">Registry</a>
-    <a href="https://noahandkristajones.minted.us/rsvp" target="_blank" rel="noopener noreferrer">RSVP</a>
+
+    <a href="index.html">
+      Home
+    </a>
+
+    <a href="details.html">
+      Details
+    </a>
+
+    <a href="gallery.html">
+      Gallery
+    </a>
+
+    <a
+      href="https://www.crateandbarrel.com/gift-registry/krista-wysolmierski-and-noah-jones/r7508619"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Registry
+    </a>
+
+    <a
+      href="https://noahandkristajones.minted.us/rsvp"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      RSVP
+    </a>
+
   </nav>
+
+
+  <!-- ─────────────────────────────────────────────
+       PAGE
+  ───────────────────────────────────────────── -->
 
   <div class="page">
 
+
+    <!-- PAGE HEADER -->
+
     <header class="page-header">
-      <p class="eyebrow">January 16, 2027 · Temecula, California</p>
-      <h1>Details</h1>
+
+      <p class="eyebrow">
+        January 16, 2027 · Temecula, California
+      </p>
+
+      <h1>
+        Details
+      </h1>
+
     </header>
 
-    <div class="details-content">
 
-      <!-- Welcome Party -->
+    <!-- ─────────────────────────────────────────────
+         EVENT DETAILS
+    ───────────────────────────────────────────── -->
+
+    <main class="details-content">
+
+
+      <!-- ═══════════════════════════════════════════
+           WELCOME PARTY
+      ═══════════════════════════════════════════ -->
+
       <section class="detail-section">
+
         <div class="section-header">
-          <h2 class="section-title">Welcome Party</h2>
-          <span class="section-time">Friday, January 15, 2027 · 7:00 PM – 10:00 PM</span>
+
+          <h2 class="section-title">
+            Welcome Party
+          </h2>
+
+          <span class="section-time">
+            Friday, January 15, 2027 · 7:00 PM – 10:00 PM
+          </span>
+
         </div>
+
+
         <div class="detail-grid">
+
+
           <div class="detail-item">
-            <p class="detail-label">Location</p>
-            <p class="detail-text-ital">Wiens Cellars</p>
+
+            <p class="detail-label">
+              Location
+            </p>
+
+            <p class="detail-text-ital">
+              Wiens Cellars
+            </p>
+
           </div>
+
+
           <div class="detail-item">
-            <p class="detail-label">Transportation</p>
-            <p class="detail-text">Wiens Cellars is approximately a 10-minute walk or a 2-minute drive from South Coast Winery Resort &amp; Spa. Feel free to walk, drive, or grab a rideshare—whatever is most convenient for you!</p>
+
+            <p class="detail-label">
+              Transportation
+            </p>
+
+            <p class="detail-text">
+              Wiens Cellars is approximately a 10-minute walk or a
+              2-minute drive from South Coast Winery Resort &amp; Spa.
+              Feel free to walk, drive, or grab a rideshare—whatever
+              is most convenient for you!
+            </p>
+
           </div>
+
+
         </div>
+
       </section>
 
-      <!-- Wedding Day -->
+
+
+      <!-- ═══════════════════════════════════════════
+           WEDDING DAY
+      ═══════════════════════════════════════════ -->
+
       <section class="detail-section">
+
         <div class="section-header">
-          <h2 class="section-title">Wedding Day</h2>
-          <span class="section-time">Saturday, January 16, 2027 · Ceremony begins at 3:30 PM</span>
+
+          <h2 class="section-title">
+            Wedding Day
+          </h2>
+
+          <span class="section-time">
+            Saturday, January 16, 2027 · Ceremony begins at 3:30 PM
+          </span>
+
         </div>
+
+
         <div class="detail-grid">
+
+
+          <!-- LOCATION -->
+
           <div class="detail-item">
-            <p class="detail-label">Location</p>
-            <p class="detail-text-ital">Terra<br>28701 Los Alamos Heights Rd<br>Murrieta, CA 92563</p>
-            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=28701%20Los%20Alamos%20Heights%20Road%2C%20Murrieta%2C%20California%2092563" class="attire-link" target="_blank" rel="noopener noreferrer">Get Directions</a>
+
+            <p class="detail-label">
+              Location
+            </p>
+
+            <p class="detail-text-ital">
+              Terra
+              <br>
+              28701 Los Alamos Heights Rd
+              <br>
+              Murrieta, CA 92563
+            </p>
+
+
+            <a
+              href="https://www.google.com/maps/dir/?api=1&amp;destination=28701%20Los%20Alamos%20Heights%20Road%2C%20Murrieta%2C%20California%2092563"
+              class="attire-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get Directions
+            </a>
+
           </div>
+
+
+          <!-- TRANSPORTATION -->
+
           <div class="detail-item">
-            <p class="detail-label">Transportation</p>
-            <p class="detail-text">Complimentary shuttles will be provided from South Coast Winery Resort &amp; Spa to Terra. Shuttles will depart the resort promptly at 2:30 PM.</p>
-            <p class="detail-text" style="margin-top: 0.65rem;">If you prefer to drive, complimentary parking is available at the venue.</p>
+
+            <p class="detail-label">
+              Transportation
+            </p>
+
+            <p class="detail-text">
+              Complimentary shuttles will be provided from
+              South Coast Winery Resort &amp; Spa to Terra.
+              Shuttles will depart the resort promptly at
+              <strong>2:30 PM.</strong>
+            </p>
+
+
+            <p
+              class="detail-text"
+              style="margin-top: 0.75rem;"
+            >
+              If you prefer to drive, complimentary parking
+              is available at the venue.
+            </p>
+
           </div>
+
+
+          <!-- ATTIRE -->
+
           <div class="detail-item full">
-            <p class="detail-label">Attire</p>
-            <p class="detail-text">Formal/evening formal is encouraged. Rich jewel and deep floral tones will match the color palette of the evening, found below. Please keep in mind the wedding is outdoors, so you may want a sweater or jacket.</p>
-            <div class="palette-wrap" aria-label="Wedding color palette">
+
+            <p class="detail-label">
+              Attire
+            </p>
+
+
+            <p class="detail-text">
+              Formal/evening formal is encouraged. Rich jewel and
+              deep floral tones will match the color palette of the
+              evening, found below. Please keep in mind the wedding
+              is outdoors, so you may want a sweater or jacket.
+            </p>
+
+
+            <!-- COLOR PALETTE -->
+
+            <div
+              class="palette-wrap"
+              aria-label="Wedding color palette"
+            >
+
               <div class="palette">
-                <span class="swatch" style="background:#C84B1A"></span>
-                <span class="swatch" style="background:#F47A0B"></span>
-                <span class="swatch" style="background:#E9A72E"></span>
-                <span class="swatch" style="background:#EFA3A2"></span>
-                <span class="swatch" style="background:#8F1F2D"></span>
-                <span class="swatch" style="background:#701735"></span>
-                <span class="swatch" style="background:#F1E8D8"></span>
-                <span class="swatch" style="background:#95A64E"></span>
-                <span class="swatch" style="background:#513825"></span>
+
+                <!-- Burnt Orange -->
+                <span
+                  class="swatch"
+                  style="background:#C84B1A"
+                ></span>
+
+                <!-- Tangerine -->
+                <span
+                  class="swatch"
+                  style="background:#F47A0B"
+                ></span>
+
+                <!-- Golden Yellow -->
+                <span
+                  class="swatch"
+                  style="background:#E9A72E"
+                ></span>
+
+                <!-- Blush Pink -->
+                <span
+                  class="swatch"
+                  style="background:#EFA3A2"
+                ></span>
+
+                <!-- Merlot -->
+                <span
+                  class="swatch"
+                  style="background:#8F1F2D"
+                ></span>
+
+                <!-- Plum -->
+                <span
+                  class="swatch"
+                  style="background:#701735"
+                ></span>
+
+                <!-- Ivory -->
+                <span
+                  class="swatch"
+                  style="background:#F1E8D8"
+                ></span>
+
+                <!-- Hydrangea Green -->
+                <span
+                  class="swatch"
+                  style="background:#95A64E"
+                ></span>
+
+                <!-- Espresso Brown -->
+                <span
+                  class="swatch"
+                  style="background:#513825"
+                ></span>
+
               </div>
+
             </div>
+
           </div>
+
+
         </div>
+
       </section>
 
-      <!-- After Party -->
+
+
+      <!-- ═══════════════════════════════════════════
+           AFTER PARTY
+      ═══════════════════════════════════════════ -->
+
       <section class="detail-section">
+
         <div class="section-header">
-          <h2 class="section-title">After Party</h2>
-          <span class="section-time">Saturday, January 16, 2027 · 10:30 PM – Midnight</span>
+
+          <h2 class="section-title">
+            After Party
+          </h2>
+
+          <span class="section-time">
+            Saturday, January 16, 2027 · 10:30 PM – Midnight
+          </span>
+
         </div>
+
+
         <div class="detail-grid">
+
+
+          <!-- NOT HOSTED -->
+
           <div class="detail-item full">
-            <span class="event-note">Not a Hosted Event</span>
+
+            <span class="event-note">
+              Not a Hosted Event
+            </span>
+
           </div>
+
+
+          <!-- LOCATION -->
+
           <div class="detail-item">
-            <p class="detail-label">Location</p>
-            <p class="detail-text-ital">The Cellar<br>35001 Rancho California Rd<br>Temecula, CA 92591</p>
-            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=35001%20Rancho%20California%20Rd%2C%20Temecula%2C%20CA%2092591" class="attire-link" target="_blank" rel="noopener noreferrer">Get Directions</a>
+
+            <p class="detail-label">
+              Location
+            </p>
+
+            <p class="detail-text-ital">
+              The Cellar
+              <br>
+              35001 Rancho California Rd
+              <br>
+              Temecula, CA 92591
+            </p>
+
+
+            <a
+              href="https://www.google.com/maps/dir/?api=1&amp;destination=35001%20Rancho%20California%20Rd%2C%20Temecula%2C%20CA%2092591"
+              class="attire-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get Directions
+            </a>
+
           </div>
+
+
+          <!-- TRANSPORTATION -->
+
           <div class="detail-item">
-            <p class="detail-label">Transportation</p>
-            <p class="detail-text">The Cellar is just a 4-minute walk from South Coast Winery Resort &amp; Spa. Join us for one last celebration before the weekend comes to an end!</p>
+
+            <p class="detail-label">
+              Transportation
+            </p>
+
+            <p class="detail-text">
+              The Cellar is just a 4-minute walk from
+              South Coast Winery Resort &amp; Spa.
+              Join us for one last celebration before
+              the weekend comes to an end!
+            </p>
+
           </div>
+
+
         </div>
+
       </section>
 
-    </div>
+
+    </main>
+
   </div>
+
+
+  <!-- ─────────────────────────────────────────────
+       FOOTER
+  ───────────────────────────────────────────── -->
 
   <footer>
     Krista Wysolmierski & Noah Jones · January 16, 2027 · Temecula, California
   </footer>
 
+
 </body>
+
 </html>
