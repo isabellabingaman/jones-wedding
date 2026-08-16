@@ -44,13 +44,9 @@
     *,
     *::before,
     *::after {
-
       box-sizing: border-box;
-
       margin: 0;
-
       padding: 0;
-
     }
 
 
@@ -60,17 +56,10 @@
     ───────────────────────────────────────────── */
 
     @font-face {
-
       font-family: 'Abrama Serif';
-
-      src:
-        url('assets/fonts/AbramaSerif-Regular.woff2')
-        format('woff2');
-
+      src: url('assets/fonts/AbramaSerif-Regular.woff2') format('woff2');
       font-weight: normal;
-
       font-style: normal;
-
     }
 
 
@@ -80,71 +69,37 @@
     ───────────────────────────────────────────── */
 
     :root {
-
       --cream: #fdf9f5;
-
       --white: #ffffff;
-
       --navy: #3b1f2b;
-
       --blue: #7a3b3b;
-
       --blue-lt: #a05c4a;
-
       --lilac: #8b3a52;
-
       --blush: #c47a5a;
-
       --sage: #6b7c41;
-
       --yellow: #d4845a;
-
       --gold: #b85c38;
-
       --black: #000000;
 
-
-      --font-script:
-        'Abrama Serif',
-        serif;
-
-
-      --font-serif:
-        'Cormorant Upright',
-        serif;
-
-
-      --font-sans:
-        'Jost',
-        sans-serif;
-
+      --font-script: 'Abrama Serif', serif;
+      --font-serif: 'Cormorant Upright', serif;
+      --font-sans: 'Jost', sans-serif;
     }
 
 
 
     html {
-
       scroll-behavior: smooth;
-
     }
 
 
 
     body {
-
-      background-color:
-        var(--cream);
-
-      color:
-        var(--navy);
-
-      font-family:
-        var(--font-sans);
-
+      background-color: var(--cream);
+      color: var(--navy);
+      font-family: var(--font-sans);
       font-weight: 300;
-
       overflow-x: hidden;
-
     }
 
 
@@ -154,31 +109,19 @@
     ───────────────────────────────────────────── */
 
     body::before {
-
       content: '';
 
       position: fixed;
-
       inset: 0;
 
-      background-image:
-        url('assets/images/BGDesign7.jpg');
+      background-image: url('assets/images/BGDesign7.jpg');
+      background-repeat: repeat;
+      background-size: 800px;
 
-      background-repeat:
-        repeat;
+      opacity: 0.42;
 
-      background-size:
-        800px;
-
-      opacity:
-        0.42;
-
-      z-index:
-        0;
-
-      pointer-events:
-        none;
-
+      z-index: 0;
+      pointer-events: none;
     }
 
 
@@ -188,13 +131,9 @@
     ───────────────────────────────────────────── */
 
     .page {
-
       position: relative;
-
       z-index: 1;
-
       min-height: 100vh;
-
     }
 
 
@@ -204,98 +143,53 @@
     ───────────────────────────────────────────── */
 
     nav {
-
       position: fixed;
 
       top: 0;
-
       left: 0;
-
       right: 0;
 
       z-index: 100;
 
-
       display: flex;
-
       justify-content: center;
-
       align-items: center;
-
       flex-wrap: wrap;
-
 
       gap: 2rem;
 
-
-      padding:
-        1.4rem 1.5rem;
-
+      padding: 1.4rem 1.5rem;
 
       background:
-
         linear-gradient(
-
           to bottom,
-
-          rgba(
-            250,
-            248,
-            244,
-            0.92
-          ) 60%,
-
+          rgba(250, 248, 244, 0.92) 60%,
           transparent
-
         );
 
-
-      letter-spacing:
-        0.16em;
-
-
-      font-size:
-        0.68rem;
-
-
-      text-transform:
-        uppercase;
-
-
-      font-weight:
-        400;
-
+      letter-spacing: 0.16em;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      font-weight: 400;
     }
 
 
 
     nav a {
-
-      text-decoration:
-        none;
-
-      color:
-        var(--navy);
-
-      white-space:
-        nowrap;
+      text-decoration: none;
+      color: var(--navy);
+      white-space: nowrap;
 
       transition:
         color 0.2s,
         opacity 0.2s;
-
     }
 
 
 
     nav a:hover {
-
-      color:
-        var(--blue);
-
-      opacity:
-        0.6;
-
+      color: var(--blue);
+      opacity: 0.6;
     }
 
 
@@ -305,38 +199,18 @@
     ───────────────────────────────────────────── */
 
     .hero {
+      min-height: 100vh;
 
-      min-height:
-        100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
+      text-align: center;
 
-      display:
-        flex;
+      padding: 7rem 2rem 4rem;
 
-
-      flex-direction:
-        column;
-
-
-      align-items:
-        center;
-
-
-      justify-content:
-        center;
-
-
-      text-align:
-        center;
-
-
-      padding:
-        7rem 2rem 4rem;
-
-
-      position:
-        relative;
-
+      position: relative;
     }
 
 
@@ -344,78 +218,27 @@
     /* Decorative top border */
 
     .hero::before {
-
       content: '';
 
-      position:
-        absolute;
+      position: absolute;
 
       top: 0;
-
       left: 0;
-
       right: 0;
 
-      height:
-        6px;
-
+      height: 6px;
 
       background:
-
         linear-gradient(
-
           90deg,
-
           var(--lilac),
-
           var(--blue),
-
           var(--blush),
-
           var(--yellow),
-
           var(--blue-lt),
-
           var(--sage),
-
           var(--lilac)
-
         );
-
-    }
-
-
-
-    /* ─────────────────────────────────────────────
-       EYEBROW
-    ───────────────────────────────────────────── */
-
-    .eyebrow {
-
-      font-family:
-        var(--font-sans);
-
-      font-size:
-        0.65rem;
-
-      letter-spacing:
-        0.3em;
-
-      text-transform:
-        uppercase;
-
-      color:
-        var(--blue);
-
-      margin-bottom:
-        2.5rem;
-
-      opacity:
-        0;
-
-      animation:
-        fadeUp 0.8s 0.2s forwards;
-
     }
 
 
@@ -425,146 +248,78 @@
     ───────────────────────────────────────────── */
 
     .names {
-
-      font-family:
-        var(--font-script);
+      font-family: var(--font-script);
 
       font-size:
-        clamp(
-          3rem,
-          8vw,
-          6rem
-        );
+        clamp(3rem, 8vw, 6rem);
 
-      line-height:
-        1.05;
+      line-height: 1.05;
 
-      color:
-        var(--navy);
+      color: var(--navy);
 
-      opacity:
-        0;
+      opacity: 0;
 
       animation:
         fadeUp 1s 0.4s forwards;
-
     }
 
 
 
     .names .ampersand {
+      display: block;
 
-      display:
-        block;
+      font-size: 0.55em;
 
-      font-size:
-        0.55em;
+      color: var(--navy);
 
-      color:
-        var(--navy);
-
-      line-height:
-        1.2;
-
+      line-height: 1.2;
     }
 
 
 
     /* ─────────────────────────────────────────────
-       DIVIDER
-    ───────────────────────────────────────────── */
-
-    .divider-flourish {
-
-      margin:
-        1.8rem auto;
-
-      width:
-        220px;
-
-      height:
-        20px;
-
-      opacity:
-        0;
-
-      animation:
-        fadeUp 0.8s 0.7s forwards;
-
-    }
-
-
-
-    /* ─────────────────────────────────────────────
-       DATE
+       DATE + INTRO
     ───────────────────────────────────────────── */
 
     .date-line {
-
-      font-family:
-        'Cormorant Upright',
-        serif;
+      font-family: 'Cormorant Upright', serif;
 
       font-size:
-        clamp(
-          1rem,
-          2.7vw,
-          1.75rem
-        );
+        clamp(1rem, 2.7vw, 1.75rem);
 
-      letter-spacing:
-        0.12em;
+      letter-spacing: 0.12em;
 
-      color:
-        var(--navy);
+      color: var(--navy);
 
-      font-weight:
-        400;
+      font-weight: 400;
 
-      opacity:
-        0;
+      opacity: 0;
 
-      margin-top:
-        0.8rem;
+      margin-top: 0.8rem;
 
       animation:
         fadeUp 0.8s 0.9s forwards;
-
     }
 
 
 
-    /* ─────────────────────────────────────────────
-       INVITATION LINE
-    ───────────────────────────────────────────── */
-
     .venue-line {
+      font-family: 'Cormorant Upright', serif;
 
-      font-family:
-        'Cormorant Upright',
-        serif;
+      font-size: 0.9rem;
 
-      font-size:
-        0.9rem;
+      letter-spacing: 0.22em;
 
-      letter-spacing:
-        0.22em;
+      color: var(--blue);
 
-      color:
-        var(--blue);
+      margin-top: 0.8rem;
 
-      margin-top:
-        0.8rem;
-
-      opacity:
-        0;
+      opacity: 0;
 
       animation:
         fadeUp 0.8s 1.05s forwards;
 
-      font-style:
-        italic;
-
+      font-style: italic;
     }
 
 
@@ -574,70 +329,48 @@
     ───────────────────────────────────────────── */
 
     .story-line {
-
-      font-family:
-        'Cormorant Upright',
-        serif;
+      font-family: 'Cormorant Upright', serif;
 
       font-size:
-        clamp(
-          1rem,
-          2.7vw,
-          1.75rem
-        );
+        clamp(1rem, 2.7vw, 1.75rem);
 
-      letter-spacing:
-        0.12em;
+      letter-spacing: 0.12em;
 
-      color:
-        var(--navy);
+      color: var(--navy);
 
-      font-weight:
-        400;
+      font-weight: 400;
 
-      opacity:
-        0;
+      opacity: 0;
 
-      margin-top:
-        2.5rem;
+      margin-top: 2.5rem;
 
       animation:
         fadeUp 0.8s 0.9s forwards;
-
     }
 
 
 
     .story-body {
+      font-family: 'Cormorant Upright', serif;
 
-      font-family:
-        'Cormorant Upright',
-        serif;
+      font-size: 1rem;
 
-      font-size:
-        1rem;
+      line-height: 1.8;
 
-      letter-spacing:
-        0.22em;
+      letter-spacing: 0.08em;
 
-      color:
-        var(--black);
+      color: var(--black);
 
-      margin-top:
-        1.5rem;
+      margin-top: 1.4rem;
 
-      margin-left:
-        11rem;
+      margin-left: 11rem;
 
-      margin-right:
-        11rem;
+      margin-right: 11rem;
 
-      opacity:
-        0;
+      opacity: 0;
 
       animation:
         fadeUp 0.8s 1.05s forwards;
-
     }
 
 
@@ -647,143 +380,95 @@
     ───────────────────────────────────────────── */
 
     .countdown-wrap {
+      margin-top: 3.5rem;
 
-      margin-top:
-        3.5rem;
-
-      opacity:
-        0;
+      opacity: 0;
 
       animation:
         fadeUp 0.8s 1.2s forwards;
-
     }
 
 
 
     .countdown-label {
+      font-size: 0.6rem;
 
-      font-size:
-        0.6rem;
+      letter-spacing: 0.25em;
 
-      letter-spacing:
-        0.25em;
+      text-transform: uppercase;
 
-      text-transform:
-        uppercase;
+      color: var(--gold);
 
-      color:
-        var(--gold);
-
-      margin-bottom:
-        1rem;
-
+      margin-bottom: 1rem;
     }
 
 
 
     .countdown {
+      display: flex;
 
-      display:
-        flex;
+      gap: 2rem;
 
-      gap:
-        2rem;
-
-      justify-content:
-        center;
-
+      justify-content: center;
     }
 
 
 
     .cd-unit {
+      display: flex;
 
-      display:
-        flex;
+      flex-direction: column;
 
-      flex-direction:
-        column;
-
-      align-items:
-        center;
-
+      align-items: center;
     }
 
 
 
     .cd-num {
-
-      font-family:
-        var(--font-serif);
+      font-family: var(--font-serif);
 
       font-size:
-        clamp(
-          2.2rem,
-          5vw,
-          3.5rem
-        );
+        clamp(2.2rem, 5vw, 3.5rem);
 
-      font-weight:
-        300;
+      font-weight: 300;
 
-      color:
-        var(--navy);
+      color: var(--navy);
 
-      line-height:
-        1;
+      line-height: 1;
 
-      min-width:
-        2.2ch;
+      min-width: 2.2ch;
 
-      text-align:
-        center;
-
+      text-align: center;
     }
 
 
 
     .cd-lbl {
+      font-size: 0.58rem;
 
-      font-size:
-        0.58rem;
+      letter-spacing: 0.2em;
 
-      letter-spacing:
-        0.2em;
+      text-transform: uppercase;
 
-      text-transform:
-        uppercase;
+      color: var(--blue);
 
-      color:
-        var(--blue);
-
-      margin-top:
-        0.4rem;
-
+      margin-top: 0.4rem;
     }
 
 
 
     .cd-sep {
+      font-family: var(--font-serif);
 
-      font-family:
-        var(--font-serif);
+      font-size: 2.5rem;
 
-      font-size:
-        2.5rem;
+      color: var(--blue-lt);
 
-      color:
-        var(--blue-lt);
+      align-self: flex-start;
 
-      align-self:
-        flex-start;
+      margin-top: 0.1rem;
 
-      margin-top:
-        0.1rem;
-
-      line-height:
-        1;
-
+      line-height: 1;
     }
 
 
@@ -793,186 +478,49 @@
     ───────────────────────────────────────────── */
 
     .rsvp-wrap {
+      margin-top: 3rem;
 
-      margin-top:
-        3rem;
-
-      opacity:
-        0;
+      opacity: 0;
 
       animation:
         fadeUp 0.8s 1.4s forwards;
-
     }
 
 
 
     .btn-rsvp {
+      display: inline-block;
 
-      display:
-        inline-block;
+      text-decoration: none;
 
-      text-decoration:
-        none;
+      font-family: var(--font-sans);
 
-      font-family:
-        var(--font-sans);
+      font-size: 0.68rem;
 
-      font-size:
-        0.68rem;
+      letter-spacing: 0.25em;
 
-      letter-spacing:
-        0.25em;
+      text-transform: uppercase;
 
-      text-transform:
-        uppercase;
+      color: var(--white);
 
-      color:
-        var(--white);
+      background: var(--navy);
 
-      background:
-        var(--navy);
+      padding: 0.9rem 2.8rem;
 
-      padding:
-        0.9rem 2.8rem;
-
-      border:
-        1px solid var(--navy);
+      border: 1px solid var(--navy);
 
       transition:
         background 0.25s,
         color 0.25s;
 
-      cursor:
-        pointer;
-
+      cursor: pointer;
     }
 
 
 
     .btn-rsvp:hover {
-
-      background:
-        transparent;
-
-      color:
-        var(--navy);
-
-    }
-
-
-
-    /* ─────────────────────────────────────────────
-       DETAILS STRIP
-    ───────────────────────────────────────────── */
-
-    .details-strip {
-
-      border-top:
-        1px solid rgba(
-          43,
-          74,
-          111,
-          0.12
-        );
-
-
-      display:
-        flex;
-
-
-      justify-content:
-        center;
-
-
-      gap:
-        0;
-
-
-      flex-wrap:
-        wrap;
-
-    }
-
-
-
-    .details-item {
-
-      padding:
-        2.4rem 3.5rem;
-
-
-      text-align:
-        center;
-
-
-      border-right:
-        1px solid rgba(
-          43,
-          74,
-          111,
-          0.1
-        );
-
-
-      flex:
-        1;
-
-
-      min-width:
-        160px;
-
-    }
-
-
-
-    .details-item:last-child {
-
-      border-right:
-        none;
-
-    }
-
-
-
-    .details-item h3 {
-
-      font-family:
-        var(--font-serif);
-
-      font-weight:
-        400;
-
-      font-size:
-        1.05rem;
-
-      font-style:
-        italic;
-
-      color:
-        var(--navy);
-
-      margin-bottom:
-        0.3rem;
-
-    }
-
-
-
-    .details-item p {
-
-      font-size:
-        0.68rem;
-
-      letter-spacing:
-        0.12em;
-
-      color:
-        var(--blue);
-
-      text-transform:
-        uppercase;
-
+      background: transparent;
+      color: var(--navy);
     }
 
 
@@ -982,62 +530,38 @@
     ───────────────────────────────────────────── */
 
     footer {
+      text-align: center;
 
-      text-align:
-        center;
+      padding: 2rem;
 
-      padding:
-        2rem;
+      font-size: 0.6rem;
 
-      font-size:
-        0.6rem;
+      letter-spacing: 0.18em;
 
-      letter-spacing:
-        0.18em;
+      text-transform: uppercase;
 
-      text-transform:
-        uppercase;
-
-      color:
-        var(--blue-lt);
+      color: var(--blue-lt);
 
       border-top:
-        1px solid rgba(
-          43,
-          74,
-          111,
-          0.08
-        );
-
+        1px solid rgba(43, 74, 111, 0.08);
     }
 
 
 
     /* ─────────────────────────────────────────────
-       ANIMATIONS
+       ANIMATION
     ───────────────────────────────────────────── */
 
     @keyframes fadeUp {
 
       from {
-
-        opacity:
-          0;
-
-        transform:
-          translateY(18px);
-
+        opacity: 0;
+        transform: translateY(18px);
       }
 
-
       to {
-
-        opacity:
-          1;
-
-        transform:
-          translateY(0);
-
+        opacity: 1;
+        transform: translateY(0);
       }
 
     }
@@ -1051,27 +575,17 @@
     @media (max-width: 900px) {
 
       nav {
+        gap: 0.8rem 1.4rem;
 
-        gap:
-          0.8rem 1.4rem;
+        font-size: 0.6rem;
 
-        font-size:
-          0.6rem;
-
-        letter-spacing:
-          0.12em;
-
+        letter-spacing: 0.12em;
       }
 
 
       .story-body {
-
-        margin-left:
-          4rem;
-
-        margin-right:
-          4rem;
-
+        margin-left: 4rem;
+        margin-right: 4rem;
       }
 
     }
@@ -1085,65 +599,38 @@
     @media (max-width: 600px) {
 
       nav {
+        gap: 0.65rem 1rem;
 
-        gap:
-          0.65rem 1rem;
+        padding: 1rem 0.7rem;
 
-        padding:
-          1rem 0.7rem;
+        font-size: 0.52rem;
 
-        font-size:
-          0.52rem;
-
-        letter-spacing:
-          0.1em;
-
+        letter-spacing: 0.1em;
       }
 
 
       .hero {
-
-        padding-top:
-          8rem;
-
+        padding-top: 8rem;
       }
 
 
       .countdown {
-
-        gap:
-          0.65rem;
-
+        gap: 0.65rem;
       }
 
 
       .cd-sep {
-
-        font-size:
-          1.8rem;
-
+        font-size: 1.8rem;
       }
 
 
       .story-body {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
 
-        margin-left:
-          1.5rem;
+        letter-spacing: 0.04em;
 
-        margin-right:
-          1.5rem;
-
-        letter-spacing:
-          0.12em;
-
-      }
-
-
-      .details-item {
-
-        padding:
-          1.8rem 1.5rem;
-
+        line-height: 1.8;
       }
 
     }
@@ -1157,32 +644,25 @@
 <body>
 
 
-  <!-- ═══════════════════════════════════════════
-       NAVIGATION
-  ═══════════════════════════════════════════ -->
+  <!-- NAVIGATION -->
 
   <nav>
-
 
     <a href="details.html">
       Details
     </a>
 
-
     <a href="travel.html">
       Travel
     </a>
-
 
     <a href="wedding-party.html">
       Wedding Party
     </a>
 
-
     <a href="gallery.html">
       Gallery
     </a>
-
 
     <a
       href="https://www.crateandbarrel.com/gift-registry/krista-wysolmierski-and-noah-jones/r7508619"
@@ -1192,7 +672,6 @@
       Registry
     </a>
 
-
     <a
       href="https://noahandkristajones.minted.us/rsvp"
       target="_blank"
@@ -1201,14 +680,11 @@
       RSVP
     </a>
 
-
   </nav>
 
 
 
-  <!-- ═══════════════════════════════════════════
-       HERO
-  ═══════════════════════════════════════════ -->
+  <!-- HERO -->
 
   <section class="hero page">
 
@@ -1228,17 +704,13 @@
 
 
     <p class="venue-line">
-
       please join us to celebrate our wedding on
-
     </p>
 
 
 
     <p class="date-line">
-
       JANUARY 16, 2027
-
     </p>
 
 
@@ -1247,11 +719,8 @@
 
     <div class="countdown-wrap">
 
-
       <p class="countdown-label">
-
         Days until forever
-
       </p>
 
 
@@ -1369,53 +838,31 @@
 
 
 
-    <!-- ═══════════════════════════════════════════
-         OUR STORY
-    ═══════════════════════════════════════════ -->
+    <!-- OUR STORY -->
 
     <p class="story-line">
-
       OUR STORY
-
     </p>
 
 
 
     <p class="story-body">
-
-      Our journey began sophomore year of college at ASU,
-      when we were introduced by mutual friends. We stayed
-      friends for a while, and then began dating junior year
-      of college (and the rest is history!)
-
+      Our story began sophomore year at ASU, when mutual friends brought us together.
+      We started as friends, began dating junior year, and the rest is history!
     </p>
 
 
 
     <p class="story-body">
-
-      Noah got down on one knee on the beach on July 5, 2027
-      in Coronado, California. Needless to say, it was an easy
-      YES!
-
+      On July 5, 2027, Noah proposed on the beach in Coronado, California.
+      After the easiest <strong>YES!</strong>, we celebrated over dinner at
+      Hotel del Coronado with some of our favorite people.
     </p>
 
 
 
     <p class="story-body">
-
-      Afterwards, we headed to dinner at Hotel Del Coronado,
-      and spent the night celebrating with some of our
-      favorite people.
-
-    </p>
-
-
-
-    <p class="story-body">
-
-      We are SO excited to celebrate our marriage with you all!
-
+      Now, we can’t wait for the next chapter—and to celebrate with all of you!
     </p>
 
 
@@ -1423,24 +870,17 @@
 
 
 
-  <!-- ═══════════════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════════════ -->
+  <!-- FOOTER -->
 
   <footer>
-
     Krista Wysolmierski & Noah Jones · January 16, 2027 · Temecula, California
-
   </footer>
 
 
 
-  <!-- ═══════════════════════════════════════════
-       COUNTDOWN SCRIPT
-  ═══════════════════════════════════════════ -->
+  <!-- COUNTDOWN SCRIPT -->
 
   <script>
-
 
     const wedding =
       new Date(
@@ -1448,9 +888,7 @@
       );
 
 
-
     function updateCountdown() {
-
 
       const now =
         new Date();
@@ -1460,21 +898,16 @@
         wedding - now;
 
 
-
       if (diff <= 0) {
-
 
         document
           .getElementById('countdown')
           .innerHTML =
-
           '<span style="font-family:var(--font-serif);font-style:italic;font-size:1.4rem;color:var(--navy)">Today is the day! 🌸</span>';
-
 
         return;
 
       }
-
 
 
       const d =
@@ -1504,7 +937,6 @@
         );
 
 
-
       document
         .getElementById('cd-days')
         .textContent =
@@ -1512,7 +944,6 @@
           3,
           '0'
         );
-
 
 
       document
@@ -1524,7 +955,6 @@
         );
 
 
-
       document
         .getElementById('cd-mins')
         .textContent =
@@ -1532,7 +962,6 @@
           2,
           '0'
         );
-
 
 
       document
@@ -1543,9 +972,7 @@
           '0'
         );
 
-
     }
-
 
 
     updateCountdown();
@@ -1555,7 +982,6 @@
       updateCountdown,
       1000
     );
-
 
   </script>
 
