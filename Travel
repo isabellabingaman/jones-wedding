@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Travel — Krista & Noah</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+
+    /* ─────────────────────────────────────────────
+       RESET
+    ───────────────────────────────────────────── */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       ABRAMA SERIF
+    ───────────────────────────────────────────── */
+
+    @font-face {
+      font-family: 'Abrama Serif';
+      src: url('assets/fonts/AbramaSerif-Regular.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       COLORS + FONTS
+    ───────────────────────────────────────────── */
+
+    :root {
+      --cream: #fdf9f5;
+      --white: #ffffff;
+      --navy: #3b1f2b;
+
+      --font-display: 'Abrama Serif', serif;
+      --font-body: 'Jost', sans-serif;
+
+      --content-width: 980px;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      background-color: var(--cream);
+      color: var(--navy);
+
+      font-family: var(--font-body);
+      font-weight: 300;
+
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       WINERY BACKGROUND
+    ───────────────────────────────────────────── */
+
+    body::before {
+      content: '';
+
+      position: fixed;
+      inset: 0;
+
+      background-image: url('assets/images/BGDesign7.jpg');
+      background-repeat: repeat;
+      background-size: 800px;
+
+      opacity: 0.42;
+
+      z-index: 0;
+      pointer-events: none;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       NAVIGATION
+    ───────────────────────────────────────────── */
+
+    nav {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+      right: 0;
+
+      z-index: 100;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+
+      gap: 2rem;
+
+      padding: 1.4rem 1.5rem;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(253, 249, 245, 0.94) 60%,
+          transparent
+        );
+
+      font-family: var(--font-body);
+
+      font-size: 0.68rem;
+      font-weight: 400;
+
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+
+    nav a {
+      color: var(--navy);
+      text-decoration: none;
+      white-space: nowrap;
+
+      transition: opacity 0.2s ease;
+    }
+
+
+    nav a:hover {
+      opacity: 0.5;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       PAGE
+    ───────────────────────────────────────────── */
+
+    .page {
+      position: relative;
+      z-index: 1;
+
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       PAGE HEADER
+    ───────────────────────────────────────────── */
+
+    .page-header {
+      text-align: center;
+
+      margin-bottom: 4rem;
+      padding: 0 2rem;
+    }
+
+
+    .eyebrow {
+      font-family: var(--font-body);
+
+      font-size: 0.65rem;
+      font-weight: 400;
+
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+
+      color: var(--navy);
+
+      margin-bottom: 2rem;
+
+      opacity: 0;
+
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+
+    .page-header h1 {
+      font-family: var(--font-display);
+
+      font-size: clamp(3.5rem, 9vw, 6.5rem);
+      font-weight: normal;
+
+      line-height: 1;
+
+      color: var(--navy);
+
+      opacity: 0;
+
+      animation: fadeUp 0.9s 0.4s forwards;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       TRAVEL CONTAINER
+    ───────────────────────────────────────────── */
+
+    .travel-content {
+      max-width: var(--content-width);
+
+      margin: 0 auto;
+      padding: 0 2rem;
+
+      display: grid;
+      gap: 1.5rem;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       CARDS
+    ───────────────────────────────────────────── */
+
+    .travel-section {
+      position: relative;
+
+      padding: 2.6rem 2.7rem;
+
+      background: rgba(253, 249, 245, 0.84);
+
+      border: 1px solid rgba(59, 31, 43, 0.10);
+      border-radius: 22px;
+
+      box-shadow: 0 18px 45px rgba(59, 31, 43, 0.07);
+
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+
+      opacity: 0;
+
+      animation: fadeUp 0.8s forwards;
+    }
+
+
+    .travel-section:nth-child(1) {
+      animation-delay: 0.4s;
+    }
+
+
+    .travel-section:nth-child(2) {
+      animation-delay: 0.6s;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       SECTION HEADERS
+    ───────────────────────────────────────────── */
+
+    .section-header {
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.8rem;
+
+      border-bottom: 1px solid rgba(59, 31, 43, 0.10);
+    }
+
+
+    .section-title {
+      font-family: var(--font-display);
+
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      font-weight: normal;
+
+      line-height: 1;
+
+      color: var(--navy);
+    }
+
+
+    /* ─────────────────────────────────────────────
+       BODY TEXT
+    ───────────────────────────────────────────── */
+
+    .travel-text {
+      font-family: var(--font-body);
+
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
+
+      line-height: 1.8;
+      letter-spacing: 0.01em;
+
+      color: var(--navy);
+
+      font-weight: 300;
+    }
+
+
+    .travel-text + .travel-text {
+      margin-top: 1rem;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       AIRPORTS
+    ───────────────────────────────────────────── */
+
+    .airport-list {
+      display: grid;
+
+      gap: 0.85rem;
+
+      margin: 1.6rem 0;
+    }
+
+
+    .airport {
+      padding: 1.1rem 1.2rem;
+
+      background: rgba(255, 255, 255, 0.45);
+
+      border: 1px solid rgba(59, 31, 43, 0.08);
+      border-radius: 14px;
+    }
+
+
+    .airport-code {
+      font-family: var(--font-body);
+
+      font-size: 0.65rem;
+      font-weight: 500;
+
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+
+      color: var(--navy);
+
+      opacity: 0.65;
+
+      margin-bottom: 0.3rem;
+    }
+
+
+    .airport-name {
+      font-family: var(--font-body);
+
+      font-size: 0.98rem;
+      font-weight: 400;
+
+      color: var(--navy);
+
+      margin-bottom: 0.25rem;
+    }
+
+
+    .airport-distance {
+      font-family: var(--font-body);
+
+      font-size: 0.86rem;
+      font-weight: 300;
+
+      line-height: 1.6;
+
+      color: var(--navy);
+
+      opacity: 0.8;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       HOTEL
+    ───────────────────────────────────────────── */
+
+    .hotel-name {
+      font-family: var(--font-body);
+
+      font-size: 1.15rem;
+      font-weight: 400;
+
+      color: var(--navy);
+
+      margin-bottom: 1rem;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       BOOKING BUTTON
+    ───────────────────────────────────────────── */
+
+    .button-wrap {
+      margin-top: 1.6rem;
+    }
+
+
+    .booking-button {
+      display: inline-block;
+
+      padding: 0.8rem 1.4rem;
+
+      border: 1px solid var(--navy);
+      border-radius: 999px;
+
+      background: var(--navy);
+
+      font-family: var(--font-body);
+
+      font-size: 0.62rem;
+      font-weight: 400;
+
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+
+      text-decoration: none;
+
+      color: var(--cream);
+
+      transition: all 0.2s ease;
+    }
+
+
+    .booking-button:hover {
+      background: transparent;
+      color: var(--navy);
+    }
+
+
+    /* ─────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────── */
+
+    footer {
+      position: relative;
+      z-index: 1;
+
+      text-align: center;
+
+      padding: 2.5rem 2rem;
+
+      font-family: var(--font-body);
+
+      font-size: 0.58rem;
+      font-weight: 400;
+
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+
+      color: var(--navy);
+
+      opacity: 0.4;
+    }
+
+
+    /* ─────────────────────────────────────────────
+       ANIMATION
+    ───────────────────────────────────────────── */
+
+    @keyframes fadeUp {
+
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+
+    /* ─────────────────────────────────────────────
+       MOBILE
+    ───────────────────────────────────────────── */
+
+    @media (max-width: 720px) {
+
+      nav {
+        gap: 0.65rem 1rem;
+
+        padding: 1rem 0.7rem;
+
+        font-size: 0.52rem;
+
+        letter-spacing: 0.10em;
+      }
+
+
+      .page {
+        padding-top: 8rem;
+      }
+
+
+      .page-header {
+        margin-bottom: 3rem;
+      }
+
+
+      .travel-content {
+        padding: 0 1rem;
+      }
+
+
+      .travel-section {
+        padding: 1.8rem 1.4rem;
+
+        border-radius: 16px;
+      }
+
+
+      .airport {
+        padding: 1rem;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- NAVIGATION -->
+
+  <nav>
+
+    <a href="index.html">
+      Home
+    </a>
+
+    <a href="details.html">
+      Details
+    </a>
+
+    <a href="travel.html">
+      Travel
+    </a>
+
+    <a href="wedding-party.html">
+      Wedding Party
+    </a>
+
+    <a href="gallery.html">
+      Gallery
+    </a>
+
+    <a
+      href="https://www.crateandbarrel.com/gift-registry/krista-wysolmierski-and-noah-jones/r7508619"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Registry
+    </a>
+
+    <a
+      href="https://noahandkristajones.minted.us/rsvp"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      RSVP
+    </a>
+
+  </nav>
+
+
+  <!-- PAGE -->
+
+  <div class="page">
+
+
+    <!-- PAGE HEADER -->
+
+    <header class="page-header">
+
+      <p class="eyebrow">
+        January 16, 2027 · Temecula, California
+      </p>
+
+      <h1>
+        Travel
+      </h1>
+
+    </header>
+
+
+    <!-- TRAVEL CONTENT -->
+
+    <main class="travel-content">
+
+
+      <!-- ═══════════════════════════════════════════
+           GETTING THERE
+      ═══════════════════════════════════════════ -->
+
+      <section class="travel-section">
+
+
+        <div class="section-header">
+
+          <h2 class="section-title">
+            Getting There
+          </h2>
+
+        </div>
+
+
+        <p class="travel-text">
+
+          Temecula does not have its own commercial airport, but there
+          are several convenient airports within about an hour’s drive
+          of the city.
+
+        </p>
+
+
+        <div class="airport-list">
+
+
+          <!-- ONTARIO -->
+
+          <div class="airport">
+
+            <p class="airport-code">
+              ONT
+            </p>
+
+            <p class="airport-name">
+              Ontario International Airport
+            </p>
+
+            <p class="airport-distance">
+              Approximately 54 miles away · About a 55-minute drive
+            </p>
+
+          </div>
+
+
+          <!-- JOHN WAYNE -->
+
+          <div class="airport">
+
+            <p class="airport-code">
+              SNA
+            </p>
+
+            <p class="airport-name">
+              John Wayne Airport
+            </p>
+
+            <p class="airport-distance">
+              Approximately 43 miles away · About a 50–60 minute drive
+            </p>
+
+          </div>
+
+
+          <!-- SAN DIEGO -->
+
+          <div class="airport">
+
+            <p class="airport-code">
+              SAN
+            </p>
+
+            <p class="airport-name">
+              San Diego International Airport
+            </p>
+
+            <p class="airport-distance">
+              Approximately 60 miles away · About a 60-minute drive,
+              depending on traffic
+            </p>
+
+          </div>
+
+
+        </div>
+
+
+        <p class="travel-text">
+
+          We recommend renting a car or using a rideshare service to
+          travel between the airport and Temecula.
+
+        </p>
+
+
+      </section>
+
+
+
+      <!-- ═══════════════════════════════════════════
+           WHERE TO STAY
+      ═══════════════════════════════════════════ -->
+
+      <section class="travel-section">
+
+
+        <div class="section-header">
+
+          <h2 class="section-title">
+            Where to Stay
+          </h2>
+
+        </div>
+
+
+        <p class="hotel-name">
+          South Coast Winery Resort &amp; Spa
+        </p>
+
+
+        <p class="travel-text">
+
+          We have reserved a room block at South Coast Winery Resort
+          &amp; Spa, where many of our wedding events will take place.
+          Our discounted group rate is available for stays Thursday
+          through Monday.
+
+        </p>
+
+
+        <p class="travel-text">
+
+          To reserve your room, please use the booking link below.
+
+        </p>
+
+
+        <div class="button-wrap">
+
+          <a
+            href="https://www.reseze.net/servlet/SendPage?hotelid=1808&amp;skipfirstpage=true&amp;page=104804"
+            class="booking-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Book Your Room
+          </a>
+
+        </div>
+
+
+        <p
+          class="travel-text"
+          style="margin-top: 1.8rem;"
+        >
+
+          If you prefer other accommodations, there are also many
+          nearby hotels and Airbnb rentals throughout the Temecula
+          Wine Country area.
+
+        </p>
+
+
+      </section>
+
+
+    </main>
+
+  </div>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+    Krista Wysolmierski & Noah Jones · January 16, 2027 · Temecula, California
+  </footer>
+
+
+</body>
+
+</html>
