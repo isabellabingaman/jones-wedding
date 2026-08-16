@@ -2,19 +2,35 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
   <title>Wedding Party — Krista & Noah</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- GOOGLE FONTS -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
 
   <link
     href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap"
     rel="stylesheet"
   />
+
 
   <style>
 
@@ -125,6 +141,8 @@
           transparent
         );
 
+      font-family: var(--font-body);
+
       font-size: 0.68rem;
       font-weight: 400;
 
@@ -161,7 +179,7 @@
 
 
     /* ─────────────────────────────────────────────
-       HEADER
+       PAGE HEADER
     ───────────────────────────────────────────── */
 
     .page-header {
@@ -173,6 +191,8 @@
 
 
     .eyebrow {
+      font-family: var(--font-body);
+
       font-size: 0.65rem;
       font-weight: 400;
 
@@ -216,7 +236,9 @@
       padding: 0 2rem;
 
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
 
       gap: 5rem;
     }
@@ -240,7 +262,7 @@
 
 
     /* ─────────────────────────────────────────────
-       COLUMN HEADER
+       COLUMN HEADERS
     ───────────────────────────────────────────── */
 
     .column-title {
@@ -273,6 +295,7 @@
 
     .party-member {
       display: flex;
+
       justify-content: space-between;
       align-items: baseline;
 
@@ -280,11 +303,14 @@
 
       padding: 1rem 0;
 
-      border-bottom: 1px solid rgba(59, 31, 43, 0.08);
+      border-bottom:
+        1px solid rgba(59, 31, 43, 0.08);
     }
 
 
     .member-name {
+      font-family: var(--font-body);
+
       font-size: 0.98rem;
       font-weight: 400;
 
@@ -295,6 +321,8 @@
 
 
     .member-role {
+      font-family: var(--font-body);
+
       font-size: 0.64rem;
       font-weight: 400;
 
@@ -323,6 +351,11 @@
 
       padding: 2.5rem 2rem;
 
+      border-top:
+        1px solid rgba(59, 31, 43, 0.08);
+
+      font-family: var(--font-body);
+
       font-size: 0.58rem;
       font-weight: 400;
 
@@ -349,6 +382,23 @@
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+
+    }
+
+
+    /* ─────────────────────────────────────────────
+       TABLET
+    ───────────────────────────────────────────── */
+
+    @media (max-width: 900px) {
+
+      nav {
+        gap: 0.8rem 1.4rem;
+
+        font-size: 0.6rem;
+
+        letter-spacing: 0.12em;
       }
 
     }
@@ -414,7 +464,9 @@
 <body>
 
 
-  <!-- NAVIGATION -->
+  <!-- ─────────────────────────────────────────────
+       NAVIGATION
+  ───────────────────────────────────────────── -->
 
   <nav>
 
@@ -438,31 +490,26 @@
       Gallery
     </a>
 
-    <a
-      href="https://www.crateandbarrel.com/gift-registry/krista-wysolmierski-and-noah-jones/r7508619"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href="registry.html">
       Registry
     </a>
 
-    <a
-      href="https://noahandkristajones.minted.us/rsvp"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href="rsvp.html">
       RSVP
     </a>
 
   </nav>
 
 
-  <!-- PAGE -->
+
+  <!-- ─────────────────────────────────────────────
+       PAGE
+  ───────────────────────────────────────────── -->
 
   <div class="page">
 
 
-    <!-- HEADER -->
+    <!-- PAGE HEADER -->
 
     <header class="page-header">
 
@@ -477,197 +524,401 @@
     </header>
 
 
+
     <!-- WEDDING PARTY -->
 
     <main class="party-content">
 
 
-      <!-- BRIDAL PARTY -->
+      <!-- ─────────────────────────────────────────
+           BRIDAL PARTY
+      ────────────────────────────────────────── -->
 
       <section class="party-column">
+
 
         <h2 class="column-title">
           Bridal Party
         </h2>
 
+
         <div class="column-rule"></div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Dana Stephan</span>
-          <span class="member-role">Matron of Honor</span>
+
+          <span class="member-name">
+            Dana Stephan
+          </span>
+
+          <span class="member-role">
+            Matron of Honor
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Emily Julsrud</span>
-          <span class="member-role">Maid of Honor</span>
+
+          <span class="member-name">
+            Emily Julsrud
+          </span>
+
+          <span class="member-role">
+            Maid of Honor
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Emily Michieli</span>
-          <span class="member-role">Matron of Honor</span>
+
+          <span class="member-name">
+            Emily Michieli
+          </span>
+
+          <span class="member-role">
+            Matron of Honor
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Hannah Jones</span>
-          <span class="member-role">Bridesmaid</span>
+
+          <span class="member-name">
+            Hannah Jones
+          </span>
+
+          <span class="member-role">
+            Bridesmaid
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Maddie Dachs</span>
-          <span class="member-role">Bridesmaid</span>
+
+          <span class="member-name">
+            Maddie Dachs
+          </span>
+
+          <span class="member-role">
+            Bridesmaid
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Emma Smith</span>
-          <span class="member-role">Bridesmaid</span>
+
+          <span class="member-name">
+            Emma Smith
+          </span>
+
+          <span class="member-role">
+            Bridesmaid
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Presley Panagiotoglou</span>
-          <span class="member-role">Bridesmaid</span>
+
+          <span class="member-name">
+            Presley Panagiotoglou
+          </span>
+
+          <span class="member-role">
+            Bridesmaid
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Sandi Brickhouse</span>
-          <span class="member-role">Bridesmaid</span>
+
+          <span class="member-name">
+            Sandi Brickhouse
+          </span>
+
+          <span class="member-role">
+            Bridesmaid
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Maddie Dingus</span>
-          <span class="member-role">Bridesmaid</span>
+
+          <span class="member-name">
+            Maddie Dingus
+          </span>
+
+          <span class="member-role">
+            Bridesmaid
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Isabella Rabinovich</span>
-          <span class="member-role">Bridesmaid</span>
+
+          <span class="member-name">
+            Isabella Rabinovich
+          </span>
+
+          <span class="member-role">
+            Bridesmaid
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Marietta Perkins</span>
-          <span class="member-role">Bridesmaid</span>
+
+          <span class="member-name">
+            Marietta Perkins
+          </span>
+
+          <span class="member-role">
+            Bridesmaid
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Lexi Jo Chang</span>
-          <span class="member-role">Bridesmaid</span>
+
+          <span class="member-name">
+            Lexi Jo Chang
+          </span>
+
+          <span class="member-role">
+            Bridesmaid
+          </span>
+
         </div>
+
 
       </section>
 
 
 
-      <!-- GROOMSMEN -->
+      <!-- ─────────────────────────────────────────
+           GROOMSMEN
+      ────────────────────────────────────────── -->
 
       <section class="party-column">
+
 
         <h2 class="column-title">
           Groomsmen
         </h2>
 
+
         <div class="column-rule"></div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Richard Sears</span>
-          <span class="member-role">Best Man</span>
+
+          <span class="member-name">
+            Richard Sears
+          </span>
+
+          <span class="member-role">
+            Best Man
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Rob Stephan</span>
-          <span class="member-role">Groomsman &amp; Officiant</span>
+
+          <span class="member-name">
+            Rob Stephan
+          </span>
+
+          <span class="member-role">
+            Groomsman &amp; Officiant
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Alex Jones</span>
-          <span class="member-role">Groomsman</span>
+
+          <span class="member-name">
+            Alex Jones
+          </span>
+
+          <span class="member-role">
+            Groomsman
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">David Jones</span>
-          <span class="member-role">Groomsman</span>
+
+          <span class="member-name">
+            David Jones
+          </span>
+
+          <span class="member-role">
+            Groomsman
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Harry Nesbitt</span>
-          <span class="member-role">Groomsman</span>
+
+          <span class="member-name">
+            Harry Nesbitt
+          </span>
+
+          <span class="member-role">
+            Groomsman
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Caden Rico</span>
-          <span class="member-role">Groomsman</span>
+
+          <span class="member-name">
+            Caden Rico
+          </span>
+
+          <span class="member-role">
+            Groomsman
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Mitchell Anderson</span>
-          <span class="member-role">Groomsman</span>
+
+          <span class="member-name">
+            Mitchell Anderson
+          </span>
+
+          <span class="member-role">
+            Groomsman
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Hank Hibbeler</span>
-          <span class="member-role">Groomsman</span>
+
+          <span class="member-name">
+            Hank Hibbeler
+          </span>
+
+          <span class="member-role">
+            Groomsman
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Ryan Green</span>
-          <span class="member-role">Groomsman</span>
+
+          <span class="member-name">
+            Ryan Green
+          </span>
+
+          <span class="member-role">
+            Groomsman
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Aaron Samples</span>
-          <span class="member-role">Groomsman</span>
+
+          <span class="member-name">
+            Aaron Samples
+          </span>
+
+          <span class="member-role">
+            Groomsman
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Peyton Mueller</span>
-          <span class="member-role">Groomsman</span>
+
+          <span class="member-name">
+            Peyton Mueller
+          </span>
+
+          <span class="member-role">
+            Groomsman
+          </span>
+
         </div>
 
 
+
         <div class="party-member">
-          <span class="member-name">Devlin Wagner</span>
-          <span class="member-role">Groomsman</span>
+
+          <span class="member-name">
+            Devlin Wagner
+          </span>
+
+          <span class="member-role">
+            Groomsman
+          </span>
+
         </div>
+
 
       </section>
 
 
     </main>
 
+
   </div>
 
 
-  <!-- FOOTER -->
+
+  <!-- ─────────────────────────────────────────────
+       FOOTER
+  ───────────────────────────────────────────── -->
 
   <footer>
+
     Krista Wysolmierski & Noah Jones · January 16, 2027 · Temecula, California
+
   </footer>
-
-
-</body>
-
-</html>
 
 
 </body>
