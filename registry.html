@@ -4,15 +4,27 @@
 <head>
 
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
   <title>Registry — Krista & Noah</title>
 
 
   <!-- GOOGLE FONTS -->
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
 
   <link
     href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap"
@@ -21,7 +33,6 @@
 
 
   <style>
-
 
     /* ─────────────────────────────────────────────
        RESET
@@ -36,7 +47,6 @@
     }
 
 
-
     /* ─────────────────────────────────────────────
        ABRAMA SERIF
     ───────────────────────────────────────────── */
@@ -49,13 +59,13 @@
     }
 
 
-
     /* ─────────────────────────────────────────────
-       COLORS + FONTS
+       VARIABLES
     ───────────────────────────────────────────── */
 
     :root {
       --cream: #fdf9f5;
+      --white: #ffffff;
       --navy: #3b1f2b;
 
       --font-display: 'Abrama Serif', serif;
@@ -65,11 +75,9 @@
     }
 
 
-
     html {
       scroll-behavior: smooth;
     }
-
 
 
     body {
@@ -82,7 +90,6 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
 
 
     /* ─────────────────────────────────────────────
@@ -104,7 +111,6 @@
       z-index: 0;
       pointer-events: none;
     }
-
 
 
     /* ─────────────────────────────────────────────
@@ -136,13 +142,14 @@
           transparent
         );
 
+      font-family: var(--font-body);
+
       font-size: 0.68rem;
       font-weight: 400;
 
       letter-spacing: 0.16em;
       text-transform: uppercase;
     }
-
 
 
     nav a {
@@ -155,11 +162,9 @@
     }
 
 
-
     nav a:hover {
       opacity: 0.5;
     }
-
 
 
     /* ─────────────────────────────────────────────
@@ -180,9 +185,8 @@
     }
 
 
-
     /* ─────────────────────────────────────────────
-       HEADER
+       PAGE HEADER
     ───────────────────────────────────────────── */
 
     .page-header {
@@ -192,8 +196,9 @@
     }
 
 
-
     .eyebrow {
+      font-family: var(--font-body);
+
       font-size: 0.65rem;
       font-weight: 400;
 
@@ -206,15 +211,17 @@
 
       opacity: 0;
 
-      animation: fadeUp 0.8s 0.2s forwards;
+      animation:
+        fadeUp 0.8s 0.2s forwards;
     }
-
 
 
     .page-header h1 {
       font-family: var(--font-display);
 
-      font-size: clamp(3.5rem, 9vw, 6.5rem);
+      font-size:
+        clamp(3.5rem, 9vw, 6.5rem);
+
       font-weight: normal;
 
       line-height: 1;
@@ -223,9 +230,9 @@
 
       opacity: 0;
 
-      animation: fadeUp 0.9s 0.4s forwards;
+      animation:
+        fadeUp 0.9s 0.4s forwards;
     }
-
 
 
     /* ─────────────────────────────────────────────
@@ -240,9 +247,9 @@
 
       opacity: 0;
 
-      animation: fadeUp 0.8s 0.6s forwards;
+      animation:
+        fadeUp 0.8s 0.6s forwards;
     }
-
 
 
     /* ─────────────────────────────────────────────
@@ -254,6 +261,8 @@
 
       margin: 0 auto 3rem;
 
+      font-family: var(--font-body);
+
       font-size: 1rem;
       font-weight: 300;
 
@@ -263,11 +272,9 @@
     }
 
 
-
     .registry-message strong {
       font-weight: 400;
     }
-
 
 
     /* ─────────────────────────────────────────────
@@ -278,15 +285,14 @@
       width: 50px;
       height: 1px;
 
-      background: rgba(59, 31, 43, 0.3);
+      background: rgba(59, 31, 43, 0.30);
 
       margin: 0 auto 3rem;
     }
 
 
-
     /* ─────────────────────────────────────────────
-       REGISTRY LINKS
+       REGISTRY BUTTONS
     ───────────────────────────────────────────── */
 
     .registry-links {
@@ -299,7 +305,6 @@
 
       flex-wrap: wrap;
     }
-
 
 
     .registry-button {
@@ -336,7 +341,6 @@
     }
 
 
-
     .registry-button:hover {
       background: var(--cream);
 
@@ -346,9 +350,8 @@
     }
 
 
-
     /* ─────────────────────────────────────────────
-       LITTLE CLOSING
+       CLOSING
     ───────────────────────────────────────────── */
 
     .with-love {
@@ -357,10 +360,10 @@
       font-family: var(--font-display);
 
       font-size: 2rem;
+      font-weight: normal;
 
       color: var(--navy);
     }
-
 
 
     /* ─────────────────────────────────────────────
@@ -375,7 +378,10 @@
 
       padding: 2.5rem 2rem;
 
-      border-top: 1px solid rgba(59, 31, 43, 0.08);
+      border-top:
+        1px solid rgba(59, 31, 43, 0.08);
+
+      font-family: var(--font-body);
 
       font-size: 0.58rem;
       font-weight: 400;
@@ -387,7 +393,6 @@
 
       opacity: 0.4;
     }
-
 
 
     /* ─────────────────────────────────────────────
@@ -408,6 +413,22 @@
 
     }
 
+
+    /* ─────────────────────────────────────────────
+       TABLET
+    ───────────────────────────────────────────── */
+
+    @media (max-width: 900px) {
+
+      nav {
+        gap: 0.8rem 1.4rem;
+
+        font-size: 0.6rem;
+
+        letter-spacing: 0.12em;
+      }
+
+    }
 
 
     /* ─────────────────────────────────────────────
@@ -457,7 +478,6 @@
 
     }
 
-
   </style>
 
 </head>
@@ -496,11 +516,7 @@
       Registry
     </a>
 
-    <a
-      href="https://noahandkristajones.minted.us/rsvp"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href="rsvp.html">
       RSVP
     </a>
 
@@ -515,7 +531,7 @@
   <main class="page">
 
 
-    <!-- HEADER -->
+    <!-- PAGE HEADER -->
 
     <header class="page-header">
 
@@ -545,7 +561,7 @@
         <br /><br />
 
         For those who have asked, we have created registries at Amazon
-        and Crate & Barrel.
+        and Crate &amp; Barrel.
 
       </p>
 
@@ -581,7 +597,7 @@
           rel="noopener noreferrer"
           class="registry-button"
         >
-          Crate & Barrel Registry
+          Crate &amp; Barrel Registry
         </a>
 
 
@@ -606,13 +622,12 @@
   ───────────────────────────────────────────── -->
 
   <footer>
+
     Krista Wysolmierski & Noah Jones · January 16, 2027 · Temecula, California
+
   </footer>
 
 
-</body>
-
-</html>
 </body>
 
 </html>
