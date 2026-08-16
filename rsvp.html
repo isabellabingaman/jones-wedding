@@ -139,6 +139,8 @@
           transparent
         );
 
+      font-family: var(--font-body);
+
       font-size: 0.68rem;
       font-weight: 400;
 
@@ -556,13 +558,16 @@
 
       padding: 2.5rem 2rem;
 
-      border-top: 1px solid rgba(59, 31, 43, 0.08);
+      border-top:
+        1px solid rgba(59, 31, 43, 0.08);
 
       font-size: 0.58rem;
       font-weight: 400;
 
       letter-spacing: 0.18em;
       text-transform: uppercase;
+
+      color: var(--navy);
 
       opacity: 0.4;
     }
@@ -582,6 +587,23 @@
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+
+    }
+
+
+    /* ─────────────────────────────────────────────
+       TABLET
+    ───────────────────────────────────────────── */
+
+    @media (max-width: 900px) {
+
+      nav {
+        gap: 0.8rem 1.4rem;
+
+        font-size: 0.6rem;
+
+        letter-spacing: 0.12em;
       }
 
     }
@@ -635,7 +657,9 @@
 <body>
 
 
-  <!-- NAVIGATION -->
+  <!-- ─────────────────────────────────────────────
+       NAVIGATION
+  ───────────────────────────────────────────── -->
 
   <nav>
 
@@ -671,7 +695,9 @@
 
 
 
-  <!-- PAGE -->
+  <!-- ─────────────────────────────────────────────
+       PAGE
+  ───────────────────────────────────────────── -->
 
   <main class="page">
 
@@ -693,8 +719,7 @@
       <p class="intro">
 
         We can’t wait to celebrate with you.
-        Please enter your first and last name exactly
-        as it appears on your invitation.
+        Please enter your first or last name to find your invitation.
 
       </p>
 
@@ -720,7 +745,7 @@
           type="text"
           id="guestLookup"
           autocomplete="name"
-          placeholder="First and last name"
+          placeholder="First name, last name, or full name"
         />
 
 
@@ -806,7 +831,9 @@
 
 
 
-  <!-- FOOTER -->
+  <!-- ─────────────────────────────────────────────
+       FOOTER
+  ───────────────────────────────────────────── -->
 
   <footer>
 
@@ -818,21 +845,19 @@
 
 
 
-  <!-- RSVP JAVASCRIPT -->
+  <!-- ─────────────────────────────────────────────
+       RSVP JAVASCRIPT
+  ───────────────────────────────────────────── -->
 
   <script>
 
 
-    /* ─────────────────────────────────────────────
-       GOOGLE APPS SCRIPT WEB APP
-    ───────────────────────────────────────────── */
+    /* GOOGLE APPS SCRIPT WEB APP */
 
     const SCRIPT_URL =
       'https://script.google.com/macros/s/AKfycbyUnvbJ3h1hD4zxzKuvBPfCt7wzaPr9aVjOoJeWNsCEApCwyWBIWF5AmL69e8VRVw4MRA/exec';
 
 
-
-    /* Current household */
 
     let currentPartyId = '';
 
@@ -1006,7 +1031,7 @@
       if (!name) {
 
         showLookupError(
-          'Please enter your first and last name.'
+          'Please enter your first or last name.'
         );
 
         return;
