@@ -1,446 +1,1565 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Krista & Noah — January 16, 2027</title>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:ital,wght@0,300;0,400;1,300;1,400&family=Pinyon+Script&family=Petit+Formal+Script&family=Jost:wght@300;400&family=Cormorant+SC:wght@300;400&display=swap" rel="stylesheet" />
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>
+    Krista & Noah — January 16, 2027
+  </title>
+
+
+  <!-- FONTS -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:ital,wght@0,300;0,400;1,300;1,400&family=Pinyon+Script&family=Petit+Formal+Script&family=Jost:wght@300;400&family=Cormorant+SC:wght@300;400&display=swap"
+    rel="stylesheet"
+  />
+
 
   <style>
-    /* ── Reset & Tokens ────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+
+    /* ─────────────────────────────────────────────
+       RESET
+    ───────────────────────────────────────────── */
+
+    *,
+    *::before,
+    *::after {
+
+      box-sizing: border-box;
+
+      margin: 0;
+
+      padding: 0;
+
+    }
+
+
+
+    /* ─────────────────────────────────────────────
+       ABRAMA SERIF
+    ───────────────────────────────────────────── */
 
     @font-face {
+
       font-family: 'Abrama Serif';
-      src: url('assets/fonts/AbramaSerif-Regular.woff2') format('woff2');
+
+      src:
+        url('assets/fonts/AbramaSerif-Regular.woff2')
+        format('woff2');
+
       font-weight: normal;
+
       font-style: normal;
+
     }
+
+
+
+    /* ─────────────────────────────────────────────
+       COLORS + FONTS
+    ───────────────────────────────────────────── */
 
     :root {
-      --cream:   #fdf9f5;
-      --white:   #ffffff;
-      --navy:    #3b1f2b;
-      --blue:    #7a3b3b;
-      --blue-lt: #a05c4a;
-      --lilac:   #8b3a52;
-      --blush:   #c47a5a;
-      --sage:    #6b7c41;
-      --yellow:  #d4845a;
-      --gold:    #b85c38;
-      --black:   #000000;
 
-      --font-script: 'Abrama Serif', serif;
-      --font-serif:  'Cormorant Upright', serif;
-      --font-sans:   'Jost', sans-serif;
+      --cream: #fdf9f5;
+
+      --white: #ffffff;
+
+      --navy: #3b1f2b;
+
+      --blue: #7a3b3b;
+
+      --blue-lt: #a05c4a;
+
+      --lilac: #8b3a52;
+
+      --blush: #c47a5a;
+
+      --sage: #6b7c41;
+
+      --yellow: #d4845a;
+
+      --gold: #b85c38;
+
+      --black: #000000;
+
+
+      --font-script:
+        'Abrama Serif',
+        serif;
+
+
+      --font-serif:
+        'Cormorant Upright',
+        serif;
+
+
+      --font-sans:
+        'Jost',
+        sans-serif;
+
     }
 
-    html { scroll-behavior: smooth; }
+
+
+    html {
+
+      scroll-behavior: smooth;
+
+    }
+
+
 
     body {
-      background-color: var(--cream);
-      color: var(--navy);
-      font-family: var(--font-sans);
+
+      background-color:
+        var(--cream);
+
+      color:
+        var(--navy);
+
+      font-family:
+        var(--font-sans);
+
       font-weight: 300;
+
       overflow-x: hidden;
+
     }
-    /* ── Background pattern ─────────────────────────────────────────── */
+
+
+
+    /* ─────────────────────────────────────────────
+       WINERY BACKGROUND
+    ───────────────────────────────────────────── */
+
     body::before {
+
       content: '';
+
       position: fixed;
+
       inset: 0;
-      background-image: url('assets/images/BGDesign7.jpg');
-      background-repeat: repeat;
-      background-size: 800px;
-      opacity: 0.42;
-      z-index: 0;
-      pointer-events: none;
+
+      background-image:
+        url('assets/images/BGDesign7.jpg');
+
+      background-repeat:
+        repeat;
+
+      background-size:
+        800px;
+
+      opacity:
+        0.42;
+
+      z-index:
+        0;
+
+      pointer-events:
+        none;
+
     }
 
-    /* ── Page Layout ────────────────────────────────────────────────── */
+
+
+    /* ─────────────────────────────────────────────
+       PAGE
+    ───────────────────────────────────────────── */
+
     .page {
+
       position: relative;
+
       z-index: 1;
+
       min-height: 100vh;
+
     }
 
-    /* ── Nav ─────────────────────────────────────────────────────────── */
+
+
+    /* ─────────────────────────────────────────────
+       NAVIGATION
+    ───────────────────────────────────────────── */
+
     nav {
+
       position: fixed;
-      top: 0; left: 0; right: 0;
+
+      top: 0;
+
+      left: 0;
+
+      right: 0;
+
       z-index: 100;
+
+
       display: flex;
+
       justify-content: center;
-      gap: 3rem;
-      padding: 1.4rem 2rem;
-      background: linear-gradient(to bottom, rgba(250,248,244,0.92) 60%, transparent);
-      letter-spacing: 0.18em;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      font-weight: 400;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+
+      gap: 2rem;
+
+
+      padding:
+        1.4rem 1.5rem;
+
+
+      background:
+
+        linear-gradient(
+
+          to bottom,
+
+          rgba(
+            250,
+            248,
+            244,
+            0.92
+          ) 60%,
+
+          transparent
+
+        );
+
+
+      letter-spacing:
+        0.16em;
+
+
+      font-size:
+        0.68rem;
+
+
+      text-transform:
+        uppercase;
+
+
+      font-weight:
+        400;
+
     }
+
+
 
     nav a {
-      text-decoration: none;
-      color: var(--navy);
-      transition: color 0.2s;
-    }
-    nav a:hover { color: var(--blue); }
 
-    /* ── Hero ────────────────────────────────────────────────────────── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 6rem 2rem 4rem;
-      position: relative;
+      text-decoration:
+        none;
+
+      color:
+        var(--navy);
+
+      white-space:
+        nowrap;
+
+      transition:
+        color 0.2s,
+        opacity 0.2s;
+
     }
+
+
+
+    nav a:hover {
+
+      color:
+        var(--blue);
+
+      opacity:
+        0.6;
+
+    }
+
+
+
+    /* ─────────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────────── */
+
+    .hero {
+
+      min-height:
+        100vh;
+
+
+      display:
+        flex;
+
+
+      flex-direction:
+        column;
+
+
+      align-items:
+        center;
+
+
+      justify-content:
+        center;
+
+
+      text-align:
+        center;
+
+
+      padding:
+        7rem 2rem 4rem;
+
+
+      position:
+        relative;
+
+    }
+
+
 
     /* Decorative top border */
+
     .hero::before {
+
       content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 6px;
-      background: linear-gradient(90deg,
-        var(--lilac), var(--blue), var(--blush), var(--yellow), var(--blue-lt), var(--sage), var(--lilac));
+
+      position:
+        absolute;
+
+      top: 0;
+
+      left: 0;
+
+      right: 0;
+
+      height:
+        6px;
+
+
+      background:
+
+        linear-gradient(
+
+          90deg,
+
+          var(--lilac),
+
+          var(--blue),
+
+          var(--blush),
+
+          var(--yellow),
+
+          var(--blue-lt),
+
+          var(--sage),
+
+          var(--lilac)
+
+        );
+
     }
+
+
+
+    /* ─────────────────────────────────────────────
+       EYEBROW
+    ───────────────────────────────────────────── */
 
     .eyebrow {
-      font-family: var(--font-sans);
-      font-size: 0.65rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 2.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.2s forwards;
+
+      font-family:
+        var(--font-sans);
+
+      font-size:
+        0.65rem;
+
+      letter-spacing:
+        0.3em;
+
+      text-transform:
+        uppercase;
+
+      color:
+        var(--blue);
+
+      margin-bottom:
+        2.5rem;
+
+      opacity:
+        0;
+
+      animation:
+        fadeUp 0.8s 0.2s forwards;
+
     }
+
+
+
+    /* ─────────────────────────────────────────────
+       NAMES
+    ───────────────────────────────────────────── */
 
     .names {
-      font-family: var(--font-script);
-      font-size: clamp(3rem, 8vw, 6rem);
-      line-height: 1.05;
-      color: var(--navy);
-      opacity: 0;
-      animation: fadeUp 1s 0.4s forwards;
+
+      font-family:
+        var(--font-script);
+
+      font-size:
+        clamp(
+          3rem,
+          8vw,
+          6rem
+        );
+
+      line-height:
+        1.05;
+
+      color:
+        var(--navy);
+
+      opacity:
+        0;
+
+      animation:
+        fadeUp 1s 0.4s forwards;
+
     }
+
+
 
     .names .ampersand {
-      display: block;
-      font-size: 0.55em;
-      color: var(--navy);
-      line-height: 1.2;
+
+      display:
+        block;
+
+      font-size:
+        0.55em;
+
+      color:
+        var(--navy);
+
+      line-height:
+        1.2;
+
     }
+
+
+
+    /* ─────────────────────────────────────────────
+       DIVIDER
+    ───────────────────────────────────────────── */
 
     .divider-flourish {
-      margin: 1.8rem auto;
-      width: 220px;
-      height: 20px;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.7s forwards;
+
+      margin:
+        1.8rem auto;
+
+      width:
+        220px;
+
+      height:
+        20px;
+
+      opacity:
+        0;
+
+      animation:
+        fadeUp 0.8s 0.7s forwards;
+
     }
+
+
+
+    /* ─────────────────────────────────────────────
+       DATE
+    ───────────────────────────────────────────── */
 
     .date-line {
-      font-family: 'Cormorant Upright', serif;
-      font-size: clamp(1rem, 2.7vw, 1.75rem);
-      letter-spacing: 0.12em;
-      color: var(--navy);
-      font-style: bold;
-      opacity: 0;
-      margin-top: 0.8rem;
-      animation: fadeUp 0.8s 0.9s forwards;
+
+      font-family:
+        'Cormorant Upright',
+        serif;
+
+      font-size:
+        clamp(
+          1rem,
+          2.7vw,
+          1.75rem
+        );
+
+      letter-spacing:
+        0.12em;
+
+      color:
+        var(--navy);
+
+      font-weight:
+        400;
+
+      opacity:
+        0;
+
+      margin-top:
+        0.8rem;
+
+      animation:
+        fadeUp 0.8s 0.9s forwards;
+
     }
+
+
+
+    /* ─────────────────────────────────────────────
+       INVITATION LINE
+    ───────────────────────────────────────────── */
 
     .venue-line {
-      font-family: 'Cormorant Upright', serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.22em;
-      color: var(--blue);
-      margin-top: 0.8rem;
-      opacity: 0;
-      animation: fadeUp 0.8s 1.05s forwards;
-      font-style: italic;
+
+      font-family:
+        'Cormorant Upright',
+        serif;
+
+      font-size:
+        0.9rem;
+
+      letter-spacing:
+        0.22em;
+
+      color:
+        var(--blue);
+
+      margin-top:
+        0.8rem;
+
+      opacity:
+        0;
+
+      animation:
+        fadeUp 0.8s 1.05s forwards;
+
+      font-style:
+        italic;
+
     }
+
+
+
+    /* ─────────────────────────────────────────────
+       STORY
+    ───────────────────────────────────────────── */
 
     .story-line {
-      font-family: 'Cormorant Upright', serif;
-      font-size: clamp(1rem, 2.7vw, 1.75rem);
-      letter-spacing: 0.12em;
-      color: var(--navy);
-      font-style: bold;
-      opacity: 0;
-      margin-top: 2.5rem;
-      animation: fadeUp 0.8s 0.9s forwards;
+
+      font-family:
+        'Cormorant Upright',
+        serif;
+
+      font-size:
+        clamp(
+          1rem,
+          2.7vw,
+          1.75rem
+        );
+
+      letter-spacing:
+        0.12em;
+
+      color:
+        var(--navy);
+
+      font-weight:
+        400;
+
+      opacity:
+        0;
+
+      margin-top:
+        2.5rem;
+
+      animation:
+        fadeUp 0.8s 0.9s forwards;
+
     }
+
+
 
     .story-body {
-      font-family: 'Cormorant Upright', serif;
-      font-size: 1rem;
-      letter-spacing: 0.22em;
-      color: var(--black);
-      margin-top: 1.5rem;
-      margin-left: 11rem;
-      margin-right: 11rem;
-      opacity: 0;
-      animation: fadeUp 0.8s 1.05s forwards;
+
+      font-family:
+        'Cormorant Upright',
+        serif;
+
+      font-size:
+        1rem;
+
+      letter-spacing:
+        0.22em;
+
+      color:
+        var(--black);
+
+      margin-top:
+        1.5rem;
+
+      margin-left:
+        11rem;
+
+      margin-right:
+        11rem;
+
+      opacity:
+        0;
+
+      animation:
+        fadeUp 0.8s 1.05s forwards;
+
     }
 
-    @media (max-width: 768px) {
-      .story-body {
-        margin-left: 1.5rem;
-        margin-right: 1.5rem;
-      }
-    }
 
-    
 
-    /* ── Countdown ───────────────────────────────────────────────────── */
+    /* ─────────────────────────────────────────────
+       COUNTDOWN
+    ───────────────────────────────────────────── */
+
     .countdown-wrap {
-      margin-top: 3.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s 1.2s forwards;
+
+      margin-top:
+        3.5rem;
+
+      opacity:
+        0;
+
+      animation:
+        fadeUp 0.8s 1.2s forwards;
+
     }
+
+
 
     .countdown-label {
-      font-size: 0.6rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
+
+      font-size:
+        0.6rem;
+
+      letter-spacing:
+        0.25em;
+
+      text-transform:
+        uppercase;
+
+      color:
+        var(--gold);
+
+      margin-bottom:
+        1rem;
+
     }
+
+
 
     .countdown {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
+
+      display:
+        flex;
+
+      gap:
+        2rem;
+
+      justify-content:
+        center;
+
     }
+
+
 
     .cd-unit {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      align-items:
+        center;
+
     }
+
+
 
     .cd-num {
-      font-family: var(--font-serif);
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      font-weight: 300;
-      color: var(--navy);
-      line-height: 1;
-      min-width: 2.2ch;
-      text-align: center;
+
+      font-family:
+        var(--font-serif);
+
+      font-size:
+        clamp(
+          2.2rem,
+          5vw,
+          3.5rem
+        );
+
+      font-weight:
+        300;
+
+      color:
+        var(--navy);
+
+      line-height:
+        1;
+
+      min-width:
+        2.2ch;
+
+      text-align:
+        center;
+
     }
+
+
 
     .cd-lbl {
-      font-size: 0.58rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-top: 0.4rem;
+
+      font-size:
+        0.58rem;
+
+      letter-spacing:
+        0.2em;
+
+      text-transform:
+        uppercase;
+
+      color:
+        var(--blue);
+
+      margin-top:
+        0.4rem;
+
     }
+
+
 
     .cd-sep {
-      font-family: var(--font-serif);
-      font-size: 2.5rem;
-      color: var(--blue-lt);
-      align-self: flex-start;
-      margin-top: 0.1rem;
-      line-height: 1;
+
+      font-family:
+        var(--font-serif);
+
+      font-size:
+        2.5rem;
+
+      color:
+        var(--blue-lt);
+
+      align-self:
+        flex-start;
+
+      margin-top:
+        0.1rem;
+
+      line-height:
+        1;
+
     }
 
-    /* ── RSVP Button ─────────────────────────────────────────────────── */
+
+
+    /* ─────────────────────────────────────────────
+       RSVP BUTTON
+    ───────────────────────────────────────────── */
+
     .rsvp-wrap {
-      margin-top: 3rem;
-      opacity: 0;
-      animation: fadeUp 0.8s 1.4s forwards;
+
+      margin-top:
+        3rem;
+
+      opacity:
+        0;
+
+      animation:
+        fadeUp 0.8s 1.4s forwards;
+
     }
+
+
 
     .btn-rsvp {
-      display: inline-block;
-      text-decoration: none;
-      font-family: var(--font-sans);
-      font-size: 0.68rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--white);
-      background: var(--navy);
-      padding: 0.9rem 2.8rem;
-      border: 1px solid var(--navy);
-      transition: background 0.25s, color 0.25s;
-      cursor: pointer;
+
+      display:
+        inline-block;
+
+      text-decoration:
+        none;
+
+      font-family:
+        var(--font-sans);
+
+      font-size:
+        0.68rem;
+
+      letter-spacing:
+        0.25em;
+
+      text-transform:
+        uppercase;
+
+      color:
+        var(--white);
+
+      background:
+        var(--navy);
+
+      padding:
+        0.9rem 2.8rem;
+
+      border:
+        1px solid var(--navy);
+
+      transition:
+        background 0.25s,
+        color 0.25s;
+
+      cursor:
+        pointer;
+
     }
+
+
 
     .btn-rsvp:hover {
-      background: transparent;
-      color: var(--navy);
+
+      background:
+        transparent;
+
+      color:
+        var(--navy);
+
     }
 
-    /* ── Section: Details teaser ─────────────────────────────────────── */
+
+
+    /* ─────────────────────────────────────────────
+       DETAILS STRIP
+    ───────────────────────────────────────────── */
+
     .details-strip {
-      border-top: 1px solid rgba(43,74,111,0.12);
-      display: flex;
-      justify-content: center;
-      gap: 0;
-      flex-wrap: wrap;
+
+      border-top:
+        1px solid rgba(
+          43,
+          74,
+          111,
+          0.12
+        );
+
+
+      display:
+        flex;
+
+
+      justify-content:
+        center;
+
+
+      gap:
+        0;
+
+
+      flex-wrap:
+        wrap;
+
     }
+
+
 
     .details-item {
-      padding: 2.4rem 3.5rem;
-      text-align: center;
-      border-right: 1px solid rgba(43,74,111,0.1);
-      flex: 1;
-      min-width: 160px;
+
+      padding:
+        2.4rem 3.5rem;
+
+
+      text-align:
+        center;
+
+
+      border-right:
+        1px solid rgba(
+          43,
+          74,
+          111,
+          0.1
+        );
+
+
+      flex:
+        1;
+
+
+      min-width:
+        160px;
+
     }
-    .details-item:last-child { border-right: none; }
+
+
+
+    .details-item:last-child {
+
+      border-right:
+        none;
+
+    }
+
+
 
     .details-item h3 {
-      font-family: var(--font-serif);
-      font-weight: 400;
-      font-size: 1.05rem;
-      font-style: italic;
-      color: var(--navy);
-      margin-bottom: 0.3rem;
+
+      font-family:
+        var(--font-serif);
+
+      font-weight:
+        400;
+
+      font-size:
+        1.05rem;
+
+      font-style:
+        italic;
+
+      color:
+        var(--navy);
+
+      margin-bottom:
+        0.3rem;
+
     }
+
+
 
     .details-item p {
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      color: var(--blue);
-      text-transform: uppercase;
+
+      font-size:
+        0.68rem;
+
+      letter-spacing:
+        0.12em;
+
+      color:
+        var(--blue);
+
+      text-transform:
+        uppercase;
+
     }
 
-    /* ── Footer ──────────────────────────────────────────────────────── */
+
+
+    /* ─────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────── */
+
     footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.6rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--blue-lt);
-      border-top: 1px solid rgba(43,74,111,0.08);
+
+      text-align:
+        center;
+
+      padding:
+        2rem;
+
+      font-size:
+        0.6rem;
+
+      letter-spacing:
+        0.18em;
+
+      text-transform:
+        uppercase;
+
+      color:
+        var(--blue-lt);
+
+      border-top:
+        1px solid rgba(
+          43,
+          74,
+          111,
+          0.08
+        );
+
     }
 
-    /* ── Animations ──────────────────────────────────────────────────── */
+
+
+    /* ─────────────────────────────────────────────
+       ANIMATIONS
+    ───────────────────────────────────────────── */
+
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
+
+      from {
+
+        opacity:
+          0;
+
+        transform:
+          translateY(18px);
+
+      }
+
+
+      to {
+
+        opacity:
+          1;
+
+        transform:
+          translateY(0);
+
+      }
+
     }
 
-    /* ── Responsive ──────────────────────────────────────────────────── */
-    @media (max-width: 600px) {
-      nav { gap: 1.5rem; font-size: 0.62rem; }
-      .countdown { gap: 1rem; }
-      .details-item { padding: 1.8rem 1.5rem; }
-      .corner { width: 50px; height: 50px; }
+
+
+    /* ─────────────────────────────────────────────
+       TABLET
+    ───────────────────────────────────────────── */
+
+    @media (max-width: 900px) {
+
+      nav {
+
+        gap:
+          0.8rem 1.4rem;
+
+        font-size:
+          0.6rem;
+
+        letter-spacing:
+          0.12em;
+
+      }
+
+
+      .story-body {
+
+        margin-left:
+          4rem;
+
+        margin-right:
+          4rem;
+
+      }
+
     }
+
+
+
+    /* ─────────────────────────────────────────────
+       MOBILE
+    ───────────────────────────────────────────── */
+
+    @media (max-width: 600px) {
+
+      nav {
+
+        gap:
+          0.65rem 1rem;
+
+        padding:
+          1rem 0.7rem;
+
+        font-size:
+          0.52rem;
+
+        letter-spacing:
+          0.1em;
+
+      }
+
+
+      .hero {
+
+        padding-top:
+          8rem;
+
+      }
+
+
+      .countdown {
+
+        gap:
+          0.65rem;
+
+      }
+
+
+      .cd-sep {
+
+        font-size:
+          1.8rem;
+
+      }
+
+
+      .story-body {
+
+        margin-left:
+          1.5rem;
+
+        margin-right:
+          1.5rem;
+
+        letter-spacing:
+          0.12em;
+
+      }
+
+
+      .details-item {
+
+        padding:
+          1.8rem 1.5rem;
+
+      }
+
+    }
+
+
   </style>
+
 </head>
+
+
 <body>
 
 
-  <!-- Nav -->
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════ -->
+
   <nav>
-    <!--<a href="our-story.html">Our Story</a>-->
-    <a href="details.html">Details</a>
-    <a href="gallery.html">Gallery</a>
-    <!--<a href="travel.html">Travel</a>-->
-    <a href="https://www.crateandbarrel.com/gift-registry/krista-wysolmierski-and-noah-jones/r7508619" target="_blank" rel="noopener noreferrer">Registry</a>
-    <a href="https://noahandkristajones.minted.us/rsvp" target="_blank" rel="noopener noreferrer">RSVP</a>
+
+
+    <a href="details.html">
+      Details
+    </a>
+
+
+    <a href="travel.html">
+      Travel
+    </a>
+
+
+    <a href="wedding-party.html">
+      Wedding Party
+    </a>
+
+
+    <a href="gallery.html">
+      Gallery
+    </a>
+
+
+    <a
+      href="https://www.crateandbarrel.com/gift-registry/krista-wysolmierski-and-noah-jones/r7508619"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Registry
+    </a>
+
+
+    <a
+      href="https://noahandkristajones.minted.us/rsvp"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      RSVP
+    </a>
+
+
   </nav>
 
-  <!-- Hero -->
+
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+
   <section class="hero page">
 
-    <!--<p class="eyebrow">Your attendance is requested at the wedding of</p>-->
 
     <h1 class="names">
+
       Krista
-      <span class="ampersand">&</span>
+
+      <span class="ampersand">
+        &
+      </span>
+
       Noah
+
     </h1>
 
-    <p class="venue-line">please join us to celebrate our wedding on</p>
-    <p class="date-line">JANUARY 16, 2027</p>
 
-    <!-- Countdown -->
+
+    <p class="venue-line">
+
+      please join us to celebrate our wedding on
+
+    </p>
+
+
+
+    <p class="date-line">
+
+      JANUARY 16, 2027
+
+    </p>
+
+
+
+    <!-- COUNTDOWN -->
+
     <div class="countdown-wrap">
-      <p class="countdown-label">Days until forever</p>
-      <div class="countdown" id="countdown">
-        <div class="cd-unit"><span class="cd-num" id="cd-days">—</span><span class="cd-lbl">Days</span></div>
-        <span class="cd-sep">·</span>
-        <div class="cd-unit"><span class="cd-num" id="cd-hours">—</span><span class="cd-lbl">Hours</span></div>
-        <span class="cd-sep">·</span>
-        <div class="cd-unit"><span class="cd-num" id="cd-mins">—</span><span class="cd-lbl">Minutes</span></div>
-        <span class="cd-sep">·</span>
-        <div class="cd-unit"><span class="cd-num" id="cd-secs">—</span><span class="cd-lbl">Seconds</span></div>
+
+
+      <p class="countdown-label">
+
+        Days until forever
+
+      </p>
+
+
+      <div
+        class="countdown"
+        id="countdown"
+      >
+
+
+        <div class="cd-unit">
+
+          <span
+            class="cd-num"
+            id="cd-days"
+          >
+            —
+          </span>
+
+          <span class="cd-lbl">
+            Days
+          </span>
+
+        </div>
+
+
+
+        <span class="cd-sep">
+          ·
+        </span>
+
+
+
+        <div class="cd-unit">
+
+          <span
+            class="cd-num"
+            id="cd-hours"
+          >
+            —
+          </span>
+
+          <span class="cd-lbl">
+            Hours
+          </span>
+
+        </div>
+
+
+
+        <span class="cd-sep">
+          ·
+        </span>
+
+
+
+        <div class="cd-unit">
+
+          <span
+            class="cd-num"
+            id="cd-mins"
+          >
+            —
+          </span>
+
+          <span class="cd-lbl">
+            Minutes
+          </span>
+
+        </div>
+
+
+
+        <span class="cd-sep">
+          ·
+        </span>
+
+
+
+        <div class="cd-unit">
+
+          <span
+            class="cd-num"
+            id="cd-secs"
+          >
+            —
+          </span>
+
+          <span class="cd-lbl">
+            Seconds
+          </span>
+
+        </div>
+
+
       </div>
+
     </div>
 
-    <!-- RSVP CTA -->
+
+
+    <!-- RSVP -->
+
     <div class="rsvp-wrap">
-      <a href="https://noahandkristajones.minted.us/rsvp" target="_blank" rel="noopener noreferrer" class="btn-rsvp">RSVP</a>
+
+      <a
+        href="https://noahandkristajones.minted.us/rsvp"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-rsvp"
+      >
+        RSVP
+      </a>
+
     </div>
 
-    <p class="story-line">OUR STORY</p>
-    <p class="story-body">Our journey began sophomore year of college at ASU, when we were introduced by mutual friends. We stayed friends for a while, and then began dating junior year of college (and the rest is history!)</p>
-    <p class="story-body">Noah got down on one knee on the beach on July 5, 2027 in Coronado, California. Needless to say, it was an easy YES!</p>
-    <p class="story-body">Afterwards, we headed to dinner at Hotel Del Coronado, and spent the night celebrating with some of our favorite people.</p>
-    <p class="story-body">We are SO excited to celebrate our marriage with you all!</p>
 
-  <!--</section>
 
-  <section class="details-strip" id="details">
-    <div class="details-item">
-      <h3>Ceremony</h3>
-      <p>6:00 pm · The First Tee</p>
-    </div>
-    <div class="details-item">
-      <h3>Cocktail Hour</h3>
-      <p>6:30 pm · Terrace Patio</p>
-    </div>
-    <div class="details-item">
-      <h3>Reception</h3>
-      <p>7:30 pm · Country Club</p>
-    </div>
-  </section>-->
+    <!-- ═══════════════════════════════════════════
+         OUR STORY
+    ═══════════════════════════════════════════ -->
+
+    <p class="story-line">
+
+      OUR STORY
+
+    </p>
+
+
+
+    <p class="story-body">
+
+      Our journey began sophomore year of college at ASU,
+      when we were introduced by mutual friends. We stayed
+      friends for a while, and then began dating junior year
+      of college (and the rest is history!)
+
+    </p>
+
+
+
+    <p class="story-body">
+
+      Noah got down on one knee on the beach on July 5, 2027
+      in Coronado, California. Needless to say, it was an easy
+      YES!
+
+    </p>
+
+
+
+    <p class="story-body">
+
+      Afterwards, we headed to dinner at Hotel Del Coronado,
+      and spent the night celebrating with some of our
+      favorite people.
+
+    </p>
+
+
+
+    <p class="story-body">
+
+      We are SO excited to celebrate our marriage with you all!
+
+    </p>
+
+
+  </section>
+
+
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
 
   <footer>
+
     Krista Wysolmierski & Noah Jones · January 16, 2027 · Temecula, California
+
   </footer>
 
+
+
+  <!-- ═══════════════════════════════════════════
+       COUNTDOWN SCRIPT
+  ═══════════════════════════════════════════ -->
+
   <script>
-    // ── Countdown ──────────────────────────────────────────────────────
-    const wedding = new Date('2027-01-16T17:00:00-07:00'); // 5pm MST
+
+
+    const wedding =
+      new Date(
+        '2027-01-16T17:00:00-07:00'
+      );
+
+
 
     function updateCountdown() {
-      const now  = new Date();
-      const diff = wedding - now;
+
+
+      const now =
+        new Date();
+
+
+      const diff =
+        wedding - now;
+
+
+
       if (diff <= 0) {
-        document.getElementById('countdown').innerHTML =
+
+
+        document
+          .getElementById('countdown')
+          .innerHTML =
+
           '<span style="font-family:var(--font-serif);font-style:italic;font-size:1.4rem;color:var(--navy)">Today is the day! 🌸</span>';
+
+
         return;
+
       }
-      const d = Math.floor(diff / 86400000);
-      const h = Math.floor((diff % 86400000) / 3600000);
-      const m = Math.floor((diff % 3600000)  / 60000);
-      const s = Math.floor((diff % 60000)    / 1000);
-      document.getElementById('cd-days').textContent  = String(d).padStart(3,'0');
-      document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
-      document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
-      document.getElementById('cd-secs').textContent  = String(s).padStart(2,'0');
+
+
+
+      const d =
+        Math.floor(
+          diff / 86400000
+        );
+
+
+      const h =
+        Math.floor(
+          (diff % 86400000)
+          / 3600000
+        );
+
+
+      const m =
+        Math.floor(
+          (diff % 3600000)
+          / 60000
+        );
+
+
+      const s =
+        Math.floor(
+          (diff % 60000)
+          / 1000
+        );
+
+
+
+      document
+        .getElementById('cd-days')
+        .textContent =
+        String(d).padStart(
+          3,
+          '0'
+        );
+
+
+
+      document
+        .getElementById('cd-hours')
+        .textContent =
+        String(h).padStart(
+          2,
+          '0'
+        );
+
+
+
+      document
+        .getElementById('cd-mins')
+        .textContent =
+        String(m).padStart(
+          2,
+          '0'
+        );
+
+
+
+      document
+        .getElementById('cd-secs')
+        .textContent =
+        String(s).padStart(
+          2,
+          '0'
+        );
+
+
     }
+
+
+
     updateCountdown();
-    setInterval(updateCountdown, 1000);
+
+
+    setInterval(
+      updateCountdown,
+      1000
+    );
+
 
   </script>
+
+
 </body>
+
 </html>
