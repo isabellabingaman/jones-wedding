@@ -50,7 +50,6 @@
     :root {
       --cream: #fdf9f5;
       --white: #ffffff;
-
       --navy: #3b1f2b;
 
       --font-display: 'Abrama Serif', serif;
@@ -67,14 +66,12 @@
 
     body {
       background-color: var(--cream);
-
       color: var(--navy);
 
       font-family: var(--font-body);
       font-weight: 300;
 
       overflow-x: hidden;
-
       min-height: 100vh;
     }
 
@@ -87,20 +84,15 @@
       content: '';
 
       position: fixed;
-
       inset: 0;
 
-      background-image:
-        url('assets/images/BGDesign7.jpg');
-
+      background-image: url('assets/images/BGDesign7.jpg');
       background-repeat: repeat;
-
       background-size: 800px;
 
       opacity: 0.42;
 
       z-index: 0;
-
       pointer-events: none;
     }
 
@@ -119,9 +111,7 @@
       z-index: 100;
 
       display: flex;
-
       justify-content: center;
-
       align-items: center;
 
       gap: 3rem;
@@ -138,18 +128,15 @@
       font-family: var(--font-body);
 
       font-size: 0.7rem;
-
       font-weight: 400;
 
       letter-spacing: 0.18em;
-
       text-transform: uppercase;
     }
 
 
     nav a {
       color: var(--navy);
-
       text-decoration: none;
 
       transition: opacity 0.2s ease;
@@ -167,11 +154,9 @@
 
     .page {
       position: relative;
-
       z-index: 1;
 
       padding-top: 7rem;
-
       padding-bottom: 6rem;
     }
 
@@ -184,7 +169,6 @@
       text-align: center;
 
       margin-bottom: 4rem;
-
       padding: 0 2rem;
     }
 
@@ -193,11 +177,9 @@
       font-family: var(--font-body);
 
       font-size: 0.65rem;
-
       font-weight: 400;
 
       letter-spacing: 0.3em;
-
       text-transform: uppercase;
 
       color: var(--navy);
@@ -206,17 +188,14 @@
 
       opacity: 0;
 
-      animation:
-        fadeUp 0.8s 0.2s forwards;
+      animation: fadeUp 0.8s 0.2s forwards;
     }
 
 
     .page-header h1 {
       font-family: var(--font-display);
 
-      font-size:
-        clamp(3.5rem, 9vw, 6.5rem);
-
+      font-size: clamp(3.5rem, 9vw, 6.5rem);
       font-weight: normal;
 
       line-height: 1;
@@ -225,8 +204,7 @@
 
       opacity: 0;
 
-      animation:
-        fadeUp 0.9s 0.4s forwards;
+      animation: fadeUp 0.9s 0.4s forwards;
     }
 
 
@@ -238,11 +216,9 @@
       max-width: var(--content-width);
 
       margin: 0 auto;
-
       padding: 0 2rem;
 
       display: grid;
-
       gap: 1.5rem;
     }
 
@@ -256,25 +232,19 @@
 
       padding: 2.4rem 2.5rem;
 
-      background:
-        rgba(253, 249, 245, 0.82);
+      background: rgba(253, 249, 245, 0.82);
 
-      border:
-        1px solid rgba(59, 31, 43, 0.10);
-
+      border: 1px solid rgba(59, 31, 43, 0.10);
       border-radius: 22px;
 
-      box-shadow:
-        0 18px 45px rgba(59, 31, 43, 0.07);
+      box-shadow: 0 18px 45px rgba(59, 31, 43, 0.07);
 
       backdrop-filter: blur(7px);
-
       -webkit-backdrop-filter: blur(7px);
 
       opacity: 0;
 
-      animation:
-        fadeUp 0.8s forwards;
+      animation: fadeUp 0.8s forwards;
     }
 
 
@@ -299,28 +269,22 @@
 
     .section-header {
       display: flex;
-
       justify-content: space-between;
-
       align-items: flex-start;
 
       gap: 2rem;
 
       padding-bottom: 1.5rem;
-
       margin-bottom: 1.8rem;
 
-      border-bottom:
-        1px solid rgba(59, 31, 43, 0.10);
+      border-bottom: 1px solid rgba(59, 31, 43, 0.10);
     }
 
 
     .section-title {
       font-family: var(--font-display);
 
-      font-size:
-        clamp(2.3rem, 5vw, 3.25rem);
-
+      font-size: clamp(2.3rem, 5vw, 3.25rem);
       font-weight: normal;
 
       line-height: 1;
@@ -329,34 +293,25 @@
     }
 
 
-    /* Date + Time */
-
     .section-time {
       max-width: 380px;
 
-      padding:
-        0.62rem 0.9rem;
+      padding: 0.62rem 0.9rem;
 
-      border:
-        1px solid rgba(59, 31, 43, 0.16);
-
+      border: 1px solid rgba(59, 31, 43, 0.16);
       border-radius: 999px;
 
-      background:
-        rgba(255, 255, 255, 0.50);
+      background: rgba(255, 255, 255, 0.50);
 
       font-family: var(--font-body);
 
       font-size: 0.62rem;
-
       font-weight: 400;
 
       line-height: 1.6;
-
       letter-spacing: 0.13em;
 
       text-transform: uppercase;
-
       text-align: center;
 
       color: var(--navy);
@@ -370,11 +325,9 @@
     .detail-grid {
       display: grid;
 
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
 
-      gap:
-        1.5rem 2.5rem;
+      gap: 1.5rem 2.5rem;
     }
 
 
@@ -389,18 +342,16 @@
 
 
     /* ─────────────────────────────────────────────
-       SMALL LABELS
+       LABELS
     ───────────────────────────────────────────── */
 
     .detail-label {
       font-family: var(--font-body);
 
       font-size: 0.62rem;
-
       font-weight: 500;
 
       letter-spacing: 0.20em;
-
       text-transform: uppercase;
 
       color: var(--navy);
@@ -413,18 +364,15 @@
 
     /* ─────────────────────────────────────────────
        BODY TEXT
-       Easier-to-read Jost
     ───────────────────────────────────────────── */
 
     .detail-text,
     .detail-text-ital {
       font-family: var(--font-body);
 
-      font-size:
-        clamp(0.86rem, 1.4vw, 0.98rem);
+      font-size: clamp(0.86rem, 1.4vw, 0.98rem);
 
       line-height: 1.75;
-
       letter-spacing: 0.01em;
 
       color: var(--navy);
@@ -438,8 +386,7 @@
     .detail-text-ital {
       font-style: normal;
 
-      font-size:
-        clamp(0.9rem, 1.5vw, 1rem);
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
 
       font-weight: 400;
 
@@ -453,25 +400,20 @@
 
     .event-note {
       display: inline-flex;
-
       align-items: center;
 
-      padding:
-        0.48rem 0.75rem;
+      padding: 0.48rem 0.75rem;
 
       border-radius: 999px;
 
-      background:
-        rgba(143, 31, 45, 0.07);
+      background: rgba(143, 31, 45, 0.07);
 
       font-family: var(--font-body);
 
       font-size: 0.58rem;
-
       font-weight: 400;
 
       letter-spacing: 0.18em;
-
       text-transform: uppercase;
 
       color: var(--navy);
@@ -479,20 +421,25 @@
 
 
     /* ─────────────────────────────────────────────
-       DIRECTIONS BUTTON
+       MAP BUTTONS
     ───────────────────────────────────────────── */
 
-    .attire-link {
-      display: inline-block;
+    .map-links {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 0.6rem;
 
       margin-top: 1rem;
+    }
 
-      padding:
-        0.65rem 1rem;
 
-      border:
-        1px solid rgba(59, 31, 43, 0.28);
+    .map-link {
+      display: inline-block;
 
+      padding: 0.65rem 1rem;
+
+      border: 1px solid rgba(59, 31, 43, 0.28);
       border-radius: 999px;
 
       background: transparent;
@@ -500,23 +447,20 @@
       font-family: var(--font-body);
 
       font-size: 0.58rem;
-
       font-weight: 400;
 
-      letter-spacing: 0.18em;
-
+      letter-spacing: 0.16em;
       text-transform: uppercase;
 
       text-decoration: none;
 
       color: var(--navy);
 
-      transition:
-        all 0.2s ease;
+      transition: all 0.2s ease;
     }
 
 
-    .attire-link:hover {
+    .map-link:hover {
       background: var(--navy);
 
       color: var(--cream);
@@ -531,19 +475,16 @@
 
     .palette-wrap {
       margin-top: 1.5rem;
-
       padding-top: 1.3rem;
 
-      border-top:
-        1px solid rgba(59, 31, 43, 0.08);
+      border-top: 1px solid rgba(59, 31, 43, 0.08);
     }
 
 
     .palette {
       display: grid;
 
-      grid-template-columns:
-        repeat(9, 1fr);
+      grid-template-columns: repeat(9, 1fr);
 
       gap: 0.65rem;
     }
@@ -557,8 +498,7 @@
       border-radius: 50%;
 
       box-shadow:
-        inset 0 0 0 1px
-        rgba(59, 31, 43, 0.05);
+        inset 0 0 0 1px rgba(59, 31, 43, 0.05);
     }
 
 
@@ -568,22 +508,18 @@
 
     footer {
       position: relative;
-
       z-index: 1;
 
       text-align: center;
 
-      padding:
-        2.5rem 2rem;
+      padding: 2.5rem 2rem;
 
       font-family: var(--font-body);
 
       font-size: 0.58rem;
-
       font-weight: 400;
 
       letter-spacing: 0.18em;
-
       text-transform: uppercase;
 
       color: var(--navy);
@@ -600,16 +536,12 @@
 
       from {
         opacity: 0;
-
-        transform:
-          translateY(18px);
+        transform: translateY(18px);
       }
 
       to {
         opacity: 1;
-
-        transform:
-          translateY(0);
+        transform: translateY(0);
       }
 
     }
@@ -624,8 +556,7 @@
       nav {
         gap: 1rem;
 
-        padding:
-          1.2rem 0.8rem;
+        padding: 1.2rem 0.8rem;
 
         font-size: 0.56rem;
       }
@@ -642,14 +573,12 @@
 
 
       .details-content {
-        padding:
-          0 1rem;
+        padding: 0 1rem;
       }
 
 
       .detail-section {
-        padding:
-          1.7rem 1.4rem;
+        padding: 1.7rem 1.4rem;
 
         border-radius: 16px;
       }
@@ -680,8 +609,7 @@
 
 
       .palette {
-        grid-template-columns:
-          repeat(5, 1fr);
+        grid-template-columns: repeat(5, 1fr);
 
         gap: 0.5rem;
       }
@@ -696,9 +624,7 @@
 <body>
 
 
-  <!-- ─────────────────────────────────────────────
-       NAVIGATION
-  ───────────────────────────────────────────── -->
+  <!-- NAVIGATION -->
 
   <nav>
 
@@ -733,9 +659,7 @@
   </nav>
 
 
-  <!-- ─────────────────────────────────────────────
-       PAGE
-  ───────────────────────────────────────────── -->
+  <!-- PAGE -->
 
   <div class="page">
 
@@ -755,9 +679,7 @@
     </header>
 
 
-    <!-- ─────────────────────────────────────────────
-         EVENT DETAILS
-    ───────────────────────────────────────────── -->
+    <!-- EVENT DETAILS -->
 
     <main class="details-content">
 
@@ -858,14 +780,30 @@
             </p>
 
 
-            <a
-              href="https://www.google.com/maps/dir/?api=1&amp;destination=28701%20Los%20Alamos%20Heights%20Road%2C%20Murrieta%2C%20California%2092563"
-              class="attire-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get Directions
-            </a>
+            <!-- MAP OPTIONS -->
+
+            <div class="map-links">
+
+              <a
+                href="https://www.google.com/maps/dir/?api=1&amp;destination=28701%20Los%20Alamos%20Heights%20Rd%2C%20Murrieta%2C%20CA%2092563"
+                class="map-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google Maps
+              </a>
+
+
+              <a
+                href="https://maps.apple.com/?daddr=28701%20Los%20Alamos%20Heights%20Rd%2C%20Murrieta%2C%20CA%2092563"
+                class="map-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Apple Maps
+              </a>
+
+            </div>
 
           </div>
 
@@ -1040,14 +978,30 @@
             </p>
 
 
-            <a
-              href="https://www.google.com/maps/dir/?api=1&amp;destination=35001%20Rancho%20California%20Rd%2C%20Temecula%2C%20CA%2092591"
-              class="attire-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get Directions
-            </a>
+            <!-- MAP OPTIONS -->
+
+            <div class="map-links">
+
+              <a
+                href="https://www.google.com/maps/dir/?api=1&amp;destination=35001%20Rancho%20California%20Rd%2C%20Temecula%2C%20CA%2092591"
+                class="map-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google Maps
+              </a>
+
+
+              <a
+                href="https://maps.apple.com/?daddr=35001%20Rancho%20California%20Rd%2C%20Temecula%2C%20CA%2092591"
+                class="map-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Apple Maps
+              </a>
+
+            </div>
 
           </div>
 
@@ -1080,9 +1034,7 @@
   </div>
 
 
-  <!-- ─────────────────────────────────────────────
-       FOOTER
-  ───────────────────────────────────────────── -->
+  <!-- FOOTER -->
 
   <footer>
     Krista Wysolmierski & Noah Jones · January 16, 2027 · Temecula, California
