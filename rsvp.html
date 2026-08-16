@@ -12,9 +12,6 @@
 
   <title>RSVP — Krista & Noah</title>
 
-
-  <!-- GOOGLE FONT -->
-
   <link
     rel="preconnect"
     href="https://fonts.googleapis.com"
@@ -31,7 +28,6 @@
     rel="stylesheet"
   />
 
-
   <style>
 
     *,
@@ -42,14 +38,12 @@
       padding: 0;
     }
 
-
     @font-face {
       font-family: 'Abrama Serif';
       src: url('assets/fonts/AbramaSerif-Regular.woff2') format('woff2');
       font-weight: normal;
       font-style: normal;
     }
-
 
     :root {
       --cream: #fdf9f5;
@@ -62,11 +56,9 @@
       --content-width: 780px;
     }
 
-
     html {
       scroll-behavior: smooth;
     }
-
 
     body {
       background-color: var(--cream);
@@ -78,9 +70,6 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
-
-    /* WINERY BACKGROUND */
 
     body::before {
       content: '';
@@ -99,9 +88,6 @@
       z-index: 0;
       pointer-events: none;
     }
-
-
-    /* NAVIGATION */
 
     nav {
       position: fixed;
@@ -135,7 +121,6 @@
       text-transform: uppercase;
     }
 
-
     nav a {
       color: var(--navy);
 
@@ -146,13 +131,9 @@
         opacity 0.2s ease;
     }
 
-
     nav a:hover {
       opacity: 0.5;
     }
-
-
-    /* PAGE */
 
     .page {
       position: relative;
@@ -164,15 +145,11 @@
         8rem 1.5rem 6rem;
     }
 
-
-    /* HEADER */
-
     .page-header {
       text-align: center;
 
       margin-bottom: 3.5rem;
     }
-
 
     .eyebrow {
       font-size: 0.65rem;
@@ -188,7 +165,6 @@
       animation:
         fadeUp 0.8s 0.2s forwards;
     }
-
 
     .page-header h1 {
       font-family:
@@ -211,7 +187,6 @@
         fadeUp 0.9s 0.4s forwards;
     }
 
-
     .intro {
       max-width: 570px;
 
@@ -224,9 +199,6 @@
 
       opacity: 0.72;
     }
-
-
-    /* RSVP CARD */
 
     .rsvp-container {
       width: 100%;
@@ -277,9 +249,6 @@
         fadeUp 0.8s 0.6s forwards;
     }
 
-
-    /* FORM */
-
     label {
       display: block;
 
@@ -291,7 +260,6 @@
       letter-spacing: 0.17em;
       text-transform: uppercase;
     }
-
 
     input,
     textarea {
@@ -329,22 +297,17 @@
       outline: none;
     }
 
-
     input:focus,
     textarea:focus {
       border-color:
         var(--navy);
     }
 
-
     textarea {
       resize: vertical;
 
       min-height: 90px;
     }
-
-
-    /* BUTTONS */
 
     button {
       border:
@@ -377,7 +340,6 @@
         all 0.2s ease;
     }
 
-
     button:hover {
       background: transparent;
 
@@ -385,20 +347,15 @@
         var(--navy);
     }
 
-
     button:disabled {
       opacity: 0.45;
 
       cursor: wait;
     }
 
-
     .lookup-button {
       margin-top: 1rem;
     }
-
-
-    /* MESSAGE */
 
     .message {
       display: none;
@@ -415,7 +372,6 @@
       line-height: 1.6;
     }
 
-
     .message.error {
       display: block;
 
@@ -428,15 +384,11 @@
         );
     }
 
-
-    /* HOUSEHOLD */
-
     #householdSection {
       display: none;
 
       margin-top: 2.5rem;
     }
-
 
     .household-title {
       font-family:
@@ -448,7 +400,6 @@
       margin-bottom: 0.6rem;
     }
 
-
     .household-intro {
       font-size: 0.9rem;
 
@@ -458,9 +409,6 @@
 
       margin-bottom: 2rem;
     }
-
-
-    /* GUEST */
 
     .guest-card {
       padding: 1.7rem 0;
@@ -475,7 +423,6 @@
         );
     }
 
-
     .guest-name {
       font-family:
         var(--font-display);
@@ -485,7 +432,6 @@
 
       margin-bottom: 1.2rem;
     }
-
 
     .attendance-options {
       display: flex;
@@ -497,13 +443,11 @@
       margin-bottom: 1.4rem;
     }
 
-
     .attendance-option {
       flex: 1;
 
       min-width: 160px;
     }
-
 
     .attendance-option input {
       position: absolute;
@@ -512,7 +456,6 @@
 
       pointer-events: none;
     }
-
 
     .attendance-option label {
       margin: 0;
@@ -539,7 +482,6 @@
         all 0.2s ease;
     }
 
-
     .attendance-option
     input:checked + label {
       background:
@@ -552,29 +494,25 @@
         var(--navy);
     }
 
-
     .attending-details {
       display: none;
 
       grid-template-columns:
-        1fr 1fr;
+        1fr;
 
       gap: 1rem;
 
       margin-top: 1rem;
     }
 
-
     .attending-details.show {
       display: grid;
     }
-
 
     .field-full {
       grid-column:
         1 / -1;
     }
-
 
     .submit-wrap {
       display: none;
@@ -584,9 +522,6 @@
       text-align: center;
     }
 
-
-    /* CONFIRMATION */
-
     .confirmation {
       display: none;
 
@@ -594,7 +529,6 @@
 
       padding: 2rem 0;
     }
-
 
     .confirmation h2 {
       font-family:
@@ -606,15 +540,11 @@
       margin-bottom: 1rem;
     }
 
-
     .confirmation p {
       font-size: 0.95rem;
 
       line-height: 1.8;
     }
-
-
-    /* FOOTER */
 
     footer {
       position: relative;
@@ -646,7 +576,6 @@
       opacity: 0.4;
     }
 
-
     @keyframes fadeUp {
 
       from {
@@ -665,7 +594,6 @@
 
     }
 
-
     @media
     (max-width: 900px) {
 
@@ -680,7 +608,6 @@
       }
 
     }
-
 
     @media
     (max-width: 700px) {
@@ -698,29 +625,16 @@
           0.10em;
       }
 
-
       .page {
         padding:
           8rem 1rem 5rem;
       }
-
 
       .rsvp-container {
         padding:
           1.7rem 1.3rem;
 
         border-radius: 16px;
-      }
-
-
-      .attending-details {
-        grid-template-columns:
-          1fr;
-      }
-
-
-      .field-full {
-        grid-column: auto;
       }
 
     }
@@ -732,8 +646,6 @@
 
 <body>
 
-
-  <!-- NAVIGATION -->
 
   <nav>
 
@@ -768,8 +680,6 @@
   </nav>
 
 
-  <!-- PAGE -->
-
   <main class="page">
 
 
@@ -792,8 +702,6 @@
 
     </header>
 
-
-    <!-- RSVP CARD -->
 
     <section class="rsvp-container">
 
@@ -830,8 +738,6 @@
       </div>
 
 
-      <!-- PARTY -->
-
       <div id="householdSection">
 
         <h2 class="household-title">
@@ -863,8 +769,6 @@
 
       </div>
 
-
-      <!-- CONFIRMATION -->
 
       <div
         id="confirmation"
@@ -898,8 +802,6 @@
 
   <script>
 
-    /* GOOGLE APPS SCRIPT */
-
     const SCRIPT_URL =
       'https://script.google.com/macros/s/AKfycbyUnvbJ3h1hD4zxzKuvBPfCt7wzaPr9aVjOoJeWNsCEApCwyWBIWF5AmL69e8VRVw4MRA/exec';
 
@@ -910,8 +812,6 @@
     let currentGuests =
       [];
 
-
-    /* JSONP */
 
     function jsonpRequest(params) {
 
@@ -1037,8 +937,6 @@
     }
 
 
-    /* LOOKUP */
-
     const lookupButton =
       document.getElementById(
         'lookupButton'
@@ -1078,11 +976,6 @@
 
     async function lookupGuest() {
 
-      /*
-        Trim extra spaces but preserve what they typed.
-        Apps Script handles lowercase/uppercase matching.
-      */
-
       const name =
         guestLookup
           .value
@@ -1117,10 +1010,6 @@
 
       }
 
-
-      /*
-        Require a full name.
-      */
 
       if (
         name
@@ -1238,8 +1127,6 @@
     }
 
 
-    /* RENDER PARTY */
-
     function renderGuests(
       guests
     ) {
@@ -1351,25 +1238,6 @@
               id="${safeId}_details"
             >
 
-
-              <div>
-
-                <label>
-                  Meal Choice
-                </label>
-
-                <input
-                  type="text"
-                  class="meal-input"
-                  placeholder="Meal choice"
-                  value="${escapeAttribute(
-                    guest.meal
-                  )}"
-                />
-
-              </div>
-
-
               <div>
 
                 <label>
@@ -1382,6 +1250,24 @@
                   placeholder="None"
                   value="${escapeAttribute(
                     guest.dietary
+                  )}"
+                />
+
+              </div>
+
+
+              <div>
+
+                <label>
+                  Song Request
+                </label>
+
+                <input
+                  type="text"
+                  class="song-input"
+                  placeholder="Song title or artist"
+                  value="${escapeAttribute(
+                    guest.song || ''
                   )}"
                 />
 
@@ -1528,8 +1414,6 @@
     }
 
 
-    /* SUBMIT */
-
     document
       .getElementById(
         'submitButton'
@@ -1588,21 +1472,21 @@
             attending:
               attending,
 
-            meal:
-              attending === 'yes'
-                ? card
-                    .querySelector(
-                      '.meal-input'
-                    )
-                    .value
-                    .trim()
-                : '',
-
             dietary:
               attending === 'yes'
                 ? card
                     .querySelector(
                       '.dietary-input'
+                    )
+                    .value
+                    .trim()
+                : '',
+
+            song:
+              attending === 'yes'
+                ? card
+                    .querySelector(
+                      '.song-input'
                     )
                     .value
                     .trim()
