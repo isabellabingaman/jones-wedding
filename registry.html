@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Registry — Krista & Noah</title>
+
+
+  <!-- GOOGLE FONTS -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+
+
+  <style>
+
+
+    /* ─────────────────────────────────────────────
+       RESET
+    ───────────────────────────────────────────── */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+
+    /* ─────────────────────────────────────────────
+       ABRAMA SERIF
+    ───────────────────────────────────────────── */
+
+    @font-face {
+      font-family: 'Abrama Serif';
+      src: url('assets/fonts/AbramaSerif-Regular.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+
+
+    /* ─────────────────────────────────────────────
+       COLORS + FONTS
+    ───────────────────────────────────────────── */
+
+    :root {
+      --cream: #fdf9f5;
+      --navy: #3b1f2b;
+
+      --font-display: 'Abrama Serif', serif;
+      --font-body: 'Jost', sans-serif;
+
+      --content-width: 760px;
+    }
+
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+
+    body {
+      background-color: var(--cream);
+      color: var(--navy);
+
+      font-family: var(--font-body);
+      font-weight: 300;
+
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+
+
+    /* ─────────────────────────────────────────────
+       WINERY BACKGROUND
+    ───────────────────────────────────────────── */
+
+    body::before {
+      content: '';
+
+      position: fixed;
+      inset: 0;
+
+      background-image: url('assets/images/BGDesign7.jpg');
+      background-repeat: repeat;
+      background-size: 800px;
+
+      opacity: 0.42;
+
+      z-index: 0;
+      pointer-events: none;
+    }
+
+
+
+    /* ─────────────────────────────────────────────
+       NAVIGATION
+    ───────────────────────────────────────────── */
+
+    nav {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+      right: 0;
+
+      z-index: 100;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+
+      gap: 2rem;
+
+      padding: 1.4rem 1.5rem;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(253, 249, 245, 0.94) 60%,
+          transparent
+        );
+
+      font-size: 0.68rem;
+      font-weight: 400;
+
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+
+
+    nav a {
+      color: var(--navy);
+
+      text-decoration: none;
+      white-space: nowrap;
+
+      transition: opacity 0.2s ease;
+    }
+
+
+
+    nav a:hover {
+      opacity: 0.5;
+    }
+
+
+
+    /* ─────────────────────────────────────────────
+       PAGE
+    ───────────────────────────────────────────── */
+
+    .page {
+      position: relative;
+      z-index: 1;
+
+      min-height: 100vh;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      padding: 8rem 2rem 6rem;
+    }
+
+
+
+    /* ─────────────────────────────────────────────
+       HEADER
+    ───────────────────────────────────────────── */
+
+    .page-header {
+      text-align: center;
+
+      margin-bottom: 3.5rem;
+    }
+
+
+
+    .eyebrow {
+      font-size: 0.65rem;
+      font-weight: 400;
+
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+
+      color: var(--navy);
+
+      margin-bottom: 2rem;
+
+      opacity: 0;
+
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+
+
+    .page-header h1 {
+      font-family: var(--font-display);
+
+      font-size: clamp(3.5rem, 9vw, 6.5rem);
+      font-weight: normal;
+
+      line-height: 1;
+
+      color: var(--navy);
+
+      opacity: 0;
+
+      animation: fadeUp 0.9s 0.4s forwards;
+    }
+
+
+
+    /* ─────────────────────────────────────────────
+       REGISTRY CONTENT
+    ───────────────────────────────────────────── */
+
+    .registry-content {
+      width: 100%;
+      max-width: var(--content-width);
+
+      text-align: center;
+
+      opacity: 0;
+
+      animation: fadeUp 0.8s 0.6s forwards;
+    }
+
+
+
+    /* ─────────────────────────────────────────────
+       MESSAGE
+    ───────────────────────────────────────────── */
+
+    .registry-message {
+      max-width: 620px;
+
+      margin: 0 auto 3rem;
+
+      font-size: 1rem;
+      font-weight: 300;
+
+      line-height: 1.9;
+
+      color: var(--navy);
+    }
+
+
+
+    .registry-message strong {
+      font-weight: 400;
+    }
+
+
+
+    /* ─────────────────────────────────────────────
+       DIVIDER
+    ───────────────────────────────────────────── */
+
+    .divider {
+      width: 50px;
+      height: 1px;
+
+      background: rgba(59, 31, 43, 0.3);
+
+      margin: 0 auto 3rem;
+    }
+
+
+
+    /* ─────────────────────────────────────────────
+       REGISTRY LINKS
+    ───────────────────────────────────────────── */
+
+    .registry-links {
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      gap: 1rem;
+
+      flex-wrap: wrap;
+    }
+
+
+
+    .registry-button {
+      display: inline-flex;
+
+      justify-content: center;
+      align-items: center;
+
+      min-width: 220px;
+
+      padding: 1rem 2rem;
+
+      border: 1px solid var(--navy);
+      border-radius: 999px;
+
+      background: var(--navy);
+
+      color: var(--cream);
+
+      font-family: var(--font-body);
+
+      font-size: 0.64rem;
+      font-weight: 400;
+
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+
+      text-decoration: none;
+
+      transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+    }
+
+
+
+    .registry-button:hover {
+      background: var(--cream);
+
+      color: var(--navy);
+
+      transform: translateY(-2px);
+    }
+
+
+
+    /* ─────────────────────────────────────────────
+       LITTLE CLOSING
+    ───────────────────────────────────────────── */
+
+    .with-love {
+      margin-top: 3.5rem;
+
+      font-family: var(--font-display);
+
+      font-size: 2rem;
+
+      color: var(--navy);
+    }
+
+
+
+    /* ─────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────── */
+
+    footer {
+      position: relative;
+      z-index: 1;
+
+      text-align: center;
+
+      padding: 2.5rem 2rem;
+
+      border-top: 1px solid rgba(59, 31, 43, 0.08);
+
+      font-size: 0.58rem;
+      font-weight: 400;
+
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+
+      color: var(--navy);
+
+      opacity: 0.4;
+    }
+
+
+
+    /* ─────────────────────────────────────────────
+       ANIMATION
+    ───────────────────────────────────────────── */
+
+    @keyframes fadeUp {
+
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+
+
+    /* ─────────────────────────────────────────────
+       MOBILE
+    ───────────────────────────────────────────── */
+
+    @media (max-width: 700px) {
+
+      nav {
+        gap: 0.65rem 1rem;
+
+        padding: 1rem 0.7rem;
+
+        font-size: 0.52rem;
+
+        letter-spacing: 0.10em;
+      }
+
+
+      .page {
+        padding:
+          8rem 1.5rem 5rem;
+      }
+
+
+      .page-header {
+        margin-bottom: 2.5rem;
+      }
+
+
+      .registry-message {
+        font-size: 0.95rem;
+
+        line-height: 1.8;
+      }
+
+
+      .registry-links {
+        flex-direction: column;
+      }
+
+
+      .registry-button {
+        width: 100%;
+        max-width: 300px;
+      }
+
+    }
+
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- ─────────────────────────────────────────────
+       NAVIGATION
+  ───────────────────────────────────────────── -->
+
+  <nav>
+
+    <a href="index.html">
+      Home
+    </a>
+
+    <a href="details.html">
+      Details
+    </a>
+
+    <a href="travel.html">
+      Travel
+    </a>
+
+    <a href="wedding-party.html">
+      Wedding Party
+    </a>
+
+    <a href="gallery.html">
+      Gallery
+    </a>
+
+    <a href="registry.html">
+      Registry
+    </a>
+
+    <a
+      href="https://noahandkristajones.minted.us/rsvp"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      RSVP
+    </a>
+
+  </nav>
+
+
+
+  <!-- ─────────────────────────────────────────────
+       PAGE
+  ───────────────────────────────────────────── -->
+
+  <main class="page">
+
+
+    <!-- HEADER -->
+
+    <header class="page-header">
+
+      <p class="eyebrow">
+        Krista & Noah
+      </p>
+
+      <h1>
+        Registry
+      </h1>
+
+    </header>
+
+
+
+    <!-- REGISTRY CONTENT -->
+
+    <section class="registry-content">
+
+
+      <p class="registry-message">
+
+        Your presence at our wedding is the greatest gift we could ask for.
+        <strong>Gifts are absolutely not necessary</strong> — we are simply
+        grateful to celebrate this special day with the people we love.
+
+        <br /><br />
+
+        For those who have asked, we have created registries at Amazon
+        and Crate & Barrel.
+
+      </p>
+
+
+
+      <div class="divider"></div>
+
+
+
+      <!-- REGISTRY BUTTONS -->
+
+      <div class="registry-links">
+
+
+        <!-- AMAZON -->
+
+        <a
+          href="https://www.amazon.com/wedding/share/KristaandNoahsWeddingRegistry"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="registry-button"
+        >
+          Amazon Registry
+        </a>
+
+
+
+        <!-- CRATE & BARREL -->
+
+        <a
+          href="https://www.crateandbarrel.com/gift-registry/krista-wysolmierski-and-noah-jones/r7508619"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="registry-button"
+        >
+          Crate & Barrel Registry
+        </a>
+
+
+      </div>
+
+
+
+      <p class="with-love">
+        With love, Krista & Noah
+      </p>
+
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- ─────────────────────────────────────────────
+       FOOTER
+  ───────────────────────────────────────────── -->
+
+  <footer>
+    Krista Wysolmierski & Noah Jones · January 16, 2027 · Temecula, California
+  </footer>
+
+
+</body>
+
+</html>
